@@ -19,6 +19,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "lodash": "^4.17.4",
+    "mockjs": "^1.0.1-beta3",
     "vue-cli": "^2.8.2"
   },
   "license": "MIT"

@@ -1,8 +1,8 @@
 <template>
   <label>
-    每页显示&nbsp;<select class="form-control input-sm inline-select" v-model="limit">
+    Show&nbsp;<select class="form-control input-sm inline-select" v-model="limit">
       <option v-for="i in options" :value="i">{{ i }}</option>
-    </select>&nbsp;条
+    </select>&nbsp;items per page
   </label>
 </template>
 <script>

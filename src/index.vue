@@ -72,7 +72,7 @@
               </td>
               <td v-else>
                 <!-- show summary label if the first column field has no data -->
-                <i v-if="!idx" class="text-muted">汇总</i>
+                <i v-if="!idx" class="text-muted">Summary</i>
               </td>
             </template>
           </tr>
@@ -81,7 +81,7 @@
     </div><!-- .table-responsive -->
     <div v-if="Pagination" class="row clearfix">
       <div class="col-sm-6 nowrap">
-        <strong>共 {{ total }} 条记录，</strong>
+        <strong>Total {{ total }} ,</strong>
         <limit-select :query="query"></limit-select>
       </div>
       <div class="col-sm-6">

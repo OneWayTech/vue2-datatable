@@ -1,34 +1,30 @@
 <template>
   <div>
     <div v-if="$slots.default || HeaderSettings" class="m-b-10 clearfix">
-      <header-settings v-if="HeaderSettings"
-        class="dsp-inl-blk pull-right" :col-groups="columns"
-        :support-backup="typeof HeaderSettings === 'string'">
-      </header-settings>
+      <header-settings v-if="HeaderSettings" class="pull-right"
+        :col-groups="columns" :support-backup="supportBackup" />
       <slot></slot>
     </div>
-    <!-- make 'border-radius: 4px' with .panel for table  -->
-    <!-- see http://stackoverflow.com/a/20903465/5172890 -->
+    <!-- `.panel.panel-default` is for Rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
     <div class="table-responsive panel panel-default">
-      <table class="table table-striped table-hover" :class="{ 'table-bordered': bordered }">
+      <table class="table table-striped table-hover" :class="{ 'table-bordered': tableBordered }">
         <thead>
           <transition-group name="fade" tag="tr">
             <th v-if="selection && data.length" width="1em" key="th-multi">
-              <multi-select :selection="selection" :rows="data"></multi-select>
+              <multi-select :selection="selection" :rows="data" />
             </th>
-            <th v-for="column in columns$" :key="column.title"
+            <th v-for="(column, idx) in columns$"
+              :key="column.title || column.field || idx"
               :class="column.thClass" :style="column.thStyle">
-              <component v-if="column.thComp" :is="comp[column.thComp]" :xprops="xprops"
-                :column="column" :field="column.field" :title="column.title" :query="query"
-                :selection="selection" :total="total">
+              <component v-if="column.thComp" :is="comp[column.thComp]"
+                :column="column" :field="column.field" :title="column.title"
+                v-bind="$props"><!-- `v-bind` here is just like spread operator in JSX -->
               </component>
               <template v-else>{{ column.title }}</template>
               <i v-if="column.explain"
                 class="fa fa-info-circle cursor-help" :title="column.explain">
               </i>
-              <head-sort v-if="column.sort"
-                :field="column.field" :query="query" class="pull-right">
-              </head-sort>
+              <head-sort v-if="column.sort" :field="column.field" v-bind="$props" class="pull-right" />
             </th>
           </transition-group>
         </thead>
@@ -36,11 +32,11 @@
           <template v-for="item in data$">
             <tr>
               <td v-if="selection && data.length" width="1em">
-                <multi-select :selection="selection" :row="item"></multi-select>
+                <multi-select :selection="selection" :row="item" />
               </td>
               <td v-for="column in columns$" :class="column.tdClass" :style="column.tdStyle">
                 <!-- table-cell component -->
-                <component v-if="column.tdComp" :is="comp[column.tdComp]" :xprops="xprops"
+                <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
                 </component>
                 <template v-else>{{ item[column.field] || '-' }}</template>
@@ -51,7 +47,7 @@
                 <td :colspan="columns$.length + (+!!selection)">
                   <!-- nested component -->
                   <component :is="comp[item.__nested__.comp]"
-                    :row="item" :nested="item.__nested__" :xprops="xprops">
+                    :row="item" :nested="item.__nested__" v-bind="$props">
                   </component>
                 </td>
               </tr>
@@ -60,12 +56,13 @@
           <tr v-if="!data.length">
             <td :colspan="columns$.length + (+!!selection)" class="text-center text-muted">( No Data )</td>
           </tr>
-          <tr v-if="summary" class="-summary-row">
+          <tr v-if="summary && data.length" class="-summary-row">
+            <td v-if="selection" width="1em"></td>
             <template v-for="(column, idx) in columns$">
               <!-- only display the available fields -->
               <td v-if="summary[column.field]" :class="column.tdClass" :style="column.tdStyle">
                 <!-- table-cell component -->
-                <component v-if="column.tdComp" :is="comp[column.tdComp]" :xprops="xprops"
+                <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="summary" :field="column.field" :value="summary[column.field]">
                 </component>
                 <template v-else>{{ summary[column.field] }}</template>
@@ -82,12 +79,12 @@
     <div v-if="Pagination" class="row clearfix">
       <div class="col-sm-6 nowrap">
         <strong>Total {{ total }} ,</strong>
-        <limit-select :query="query"></limit-select>
+        <limit-select v-bind="$props" />
       </div>
       <div class="col-sm-6">
-        <pagination class="pull-right" :total="total" :query="query"></pagination>
+        <pagination class="pull-right" v-bind="$props" />
       </div>
-    </div><!-- .row -->
+    </div>
   </div>
 </template>
 <script>
@@ -109,11 +106,12 @@ export default {
     summary: Object, // an extra summary row
     selection: Array, // for multi-select
     query: { type: Object, required: true },
-    HeaderSettings: { type: [Boolean, String], default: true },
+    HeaderSettings: { type: Boolean, default: true },
     Pagination: { type: Boolean, default: true },
-    supportNested: Boolean, // support nested components
     xprops: Object, // extra custom props passing to dynamic components
-    bordered: Boolean // .table-bordered
+    supportBackup: Boolean, // support header settings backup
+    supportNested: Boolean, // support nested components
+    tableBordered: Boolean // add .table-bordered to <table>
   },
   created () {
     // init query
@@ -148,7 +146,8 @@ export default {
         data.forEach(item => {
           if (!item.__nested__) {
             this.$set(item, '__nested__', {
-              comp: '', visible: false,
+              comp: '',
+              visible: false,
               $toggle (comp, visible) {
                 switch (arguments.length) {
                   case 0:

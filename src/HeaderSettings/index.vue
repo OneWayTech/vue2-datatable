@@ -6,7 +6,7 @@
     </button>
     <div class="dropdown-menu p-10 clearfix" :style="drpMenuStyle">
       <small v-if="usingBak" class="pull-right text-muted">
-        （正在使用本地设置）
+        ( Using local settings )
       </small>
       <div class="-col-ul-container">
         <column-group v-for="group in colGroups" :key="group.groupName"
@@ -15,7 +15,7 @@
       </div>
       <div class="m-10 clearfix">
         <div class="btn-group btn-group-sm pull-right">
-          <button class="btn btn-default" @click="apply()">应用</button>
+          <button class="btn btn-default" @click="apply()">Apply</button>
           <template v-if="supportBackup">
             <button data-toggle="dropdown"
               class="btn btn-default dropdown-toggle box-shadow-none">
@@ -25,13 +25,13 @@
               <li @click="apply(true)">
                 <a href="javascript:;">
                   <i class="fa fa-floppy-o"></i>&nbsp;
-                  应用并保存设置到本地
+                  Apply and backup settings to local
                 </a>
               </li>
               <li v-if="usingBak" @click="rmBackup()">
                 <a href="javascript:;">
                   <i class="fa fa-trash-o text-danger"></i>&nbsp;
-                  清空本地设置并恢复
+                  Clear local settings backup and restore
                 </a>
               </li>
             </ul>

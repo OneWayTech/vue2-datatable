@@ -17,10 +17,14 @@
     "datatable",
     "table"
   ],
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "lodash": "^4.17.4",
+    "replace-with": "^1.0.0"
+  },
+  "devDependencies": {
+    "es6-shim": "^0.35.3",
     "mockjs": "^1.0.1-beta3",
+    "moment": "^2.18.1",
     "vue-cli": "^2.8.2"
   },
   "license": "MIT"

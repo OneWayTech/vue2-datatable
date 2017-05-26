@@ -7,9 +7,14 @@ import replaceWith from 'replace-with'
  * checkbox for multiple select inside the leading <th>/<td>
  */
 export default {
-  // row for tbody checkbox, rows for thead checkbox
-  props: { selection: Array, row: Object, rows: Array },
-  data: () => ({ status: false }),
+  props: {
+    selection: { type: Array, required: true },
+    row: Object, // for tbody checkbox
+    rows: Array // for thead checkbox
+  },
+  data: () => ({
+    status: false
+  }),
   computed: {
     pos () {
       const { selection, row } = this
@@ -20,12 +25,11 @@ export default {
   methods: {
     toggle () {
       const { selection, row, rows, status, pos } = this
+      if (rows) return replaceWith(selection, status ? rows : [])
       if (row) {
         if (status && pos === -1) selection.push(row)
         if (!status && pos >= 0) selection.splice(pos, 1)
-        return
       }
-      if (rows) replaceWith(selection, status ? rows : [])
     }
   },
   watch: {

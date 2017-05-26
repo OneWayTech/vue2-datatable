@@ -8,11 +8,12 @@
         :type="inputType"
         :id="col.fieldId"
         :name="fieldName"
-        :checked="col.visible"
-        @change="handleChange(idx, $event.target.checked)"
-        :disabled="typeof col.visible === 'string'">
+        :checked="'' + col.visible === 'true'"
+        :disabled="typeof col.visible === 'string'"
+        @change="handleChange(idx, $event.target.checked)">
       <label :for="col.fieldId">
-        {{ col.label || col.title }}
+        {{ col.title }}
+        <i v-if="col.explain" class="fa fa-info-circle cursor-help" :title="col.explain"></i>
       </label>
     </li>
   </ul>
@@ -35,6 +36,7 @@ export default {
       return this.inputType === 'radio' && this.colGroup.groupName + this._uid
     },
     columns () {
+      // fieldId is used for <label for="fieldId">XXX</label>
       return this.colGroup.columns.map((col, i) => (col.fieldId = `-col-${this._uid}-${col.field || i}`, col))
     }
   },

@@ -71,11 +71,4 @@ export default {
 .m-0 {
   margin: 0;
 }
-/* 覆盖 Bootstrap 样式 */
-.pagination > .active> a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover {
-  background-color: #3bafda;
-  border-color: #3bafda;
-}
 </style>

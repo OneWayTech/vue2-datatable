@@ -3,7 +3,7 @@
     <button class="btn btn-default" title="Display row"
       :class="{ '-nested-comp-open-btn': isDisplayRowVisible }"
       @click="toggleNestedComp('DisplayRow')">
-      <i class="fa fa-ellipsis-h"></i>
+      <i class="fa fa-list-ul"></i>
     </button>
     <button class="btn btn-default" title="Friends"
       :class="{ '-nested-comp-open-btn': isFriendsTableVisible }"

@@ -6,7 +6,7 @@ module.exports = {
   },
   webpack: {
     output: {
-      path: path.join(__dirname, 'example-online-demo'),
+      path: path.join(__dirname, 'example/_dist'),
       publicPath: ''
     }
   }

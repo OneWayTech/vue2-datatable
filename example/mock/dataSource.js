@@ -1,17 +1,20 @@
 const Random = require('mockjs').Random
 import uniq from 'lodash/uniq'
+import without from 'lodash/without'
 
 const total = 120 // how many rows to generate
 const getRandomUid = () => Random.integer(1, total)
 
-export const users = []
+const users = []
 for (let i = 1; i <= total; i++) {
   users.push({
     uid: i,
     name: Random.name(),
     age: Random.integer(0, 100),
     email: Random.email(),
-    friends: uniq(Array(getRandomUid()).fill().map(() => getRandomUid())),
+    friends: without( // exclude `myself`
+      uniq(Array(getRandomUid()).fill().map(() => getRandomUid())) , i
+    ),
     country: Random.pick(
       ['US', 'UK', 'China', 'Russia', 'Germany', 'France', 'Japan']
     ),
@@ -27,7 +30,4 @@ for (let i = 1; i <= total; i++) {
   })
 }
 
-export const getSummary = () => ({
-  name: users.length,
-  age: ~~(users.map(({ age }) => age).reduce((sum, cur) => sum + cur) / users.length) // average age
-})
+export default users

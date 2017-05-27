@@ -1,5 +1,5 @@
 <template>
-  <div class="-color-comp" :style="{ 'background-color': value }">
+  <div class="-td-color-comp" :style="{ 'background-color': value }">
     {{ value }}
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style>
-.-color-comp {
+.-td-color-comp {
   width: 50px;
   height: 20px;
   font-size: 12px;

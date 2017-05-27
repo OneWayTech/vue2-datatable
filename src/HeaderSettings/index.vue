@@ -5,13 +5,9 @@
       <span class="caret"></span>
     </button>
     <div class="dropdown-menu p-10 clearfix" :style="drpMenuStyle">
-      <small v-if="usingBak" class="pull-right text-muted">
-        ( Using local settings )
-      </small>
       <div class="-col-ul-container">
-        <column-group v-for="group in colGroups" :key="group.groupName"
-          :col-group="group" :broadcast$="broadcast$">
-        </column-group>
+        <column-group v-for="group in colGroups"
+          :key="group.groupName" ref="colGroups" :col-group="group" />
       </div>
       <div class="m-10 clearfix">
         <div class="btn-group btn-group-sm pull-right">
@@ -38,6 +34,9 @@
           </template>
         </div>
       </div>
+      <small v-if="usingBak" class="pull-left text-muted">
+        ( Using local settings )
+      </small>
     </div>
   </div>
 </template>
@@ -74,8 +73,7 @@ export default {
       origSettings,
       usingBak: false,
       processingIcon: '',
-      localKey: this.supportBackup && hash(origSettings), // key for local backup
-      broadcast$: 0 // used as $broadcast
+      localKey: this.supportBackup && hash(origSettings) // key for local backup
     }
   },
   computed: {
@@ -97,9 +95,8 @@ export default {
   },
   methods: {
     apply (alsoBackup) {
-      ++this.broadcast$
       this.toggle()
-
+      this.$refs.colGroups.forEach(colGroup => colGroup.apply())
       alsoBackup && this.$nextTick(this.backup)
     },
     backup () {

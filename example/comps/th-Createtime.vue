@@ -1,7 +1,7 @@
 <template>
-  <div class="-createtime-th-comp">
+  <div class="-th-createtime-comp">
     Create time by &nbsp;
-    <select class="form-control input-sm -createtime-th-comp-select" v-model="displayBy">
+    <select class="form-control input-sm" v-model="displayBy">
       <option value="year">Year</option>
       <option value="month">Month</option>
       <option value="week">Week</option>
@@ -23,13 +23,12 @@ export default {
 }
 </script>
 <style>
-.-createtime-th-comp {
+.-th-createtime-comp {
   display: inline-block;
   margin-bottom: -6px;
 }
-.-createtime-th-comp-select {
+.-th-createtime-comp > select {
   display: inline-block;
-  /*margin-bottom: -10px;*/
   width: 80px;
 }
 </style>

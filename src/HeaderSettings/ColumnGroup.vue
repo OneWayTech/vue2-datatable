@@ -23,7 +23,6 @@ import replaceWith from 'replace-with'
 
 export default {
   props: {
-    broadcast$: { type: Number, required: true },
     colGroup: { type: Object, required: true }
   },
   data: () => ({ changes: [] }), // record the changes with a stack
@@ -40,28 +39,23 @@ export default {
       return this.colGroup.columns.map((col, i) => (col.fieldId = `-col-${this._uid}-${col.field || i}`, col))
     }
   },
-  watch: {
-    broadcast$ () {
-      let { changes, colGroup: { columns } } = this
-      if (!changes.length) return
-
-      // make changes in the queue
-      this.$nextTick(() => {
-        if (this.inputType === 'radio') {
-          const { idx } = changes.pop()
-          replaceWith(columns, columns.map((col, i) => (col.visible = i === idx, col)))
-        } else {
-          changes.forEach(({ idx, isChecked }) => {
-            this.$set(columns, idx, { ...columns[idx], visible: isChecked })
-          })
-        }
-        this.changes = [] // don't forget to clear the stack
-      })
-    }
-  },
   methods: {
     handleChange (idx, isChecked) {
       this.changes.push({ idx, isChecked })
+    },
+    apply () {
+      let { changes, colGroup: { columns } } = this
+      if (!changes.length) return
+
+      if (this.inputType === 'radio') {
+        const { idx } = changes.pop()
+        replaceWith(columns, columns.map((col, i) => (col.visible = i === idx, col)))
+      } else {
+        changes.forEach(({ idx, isChecked }) => {
+          this.$set(columns, idx, { ...columns[idx], visible: isChecked })
+        })
+      }
+      this.changes = [] // don't forget to clear the stack
     }
   }
 }

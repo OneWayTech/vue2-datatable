@@ -1,55 +1,75 @@
 <template>
-  <datatable
-    support-backup
-    support-nested
-    v-bind="$data">
-    <code>{{ query }}</code>
-  </datatable>
+  <div>
+    <p><code>query: {{ query }}</code></p>
+    <datatable
+      support-backup
+      support-nested
+      table-bordered
+      v-bind="$data">
+      <button class="btn btn-default" @click="alertSelectedUids"
+        :disabled="!selection.length">
+        <i class="fa fa-commenting-o"></i>
+        Alert selected uid(s)
+      </button>
+    </datatable>
+  </div>
 </template>
 <script>
 import Vue from 'vue'
 import Datatable from '../'
-import * as comps from './comps/'
-// import comps from './comps/' // P.S. this will not work!
+import comps from './comps/'
 import mockData from './mock'
 
 export default {
+  name: 'FriendsTable', // `name` is required as it is a recursive component!
+  props: ['row'], // `props.row` from the parent FriendsTable (if exists)
   components: { Datatable, ...comps },
-  data: () => ({
-    columns: [{
-      groupName: 'Normal',
-      columns: [
-        { title: 'Email', field: 'email', visible: false },
-        { title: 'Username', field: 'name' },
-        { title: 'Country', field: 'country' },
-        { title: 'IP', field: 'ip', visible: false }
-      ]
-    }, {
-      groupName: 'Sortable',
-      columns: [
-        { title: 'User ID', field: 'uid', sort: true, visible: 'true', weight: 1 },
-        { title: 'Age', field: 'age', sort: true },
-        { title: 'Create time', field: 'createTime', sort: true, thClass: 'w-240', tdClass: 'w-240', thComp: 'CreatetimeTh', tdComp: 'CreatetimeTd' }
-      ]
-    }, {
-      groupName: 'Extra (radio)',
-      type: 'radio',
-      columns: [
-        { title: 'Color', field: 'color', explain: 'Favorite color', tdComp: 'Color' },
-        // don't forget to set the columns belows invisible since we set `type` to `radio`
-        { title: 'Language', field: 'lang', visible: false },
-        { title: 'PL', field: 'programLang', explain: 'Programming Language', visible: false }
-      ]
-    }],
-    data: [],
-    total: 0,
-    selection: [],
-    summary: {},
-    // `query` will be set to `{ limit: 10, offset: 0, sort: '', order: 'asc' }` by default
-    // other query fields should be declared explicitly in the following
-    query: { searchName: '' },
-    xprops: { eventbus: new Vue() }
-  }),
+  data () {
+    return {    
+      columns: [{
+        groupName: 'Normal',
+        columns: [
+          { title: 'Email', field: 'email', visible: false, thComp: 'FilterTh', tdComp: 'Email' },
+          { title: 'Username', field: 'name', thComp: 'FilterTh' },
+          { title: 'Country', field: 'country', thComp: 'FilterTh' },
+          { title: 'IP', field: 'ip', visible: false, tdComp: 'IP' }
+        ]
+      }, {
+        groupName: 'Sortable',
+        columns: [
+          { title: 'User ID', field: 'uid', sort: true, visible: 'true', weight: 1 },
+          { title: 'Age', field: 'age', sort: true },
+          { title: 'Create time', field: 'createTime', sort: true,
+            thClass: 'w-240', tdClass: 'w-240', thComp: 'CreatetimeTh', tdComp: 'CreatetimeTd' }
+        ]
+      }, {
+        groupName: 'Extra (radio)',
+        type: 'radio',
+        columns: [
+          { title: 'Operation', tdComp: 'Opt' },
+          // don't forget to set the columns below `visible: false`, since the `type` is `radio`
+          { title: 'Color', field: 'color', explain: 'Favorite color', visible: false, tdComp: 'Color' },
+          { title: 'Language', field: 'lang', visible: false, thComp: 'FilterTh' },
+          { title: 'PL', field: 'programLang', explain: 'Programming Language', visible: false, thComp: 'FilterTh' }
+        ]
+      }],
+      data: [],
+      total: 0,
+      selection: [],
+      summary: {},
+
+      // `query` will be set to `{ limit: 10, offset: 0, sort: '', order: 'asc' }` by default
+      // other query fields should be declared explicitly in the following
+      // or set with `Vue.set / $vm.$set` manually later
+      // otherwise the new added properties would not be reactive
+      query: this.row ? { uid: this.row.friends } : {},
+
+      // any other things that you want to pass into dynamic components (thComp / tdComp / nested Comp)
+      xprops: {
+        eventbus: new Vue()
+      }
+    }
+  },
   watch: {
     query: {
       handler () {
@@ -65,6 +85,9 @@ export default {
         this.total = total
         this.summary = summary
       })
+    },
+    alertSelectedUids () {
+      alert(this.selection.map(({ uid }) => uid))
     }
   }
 }

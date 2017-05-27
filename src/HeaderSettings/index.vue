@@ -6,15 +6,13 @@
     </button>
     <div class="dropdown-menu p-10 clearfix" :style="drpMenuStyle">
       <div class="-col-ul-container">
-        <column-group v-for="group in colGroups"
-          :key="group.groupName" ref="colGroups" :col-group="group" />
+        <column-group v-for="group in colGroups" :key="group.groupName" ref="colGroups" :col-group="group" />
       </div>
       <div class="m-10 clearfix">
         <div class="btn-group btn-group-sm pull-right">
           <button class="btn btn-default" @click="apply()">Apply</button>
           <template v-if="supportBackup">
-            <button data-toggle="dropdown"
-              class="btn btn-default dropdown-toggle box-shadow-none">
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle box-shadow-none">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">

@@ -16,14 +16,14 @@
             <th v-for="(column, idx) in columns$"
               :key="column.title || column.field || idx"
               :class="column.thClass" :style="column.thStyle">
+              <!-- table head component (thComp) -->
               <component v-if="column.thComp" :is="comp[column.thComp]"
                 :column="column" :field="column.field" :title="column.title"
                 v-bind="$props"><!-- `v-bind` here is just like spread operator in JSX -->
               </component>
               <template v-else>{{ column.title }}</template>
-              <i v-if="column.explain"
-                class="fa fa-info-circle cursor-help" :title="column.explain">
-              </i>
+
+              <i v-if="column.explain" class="fa fa-info-circle cursor-help" :title="column.explain"></i>
               <head-sort v-if="column.sort" :field="column.field" v-bind="$props" class="pull-right" />
             </th>
           </transition-group>
@@ -35,11 +35,11 @@
                 <multi-select :selection="selection" :row="item" />
               </td>
               <td v-for="column in columns$" :class="column.tdClass" :style="column.tdStyle">
-                <!-- table-cell component -->
+                <!-- table body component (tdComp) -->
                 <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
                 </component>
-                <template v-else>{{ item[column.field] || '-' }}</template>
+                <template v-else>{{ item[column.field] }}</template>
               </td>
             </tr>
             <transition name="fade">
@@ -59,9 +59,9 @@
           <tr v-if="summary && data.length" class="-summary-row">
             <td v-if="selection" width="1em"></td>
             <template v-for="(column, idx) in columns$">
-              <!-- only display the available fields -->
+              <!-- display the available fields only -->
               <td v-if="summary[column.field]" :class="column.tdClass" :style="column.tdStyle">
-                <!-- table-cell component -->
+                <!-- table body component (tdComp) -->
                 <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="summary" :field="column.field" :value="summary[column.field]">
                 </component>
@@ -76,7 +76,7 @@
         </tbody>
       </table>
     </div><!-- .table-responsive -->
-    <div v-if="Pagination" class="row clearfix">
+    <div v-if="Pagination" class="row">
       <div class="col-sm-6 nowrap">
         <strong>Total {{ total }} ,</strong>
         <limit-select v-bind="$props" />
@@ -103,9 +103,9 @@ export default {
     columns: { type: Array, required: true },
     data: { type: Array, required: true },
     total: { type: Number, required: true },
-    summary: Object, // an extra summary row
-    selection: Array, // for multi-select
     query: { type: Object, required: true },
+    selection: Array, // for multi-select
+    summary: Object, // an extra summary row
     HeaderSettings: { type: Boolean, default: true },
     Pagination: { type: Boolean, default: true },
     xprops: Object, // extra custom props passing to dynamic components
@@ -113,15 +113,14 @@ export default {
     supportNested: Boolean, // support nested components
     tableBordered: Boolean // add .table-bordered to <table>
   },
-  created () {
-    // init query
+  created () { // init query
     const { query } = this
-    const query$ = { limit: 10, offset: 0, sort: '', order: '', ...query }
-    Object.keys(query$).forEach(key => this.$set(query, key, query$[key]))
+    const _query = { limit: 10, offset: 0, sort: '', order: '', ...query }
+    Object.keys(_query).forEach(key => this.$set(query, key, _query[key]))
   },
   computed: {
     comp () {
-      return this.$parent.$options.components
+      return this.$parent.$options.components // source of dynamic components
     },
     columns$ () {
       const { columns } = this

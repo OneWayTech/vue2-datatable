@@ -1,8 +1,10 @@
 <template>
   <label>
-    Show&nbsp;<select class="form-control input-sm inline-select" v-model="limit">
+    Show
+    <select class="form-control input-sm inline-select" v-model="limit">
       <option v-for="i in options" :value="i">{{ i }}</option>
-    </select>&nbsp;items per page
+    </select>
+    items per page
   </label>
 </template>
 <script>

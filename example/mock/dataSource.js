@@ -12,8 +12,9 @@ for (let i = 1; i <= total; i++) {
     name: Random.name(),
     age: Random.integer(0, 100),
     email: Random.email(),
-    friends: without( // exclude `myself`
-      uniq(Array(getRandomUid()).fill().map(() => getRandomUid())) , i
+    friends: without(
+      uniq(Array(getRandomUid()).fill().map(() => getRandomUid())),
+      i // exclude `myself`
     ),
     country: Random.pick(
       ['US', 'UK', 'China', 'Russia', 'Germany', 'France', 'Japan']

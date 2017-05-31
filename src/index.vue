@@ -2,10 +2,11 @@
   <div>
     <div v-if="$slots.default || HeaderSettings" class="m-b-10 clearfix">
       <header-settings v-if="HeaderSettings" class="pull-right"
-        :col-groups="columns" :support-backup="supportBackup" />
+        :col-groups="columns" :support-backup="supportBackup">
+      </header-settings>
       <slot></slot>
     </div>
-    <!-- `.panel.panel-default` is for Rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
+    <!-- `.panel.panel-default` is for rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
     <div class="table-responsive panel panel-default">
       <table class="table table-striped table-hover" :class="{ 'table-bordered': tableBordered }">
         <thead>
@@ -13,18 +14,18 @@
             <th v-if="selection && data.length" width="1em" key="th-multi">
               <multi-select :selection="selection" :rows="data" />
             </th>
-            <th v-for="(column, idx) in columns$"
-              :key="column.title || column.field || idx"
+            <th v-for="(column, idx) in columns$" :key="column.title || column.field || idx"
               :class="column.thClass" :style="column.thStyle">
-              <!-- table head component (thComp) -->
-              <component v-if="column.thComp" :is="comp[column.thComp]"
-                :column="column" :field="column.field" :title="column.title"
-                v-bind="$props"><!-- `v-bind` here is just like spread operator in JSX -->
+              <!-- table head component (thComp). `v-bind` here is just like spread operator in JSX -->
+              <component v-if="column.thComp" :is="comp[column.thComp]" v-bind="$props"
+                :column="column" :field="column.field" :title="column.title">
               </component>
-              <template v-else>{{ column.title }}</template>
+              <template v-else>
+                {{ column.title }}
+              </template>
 
               <i v-if="column.explain" class="fa fa-info-circle cursor-help" :title="column.explain"></i>
-              <head-sort v-if="column.sort" :field="column.field" v-bind="$props" class="pull-right" />
+              <head-sort v-if="column.sort" :field="column.field" :query="query" class="pull-right" />
             </th>
           </transition-group>
         </thead>
@@ -39,12 +40,14 @@
                 <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
                 </component>
-                <template v-else>{{ item[column.field] }}</template>
+                <template v-else>
+                  {{ item[column.field] }}
+                </template>
               </td>
             </tr>
             <transition name="fade">
               <tr v-if="item.__nested__ && item.__nested__.visible">
-                <td :colspan="columns$.length + (+!!selection)">
+                <td :colspan="colspan">
                   <!-- nested component -->
                   <component :is="comp[item.__nested__.comp]"
                     :row="item" :nested="item.__nested__" v-bind="$props">
@@ -54,7 +57,9 @@
             </transition>
           </template>
           <tr v-if="!data.length">
-            <td :colspan="columns$.length + (+!!selection)" class="text-center text-muted">( No Data )</td>
+            <td :colspan="colspan" class="text-center text-muted">
+              ( No Data )
+            </td>
           </tr>
           <tr v-if="summary && data.length" class="-summary-row">
             <td v-if="selection" width="1em"></td>
@@ -65,7 +70,9 @@
                 <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                   :row="summary" :field="column.field" :value="summary[column.field]">
                 </component>
-                <template v-else>{{ summary[column.field] }}</template>
+                <template v-else>
+                  {{ summary[column.field] }}
+                </template>
               </td>
               <td v-else>
                 <!-- show summary label if the first column field has no data -->
@@ -79,10 +86,10 @@
     <div v-if="Pagination" class="row">
       <div class="col-sm-6 nowrap">
         <strong>Total {{ total }} ,</strong>
-        <limit-select v-bind="$props" />
+        <limit-select :query="query" />
       </div>
       <div class="col-sm-6">
-        <pagination class="pull-right" v-bind="$props" />
+        <pagination class="pull-right" :total="total" :query="query" />
       </div>
     </div>
   </div>
@@ -111,7 +118,7 @@ export default {
     xprops: Object, // extra custom props passing to dynamic components
     supportBackup: Boolean, // support header settings backup
     supportNested: Boolean, // support nested components
-    tableBordered: Boolean // add .table-bordered to <table>
+    tableBordered: Boolean // add `.table-bordered` to <table>
   },
   created () { // init query
     const { query } = this
@@ -137,6 +144,9 @@ export default {
       return _orderBy(columns$.map(col => ((col.weight = col.weight || 0), col)), 'weight', 'desc')
       // the sort shown below is not stable
       // return columns$.map(col => ((col.weight = col.weight || 0), col)).sort((a, b) => b.weight - a.weight)
+    },
+    colspan () {
+      return this.columns$.length + (+!!this.selection)
     },
     data$ () {
       const { data } = this

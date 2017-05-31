@@ -21,7 +21,7 @@ import comps from './comps/'
 import mockData from './mock'
 
 export default {
-  name: 'FriendsTable', // `name` is required as it is a recursive component!
+  name: 'FriendsTable', // `name` is required as a recursive component!
   props: ['row'], // `props.row` from the parent FriendsTable (if exists)
   components: { Datatable, ...comps },
   data () {

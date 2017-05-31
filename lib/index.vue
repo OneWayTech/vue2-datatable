@@ -104,7 +104,7 @@ import replaceWith from 'replace-with'
 import _orderBy from 'lodash/orderBy'
 
 export default {
-  name: 'DataTable',
+  name: 'Datatable',
   components: { HeaderSettings, HeadSort, LimitSelect, MultiSelect, Pagination },
   props: {
     columns: { type: Array, required: true },

@@ -64,7 +64,7 @@ export default {
       // otherwise the new added properties would not be reactive
       query: this.row ? { uid: this.row.friends } : {},
 
-      // any other things that you want to pass into dynamic components (thComp / tdComp / nested Comp)
+      // any other staff that you want to pass into dynamic components (thComp / tdComp / nested Comp)
       xprops: {
         eventbus: new Vue()
       }

@@ -5,7 +5,7 @@
       <span class="caret"></span>
     </button>
     <div class="dropdown-menu p-10 clearfix" :style="drpMenuStyle">
-      <div class="-col-ul-container">
+      <div class="-col-group-container">
         <column-group v-for="group in colGroups" :key="group.groupName" ref="colGroups" :col-group="group" />
       </div>
       <div class="m-10 clearfix">
@@ -133,7 +133,7 @@ export default {
 .box-shadow-none {
   box-shadow: none !important;
 }
-.-col-ul-container {
+.-col-group-container {
   border-bottom: 1px solid #ddd;
 }
 </style>

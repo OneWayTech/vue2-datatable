@@ -30,55 +30,57 @@
           </transition-group>
         </thead>
         <tbody>
-          <template v-for="item in data$">
-            <tr>
-              <td v-if="selection && data.length" width="1em">
-                <multi-select :selection="selection" :row="item" />
-              </td>
-              <td v-for="column in columns$" :class="column.tdClass" :style="column.tdStyle">
-                <!-- table body component (tdComp) -->
-                <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
-                  :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
-                </component>
-                <template v-else>
-                  {{ item[column.field] }}
-                </template>
-              </td>
-            </tr>
-            <transition name="fade">
-              <tr v-if="item.__nested__ && item.__nested__.visible">
-                <td :colspan="colspan">
-                  <!-- nested component -->
-                  <component :is="comp[item.__nested__.comp]"
-                    :row="item" :nested="item.__nested__" v-bind="$props">
+          <template v-if="data.length">
+            <template v-for="item in data$">
+              <tr>
+                <td v-if="selection" width="1em">
+                  <multi-select :selection="selection" :row="item" />
+                </td>
+                <td v-for="column in columns$" :class="column.tdClass" :style="column.tdStyle">
+                  <!-- table body component (tdComp) -->
+                  <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
+                    :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
                   </component>
+                  <template v-else>
+                    {{ item[column.field] }}
+                  </template>
                 </td>
               </tr>
-            </transition>
-          </template>
-          <tr v-if="!data.length">
+              <transition name="fade">
+                <tr v-if="item.__nested__ && item.__nested__.visible">
+                  <td :colspan="colspan">
+                    <!-- nested component -->
+                    <component :is="comp[item.__nested__.comp]"
+                      :row="item" :nested="item.__nested__" v-bind="$props">
+                    </component>
+                  </td>
+                </tr>
+              </transition>
+            </template>
+            <tr v-if="summary" class="-summary-row">
+              <td v-if="selection" width="1em"></td>
+              <template v-for="(column, idx) in columns$">
+                <!-- display the available fields only -->
+                <td v-if="summary[column.field]" :class="column.tdClass" :style="column.tdStyle">
+                  <!-- table body component (tdComp) -->
+                  <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
+                    :row="summary" :field="column.field" :value="summary[column.field]">
+                  </component>
+                  <template v-else>
+                    {{ summary[column.field] }}
+                  </template>
+                </td>
+                <td v-else>
+                  <!-- show summary label if the first column field has no data -->
+                  <i v-if="!idx" class="text-muted">Summary</i>
+                </td>
+              </template>
+            </tr>
+          </template><!-- v-if="data.length" -->
+          <tr v-else>
             <td :colspan="colspan" class="text-center text-muted">
               ( No Data )
             </td>
-          </tr>
-          <tr v-if="summary && data.length" class="-summary-row">
-            <td v-if="selection" width="1em"></td>
-            <template v-for="(column, idx) in columns$">
-              <!-- display the available fields only -->
-              <td v-if="summary[column.field]" :class="column.tdClass" :style="column.tdStyle">
-                <!-- table body component (tdComp) -->
-                <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
-                  :row="summary" :field="column.field" :value="summary[column.field]">
-                </component>
-                <template v-else>
-                  {{ summary[column.field] }}
-                </template>
-              </td>
-              <td v-else>
-                <!-- show summary label if the first column field has no data -->
-                <i v-if="!idx" class="text-muted">Summary</i>
-              </td>
-            </template>
           </tr>
         </tbody>
       </table>
@@ -122,8 +124,8 @@ export default {
   },
   created () { // init query
     const { query } = this
-    const _query = { limit: 10, offset: 0, sort: '', order: '', ...query }
-    Object.keys(_query).forEach(key => this.$set(query, key, _query[key]))
+    const q = { limit: 10, offset: 0, sort: '', order: '', ...query }
+    Object.keys(q).forEach(key => this.$set(query, key, q[key]))
   },
   computed: {
     comp () {
@@ -155,7 +157,7 @@ export default {
         data.forEach(item => {
           if (!item.__nested__) {
             this.$set(item, '__nested__', {
-              comp: '',
+              comp: '', // name of nested component
               visible: false,
               $toggle (comp, visible) {
                 switch (arguments.length) {

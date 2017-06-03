@@ -19,8 +19,8 @@
   </div>
 </template>
 <script>
-import Basic from './Basic'
-import Advanced from './Advanced'
+import Basic from './Basic/'
+import Advanced from './Advanced/'
 const getCurHash = () => location.hash.replace(/^#/, '')
 
 export default {

@@ -22,6 +22,7 @@
     "replace-with": "^1.0.0"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
     "es6-shim": "^0.35.3",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",

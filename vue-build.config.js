@@ -1,4 +1,6 @@
-var path = require('path');
+var path = require('path'),
+  CleanWebpackPlugin = require('clean-webpack-plugin'),
+  exampleDist = path.join(__dirname, 'example-dist');
 
 module.exports = {
   html: {
@@ -6,8 +8,11 @@ module.exports = {
   },
   webpack: {
     output: {
-      path: path.join(__dirname, 'example-dist'),
+      path: exampleDist,
       publicPath: ''
-    }
+    },
+    plugins: [
+      new CleanWebpackPlugin([exampleDist])
+    ]
   }
 };

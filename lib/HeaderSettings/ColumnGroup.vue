@@ -1,6 +1,6 @@
 <template>
-  <ul class="-col-list">
-    <label class="-col-list-title">
+  <ul class="-col-group">
+    <label class="-col-group-title">
       {{ colGroup.groupName }}
     </label>
     <li v-for="(col, idx) in columns">
@@ -61,27 +61,27 @@ export default {
 }
 </script>
 <style>
-.-col-list {
+.-col-group {
   width: 150px;
   display: inline-block;
   padding: 0;
   vertical-align: top;
 }
-.-col-list-title {
+.-col-group-title {
   display: block;
   margin: 5px;
   padding: 5px;
   border-bottom: 1px solid #ddd;
   font-size: 1.5em;
 }
-.-col-list > li {
+.-col-group > li {
   margin-bottom: 2px;
   padding-left: 10px;
   list-style: none;
   line-height: 20px;
   font-size: 12px;
 }
-.-col-list > li > input {
+.-col-group > li > input {
   vertical-align: -2px;
 }
 </style>

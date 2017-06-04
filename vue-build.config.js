@@ -11,8 +11,8 @@ module.exports = {
       path: exampleDist,
       publicPath: ''
     },
-    plugins: [
+    plugins: process.env.NODE_ENV === 'production' ? [
       new CleanWebpackPlugin([exampleDist])
-    ]
+    ] : []
   }
 };

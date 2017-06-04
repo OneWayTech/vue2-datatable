@@ -6,7 +6,8 @@
   "main": "lib/index.vue",
   "scripts": {
     "start": "vue build example/App.vue --config vue-build.config.js",
-    "build": "vue build example/App.vue --prod --config vue-build.config.js"
+    "build": "vue build example/App.vue --prod --config vue-build.config.js",
+    "build:docs": "gitbook build docs/"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.16",
     "es6-shim": "^0.35.3",
+    "gitbook-cli": "^2.3.0",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
     "vue-cli": "^2.8.2"

@@ -16,7 +16,7 @@
         </i>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a target="_blank" href="https://OneWayTech.github.com/vue2-datatable/docs/_book">
+            <a target="_blank" href="https://OneWayTech.github.io/vue2-datatable/docs/_book">
               <i class="fa fa-book"></i> Documentation
             </a>
           </li>

@@ -16,7 +16,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import Datatable from '../../'
+import Datatable from '../../../'
 import mockData from '../_mockData'
 import comps from './comps/'
 

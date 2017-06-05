@@ -1,0 +1,532 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>动态组件 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="props-xprops.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tricks.html">
+            
+                <a href="../tricks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../getting-started.html">
+            
+                <a href="../getting-started.html">
+            
+                    
+                    开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="datatable-props.html">
+            
+                <a href="datatable-props.html">
+            
+                    
+                    Datatable 配置项（props）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="props-columns.html">
+            
+                <a href="props-columns.html">
+            
+                    
+                    :columns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="props-data.html">
+            
+                <a href="props-data.html">
+            
+                    
+                    :data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="props-query.html">
+            
+                <a href="props-query.html">
+            
+                    
+                    :query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="props-selection.html">
+            
+                <a href="props-selection.html">
+            
+                    
+                    :selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="props-xprops.html">
+            
+                <a href="props-xprops.html">
+            
+                    
+                    :xprops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.7" data-path="dynamic-comps.html">
+            
+                <a href="dynamic-comps.html">
+            
+                    
+                    动态组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
+            
+                    
+                    问题反馈（issues）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
+            
+                    
+                    版本迭代（releases）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >动态组件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xA7;-&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#xFF08;thcomp--tdcomp--nested-component&#xFF09;">&#xA7; &#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#xFF08;<code>thComp / tdComp / nested component</code>&#xFF09;</h1>
+<blockquote>
+<p>&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5747;&#x7531;&#x6E90;&#x7801;&#x6A21;&#x677F; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a> &#x4E2D;&#x622A;&#x53D6;</p>
+</blockquote>
+<h2 id="&#x2299;-thcomp">&#x2299; <code>thComp</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- table head component (thComp) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;column.thComp&quot;</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[column.thComp]&quot;</span>
+  <span class="hljs-attr">:column</span>=<span class="hljs-string">&quot;column&quot;</span>
+  <span class="hljs-attr">:field</span>=<span class="hljs-string">&quot;column.field&quot;</span>
+  <span class="hljs-attr">:title</span>=<span class="hljs-string">&quot;column.title&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x7C7B;&#x578B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>&#x5217;&#x5B9A;&#x4E49;</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>field</td>
+<td>&#x5B57;&#x6BB5;&#x540D;</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td>title</td>
+<td>&#x663E;&#x793A;&#x540D;&#x79F0;</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>Datatable &#x6240;&#x6709; <code>props</code></td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x2299;-tdcomp">&#x2299; <code>tdComp</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- table body component (tdComp) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;column.tdComp&quot;</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[column.tdComp]&quot;</span>
+  <span class="hljs-attr">:row</span>=<span class="hljs-string">&quot;item&quot;</span>
+  <span class="hljs-attr">:field</span>=<span class="hljs-string">&quot;column.field&quot;</span>
+  <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item[column.field]&quot;</span>
+  <span class="hljs-attr">:nested</span>=<span class="hljs-string">&quot;item.__nested__&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x7C7B;&#x578B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>&#x5F53;&#x524D;&#x884C;</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>field</td>
+<td>&#x5B57;&#x6BB5;&#x540D;</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td>value</td>
+<td>&#x503C;</td>
+<td>Any</td>
+</tr>
+<tr>
+<td>nested</td>
+<td>&#x5D4C;&#x5957;&#x7EC4;&#x4EF6;&#x63A7;&#x5236;&#xFF08;<code>row.__nested__</code> &#x7684;&#x5F15;&#x7528;&#xFF09;</td>
+<td>Object / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>Datatable &#x6240;&#x6709; <code>props</code></td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x2299;-nested-component">&#x2299; <code>nested component</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- nested component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[item.__nested__.comp]&quot;</span>
+  <span class="hljs-attr">:row</span>=<span class="hljs-string">&quot;item&quot;</span>
+  <span class="hljs-attr">:nested</span>=<span class="hljs-string">&quot;item.__nested__&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x7C7B;&#x578B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>&#x5F53;&#x524D;&#x884C;</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>nested</td>
+<td>&#x5D4C;&#x5957;&#x7EC4;&#x4EF6;&#x63A7;&#x5236;&#xFF08;<code>row.__nested__</code> &#x7684;&#x5F15;&#x7528;&#xFF09;</td>
+<td>Object / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>Datatable &#x6240;&#x6709; <code>props</code></td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x9AD8;&#x7EA7;&#x4F8B;&#x5B50;&#x4E2D;&#x7684; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps" target="_blank"><code>comps/</code></a> &#x6DB5;&#x76D6;&#x4E0A;&#x8FF0;&#x6240;&#x6709;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x7684;&#x8FD0;&#x7528;&#xFF0C;&#x5EFA;&#x8BAE;&#x53C2;&#x8003;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="props-xprops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: :xprops">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"动态组件","level":"1.5.7","depth":2,"next":{"title":"问题反馈（issues）","level":"1.6","depth":1,"url":"https://github.com/OneWayTech/vue2-datatable/issues","ref":"https://github.com/OneWayTech/vue2-datatable/issues","articles":[]},"previous":{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/dynamic-comps.md","mtime":"2017-06-05T11:20:20.699Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-05T11:21:00.026Z"},"basePath":"..","book":{"language":"zh-cn"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

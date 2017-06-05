@@ -1,17 +1,17 @@
 {
   "name": "vue2-datatable",
-  "description": "The best datatable for Vue.js 2.x",
+  "description": "The Best Datatable for Vue.js 2.x which never sucks",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
   "version": "1.0.0",
   "main": "lib/index.vue",
   "scripts": {
-    "start": "vue build example/App.vue --config vue-build.config.js",
-    "build": "vue build example/App.vue --prod --config vue-build.config.js",
+    "start": "vue build examples/src/App.vue --config vue-build.config.js",
+    "build": "vue build examples/src/App.vue --config vue-build.config.js --prod",
     "build:docs": "gitbook build docs/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kenberkeley/vue2-datatable.git"
+    "url": "https://github.com/OneWayTech/vue2-datatable.git"
   },
   "keywords": [
     "vue",

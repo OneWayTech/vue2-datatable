@@ -1,3 +1,8 @@
+# § 开始
+
+我们以基本例子 [`examples/src/Basic/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue) 为例，效果见 [examples#basic](https://OneWayTech.github.io/vue2-datatable/examples/dist)
+
+```html
 <template>
   <div>
     <code>query: {{ query }}</code>
@@ -5,7 +10,7 @@
   </div>
 </template>
 <script>
-import Datatable from '../../'
+import Datatable from 'vue2-datatable'
 import mockData from '../_mockData'
 
 export default {
@@ -35,3 +40,4 @@ export default {
   }
 }
 </script>
+```

@@ -1,18 +1,19 @@
 var path = require('path'),
   CleanWebpackPlugin = require('clean-webpack-plugin'),
-  exampleDist = path.join(__dirname, 'example-dist');
+  examplesDist = path.join(__dirname, 'examples/dist');
 
 module.exports = {
   html: {
-    template: './example/index.html'
+    template: path.join(__dirname, 'examples/src/index.html')
   },
   webpack: {
+    devtool: false,
     output: {
-      path: exampleDist,
+      path: examplesDist,
       publicPath: ''
     },
     plugins: process.env.NODE_ENV === 'production' ? [
-      new CleanWebpackPlugin([exampleDist])
+      new CleanWebpackPlugin([examplesDist])
     ] : []
   }
 };

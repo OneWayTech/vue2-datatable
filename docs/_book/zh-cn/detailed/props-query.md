@@ -17,7 +17,7 @@ created () { // init query
   2. 自行使用 [`Vue.set / $vm.$set`](https://vuejs.org/v2/api/#Vue-set) 设置：`this.$set(this.query, 'keyword', '')`
 
 > 上述两种方式均在高级例子中有所体现，最终目的都是让额外的查询属性变成[响应式](https://vuejs.org/v2/guide/reactivity.html)的  
-> （其中第 2 种见 [`example/src/Advanced/comps/th-Filter.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/example/src/Advanced/comps/th-Filter.vue) 中的 `methods.search`）  
+> （其中第 2 种见 [`examples/src/Advanced/comps/th-Filter.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps/th-Filter.vue) 中的 `methods.search`）  
 > 
 > 温馨提示：若采用 Ajax - GET 请求，赋值较为复杂（例如一个网址）时最好使用 [`encodeURIComponent`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) 转义
 

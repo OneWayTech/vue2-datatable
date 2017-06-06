@@ -33,7 +33,7 @@ created () { // init query
   </div>
 </template>
 <script>
-import Datatable from 'vue2-datatable'
+import Datatable from '../../../'
 import mockData from '../_mockData'
 
 export default {

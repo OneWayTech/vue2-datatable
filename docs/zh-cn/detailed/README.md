@@ -18,4 +18,6 @@ lib/
 
 以高级例子 [`examples/src/Advanced/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue) ([demo - examples#advanced](https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced)) 为例，标注出对应的基本构成组件如下图所示：
 
-![基本构成标注](images/structure.png)
+<a href="images/structure.png" target="_blank">
+  <img src="images/structure.png" alt="Structure">
+</a>

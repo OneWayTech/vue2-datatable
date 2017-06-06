@@ -1,0 +1,16 @@
+# § Catalog
+
+* [Catalog](README.md)
+* [Preface](preface.md)
+* [Tricks](tricks.md)
+* [Getting started](getting-started.md)
+* [Detailed](detailed/README.md)
+  * [`props` of Datatable](detailed/datatable-props.md)
+  * [`:columns`](detailed/props-columns.md)
+  * [`:data`](detailed/props-data.md)
+  * [`:query`](detailed/props-query.md)
+  * [`:selection`](detailed/props-selection.md)
+  * [`:xprops`](detailed/props-xprops.md)
+  * [Dynamic Components](detailed/dynamic-comps.md)
+* [Q & A (issues)](https://github.com/OneWayTech/vue2-datatable/issues)
+* [Changelog (releases)](https://github.com/OneWayTech/vue2-datatable/releases)

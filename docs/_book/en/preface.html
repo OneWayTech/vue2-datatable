@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>开始 · GitBook</title>
+        <title>Preface · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="detailed/" />
+    <link rel="next" href="tricks.html" />
     
     
-    <link rel="prev" href="tricks.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -71,7 +71,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +94,7 @@
                 <a href="./">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -102,12 +102,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="preface.html">
+        <li class="chapter active" data-level="1.2" data-path="preface.html">
             
                 <a href="preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <a href="tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -128,12 +128,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="getting-started.html">
+        <li class="chapter " data-level="1.4" data-path="getting-started.html">
             
                 <a href="getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="detailed/">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="detailed/datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <a href="detailed/dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +256,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +269,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +284,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -307,7 +307,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >开始</a>
+        <a href="." >Preface</a>
     </h1>
 </div>
 
@@ -322,46 +322,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xA7;-&#x5F00;&#x59CB;">&#xA7; &#x5F00;&#x59CB;</h1>
-<p>&#x6211;&#x4EEC;&#x4EE5;&#x57FA;&#x672C;&#x4F8B;&#x5B50; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue" target="_blank"><code>examples/src/Basic/index.vue</code></a> &#x4E3A;&#x4F8B;&#xFF0C;&#x6548;&#x679C;&#x89C1; <a href="https://OneWayTech.github.io/vue2-datatable/examples/dist" target="_blank">examples#basic</a></p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>query: {{ query }}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">datatable</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$data&quot;</span> /&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> Datatable <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../../&apos;</span>
-<span class="hljs-keyword">import</span> mockData <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../_mockData&apos;</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  components: { Datatable },
-  data: () =&gt; ({
-    columns: [
-      { title: <span class="hljs-string">&apos;User ID&apos;</span>, field: <span class="hljs-string">&apos;uid&apos;</span>, sort: <span class="hljs-literal">true</span> },
-      { title: <span class="hljs-string">&apos;Username&apos;</span>, field: <span class="hljs-string">&apos;name&apos;</span> },
-      { title: <span class="hljs-string">&apos;Age&apos;</span>, field: <span class="hljs-string">&apos;age&apos;</span>, sort: <span class="hljs-literal">true</span> },
-      { title: <span class="hljs-string">&apos;Email&apos;</span>, field: <span class="hljs-string">&apos;email&apos;</span> },
-      { title: <span class="hljs-string">&apos;Country&apos;</span>, field: <span class="hljs-string">&apos;country&apos;</span> }
-    ],
-    data: [],
-    total: <span class="hljs-number">0</span>,
-    query: {}
-  }),
-  watch: {
-    query: {
-      handler (query) {
-        mockData(query).then(({ rows, total }) =&gt; {
-          <span class="hljs-keyword">this</span>.data = rows
-          <span class="hljs-keyword">this</span>.total = total
-        })
-      },
-      deep: <span class="hljs-literal">true</span>
-    }
-  }
-}
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre>
+                                <h1 id="&#xA7;-preface">&#xA7; Preface</h1>
+<blockquote>
+<p>This Datatable only support Vue 2.x<br>But you can degrade it according to <a href="https://vuejs.org/v2/guide/migration.html" target="_blank">Migration from Vue 1.x</a><br>(In most of the time, you just need to replace <code>ref / key / &lt;hooks&gt;</code>)</p>
+</blockquote>
+<p>There are plenty of open-source Datatables, but none of them could meet all the business requirements<br>(if there is, this project is meaningless)</p>
+<p>This documentation is dedicated to letting you comprehend the design and the source.<br>Under this premise, you can build the most suitable Datatable yourself.</p>
+<p>The dependencies of this project shown below:</p>
+<ul>
+<li>BootStrap 3.x + Font Awesome 4.x&#xFF08;available globally&#xFF09;</li>
+<li><a href="https://lodash.com/docs/4.17.4#orderBy" target="_blank">lodash.orderBy</a></li>
+<li><a href="https://github.com/OneWayTech/replace-with" target="_blank">replace-with</a></li>
+</ul>
+<p>P.S. <em>BootStrap</em> and <em>Font Awesome</em> can be replaced with other popular libraries (just with different classnames but do the same things)</p>
 
                                 
                                 </section>
@@ -389,12 +362,12 @@
 
             
                 
-                <a href="tricks.html" class="navigation navigation-prev " aria-label="Previous page: 技巧">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Catalog">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="detailed/" class="navigation navigation-next " aria-label="Next page: 详解">
+                <a href="tricks.html" class="navigation navigation-next " aria-label="Next page: Tricks">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -405,7 +378,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开始","level":"1.4","depth":1,"next":{"title":"详解","level":"1.5","depth":1,"path":"detailed/README.md","ref":"detailed/README.md","articles":[{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},{"title":":selection","level":"1.5.5","depth":2,"path":"detailed/props-selection.md","ref":"detailed/props-selection.md","articles":[]},{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]}]},"previous":{"title":"技巧","level":"1.3","depth":1,"path":"tricks.md","ref":"tricks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"getting-started.md","mtime":"2017-06-06T02:26:31.930Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":".","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Preface","level":"1.2","depth":1,"next":{"title":"Tricks","level":"1.3","depth":1,"path":"tricks.md","ref":"tricks.md","articles":[]},"previous":{"title":"Catalog","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"preface.md","mtime":"2017-06-06T07:04:05.827Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>

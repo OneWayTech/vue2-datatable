@@ -1,6 +1,6 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -71,7 +71,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +94,7 @@
                 <a href="../">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -107,7 +107,7 @@
                 <a href="../preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <a href="../tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -133,7 +133,7 @@
                 <a href="../getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="./">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <a href="dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +256,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +269,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +284,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -324,9 +324,10 @@
                                 
                                 <h1 id="data"><code>:data</code></h1>
 <blockquote>
-<p>&#x5B9E;&#x9645;&#x4E0A;&#x8BE5;&#x9879;&#x5E94;&#x8BE5;&#x53EB; <code>rows</code> &#x624D;&#x5408;&#x7406;&#xFF0C;&#x4F46;&#x4E3B;&#x6D41;&#x7684; Datatable &#x90FD;&#x662F;&#x8FD9;&#x6837;&#x79F0;&#x547C;&#xFF0C;&#x6211;&#x4E5F;&#x4E0D;&#x80FD;&#x514D;&#x4FD7;</p>
+<p>In a more semantic way, it should be called <code>rows</code>.<br>However, most of the popular Datatables prefer <code>data</code>. So I have to compromise.</p>
 </blockquote>
-<p>&#x672C;&#x8EAB;&#x8BE5;&#x9879;&#x662F;&#x6CA1;&#x5565;&#x597D;&#x8BB2;&#x7684;&#xFF0C;&#x4F46;&#x672C; Datatable &#x652F;&#x6301;<strong>&#x5185;&#x5D4C;&#x7EC4;&#x4EF6; (nested component)</strong>&#xFF0C;&#x9760;&#x7684;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x6587;&#x7AE0;<br>&#x76F4;&#x63A5;&#x628A;&#x6E90;&#x7801; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a> &#x4E2D;&#x7684; <code>computed.data$</code> &#x642C;&#x51FA;&#x6765;&#xFF1A;</p>
+<p>Normally, it&apos;s not necessary to talk about this attribute since it&apos;s so simple.<br>But this Datatable supports <strong>nested components</strong> by performing magic in it.</p>
+<p>It would be more direct to deep into the source (<code>computed.data$</code> in <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a>) to see how it works:</p>
 <pre><code class="lang-js">data$ () {
   <span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.supportNested) {
@@ -365,42 +366,42 @@
   <span class="hljs-keyword">return</span> data
 }
 </code></pre>
-<p>&#x7531;&#x4E0A;&#x53EF;&#x77E5;&#xFF0C;&#x672C; Datatable &#x5BF9; <code>data (rows)</code> &#x5185;&#x7684;&#x5404;&#x4E2A;&#x5143;&#x7D20; <code>item (row)</code> &#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;<strong>&#x4E0D;&#x53EF;&#x904D;&#x5386;&#x5C5E;&#x6027; <code>__nested__</code></strong>&#xFF0C;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<p>According to the above, each item (row) of data (rows) is <code>$set</code> an <strong>unenumerable <code>__nested__</code></strong>, including three attributes:</p>
 <table>
 <thead>
 <tr>
-<th>&#x5C5E;&#x6027;</th>
-<th>&#x8BF4;&#x660E;</th>
-<th>&#x7C7B;&#x578B;</th>
-<th>&#x53EF;&#x9009;&#x9879;</th>
-<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+<th>Attr</th>
+<th>Desc</th>
+<th>Type</th>
+<th>Optional values / usages</th>
+<th>Default value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>comp</td>
-<td>&#x5185;&#x5D4C;&#x7EC4;&#x4EF6;&#x540D;</td>
+<td>name of the current nested component</td>
 <td>String</td>
 <td>-</td>
 <td>&apos;&apos;</td>
 </tr>
 <tr>
 <td>visible</td>
-<td>&#x662F;&#x5426;&#x663E;&#x793A;</td>
+<td>Is the nested component visible</td>
 <td>Boolean</td>
 <td>true / false</td>
 <td>false</td>
 </tr>
 <tr>
 <td>$toggle</td>
-<td>&#x4FBF;&#x6377;&#x64CD;&#x4F5C;&#x51FD;&#x6570;</td>
+<td>API to control <code>comp</code> and <code>visible</code> conveniently</td>
 <td>Function</td>
 <td><code>$toggle(comp)</code> / <code>$toggle(visible)</code> / <code>$toggle(comp, visible)</code></td>
 <td>-</td>
 </tr>
 </tbody>
 </table>
-<p>&#x5728;&#x6E90;&#x7801;&#x6A21;&#x677F;&#x4E2D;&#xFF0C; <code>__nested__</code> &#x4F5C;&#x4E3A; <code>props.nested</code> &#x4F20;&#x5165;&#x5230;&#x5BF9;&#x5E94;&#x7684; <code>tdComp</code> &#x4E0E; <code>nested component</code> &#x4E2D;&#xFF1A;</p>
+<p>In the source&#xFF0C; <strong><code>__nested__</code></strong> would be passed to the related <strong><code>tdComp</code></strong> and <strong>nested components</strong>:</p>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!-- table body component (tdComp) --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">component</span>
   <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[column.tdComp]&quot;</span>
@@ -419,9 +420,9 @@
   <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
 </code></pre>
-<p>&#x7531;&#x6B64;&#xFF0C;&#x5728;&#x5BF9;&#x5E94;&#x7684;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#xFF0C;&#x5373;&#x53EF;&#x901A;&#x8FC7; <code>props.nested.$toggle</code> &#x5B9E;&#x73B0;&#x5BF9; <code>nested component</code> &#x7684;&#x63A7;&#x5236;<br>&#xFF08;&#x5F53;&#x7136;&#xFF0C;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; <code>props.row.__nested__.$toggle</code> &#x4E5F;&#x662F;&#x6CA1;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF09;</p>
+<p>By doing all these, we could control the <strong>nested component</strong> by <code>props.nested.$toggle</code> in the related dynamic components.<br>(Of cource, you can invoke <code>props.row.__nested__.$toggle</code>, which is the same thing)</p>
 <blockquote>
-<p>&#x9AD8;&#x7EA7;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps/td-Opt.vue" target="_blank"><code>Opt</code></a> &#x7EC4;&#x4EF6;&#x5BF9; <code>nested</code> &#x7684;&#x7528;&#x6CD5;&#x76F8;&#x5F53;&#x8BE6;&#x5C3D;&#xFF0C;&#x5EFA;&#x8BAE;&#x53C2;&#x8003;</p>
+<p>In the advanced example, component <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps/td-Opt.vue" target="_blank"><code>Opt</code></a> made a full use of <strong><code>nested</code></strong>, which is highly recommended to study and imitate.</p>
 </blockquote>
 
                                 
@@ -466,7 +467,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":":data","level":"1.5.3","depth":2,"next":{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},"previous":{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/props-data.md","mtime":"2017-06-05T11:20:20.711Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":":data","level":"1.5.3","depth":2,"next":{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},"previous":{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"detailed/props-data.md","mtime":"2017-06-06T10:42:32.516Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

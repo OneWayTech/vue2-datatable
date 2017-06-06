@@ -1,6 +1,6 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -71,7 +71,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +94,7 @@
                 <a href="../">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -107,7 +107,7 @@
                 <a href="../preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <a href="../tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -133,7 +133,7 @@
                 <a href="../getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="./">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <a href="dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +256,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +269,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +284,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -323,8 +323,8 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="columns"><code>:columns</code></h1>
-<p>&#x6211;&#x4EEC;&#x6765;&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src" target="_blank"><code>examples/src</code></a> &#x4E2D; &#x57FA;&#x672C;&#x4F8B;&#x5B50; &#x4E0E; &#x9AD8;&#x7EA7;&#x5217;&#x5B50; &#x7684; <code>columns</code> &#x5B9A;&#x4E49;&#xFF1A;</p>
-<pre><code class="lang-js"><span class="hljs-comment">// examples#basic - &#x7B80;&#x5355;&#x5199;&#x6CD5;</span>
+<p>Let&apos;s compare the <code>columns</code> definitions of the basic and advanced examples:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// examples#basic - shorthand version</span>
 columns: [
   { title: <span class="hljs-string">&apos;User ID&apos;</span>, field: <span class="hljs-string">&apos;uid&apos;</span>, sort: <span class="hljs-literal">true</span> },
   { title: <span class="hljs-string">&apos;Username&apos;</span>, field: <span class="hljs-string">&apos;name&apos;</span> },
@@ -333,7 +333,7 @@ columns: [
   { title: <span class="hljs-string">&apos;Country&apos;</span>, field: <span class="hljs-string">&apos;country&apos;</span> }
 ]
 
-<span class="hljs-comment">// examples#advanced - &#x6807;&#x51C6;&#x5199;&#x6CD5;</span>
+<span class="hljs-comment">// examples#advanced - standard version</span>
 columns: [{
   groupName: <span class="hljs-string">&apos;Normal&apos;</span>,
   columns: [
@@ -363,116 +363,116 @@ columns: [{
 }]
 </code></pre>
 <blockquote>
-<p>&#x5B9E;&#x9645;&#x4E0A; <code>#basic</code> &#x7684;&#x8FD9;&#x79CD;&#x7B80;&#x5199;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x4E3A; <code>#advanced</code> &#x7684;&#x6807;&#x51C6;&#x5F62;&#x5F0F;&#xFF08;&#x6E90;&#x7801;&#x89C1; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a> &#x4E2D;&#x7684; <code>computed.columns$</code>&#xFF09;</p>
+<p>According to the source (<code>computed.columns$</code> in <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a>), shorthand version would always be converted to standard version</p>
 </blockquote>
-<p>&#x4E0B;&#x9762;&#x5217;&#x51FA; <code>columns[i]</code> &#x4E2D;&#x7684;&#x53EF;&#x914D;&#x7F6E;&#x9879;&#xFF1A;</p>
+<p>These are attributes of <code>columns[i]</code>:</p>
 <table>
 <thead>
 <tr>
-<th>&#x53C2;&#x6570;</th>
-<th>&#x8BF4;&#x660E;</th>
-<th>&#x7C7B;&#x578B;</th>
-<th>&#x53EF;&#x9009;&#x9879;</th>
-<th>&#x9ED8;&#x8BA4;&#x503C;</th>
-<th>&#x662F;&#x5426;&#x5FC5;&#x987B;</th>
+<th>Attr</th>
+<th>Desc</th>
+<th>Type</th>
+<th>Optional values</th>
+<th>Default value</th>
+<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>title</td>
-<td>&#x663E;&#x793A;&#x540D;&#x79F0;</td>
+<td>Displayed title</td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>field</td>
-<td>&#x5B57;&#x6BB5;&#x540D;&#x79F0;</td>
+<td>Field name of row</td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>explain</td>
-<td>&#x8BF4;&#x660E;&#x6587;&#x5B57;</td>
+<td>Explaination of the field</td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>sort</td>
-<td>&#x662F;&#x5426;&#x652F;&#x6301;&#x6392;&#x5E8F;</td>
+<td>Is sortable</td>
 <td>Boolean</td>
 <td>true / false</td>
 <td>false</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>weight</td>
-<td>&#x6392;&#x540D;&#x6743;&#x91CD;</td>
+<td>Ranking weight</td>
 <td>Number</td>
 <td>-</td>
 <td>0</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>visible</td>
-<td>&#x662F;&#x5426;&#x663E;&#x793A;&#x8BE5;&#x5217;</td>
-<td>Boolean / String&#xFF08;&#x82E5;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x5219;&#x7981;&#x6B62;&#x8BBE;&#x7F6E;&#x8BE5;&#x5217;&#x663E;&#x9690;&#x72B6;&#x6001;&#xFF09;</td>
+<td>Is visible</td>
+<td>Boolean / String (if the type is String, the visibility is not allowed to toggle)</td>
 <td>true / false / &apos;true&apos; / &apos;false&apos;</td>
 <td>true</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>thClass</td>
-<td>&#x7528;&#x4E8E; <code>&lt;th&gt;</code> &#x7684;&#x7C7B;&#x540D;</td>
+<td>classnames for <code>&lt;th&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>thStyle</td>
-<td>&#x7528;&#x4E8E; <code>&lt;th&gt;</code> &#x7684;&#x5185;&#x8054;&#x6837;&#x5F0F;</td>
+<td>inline styles for <code>&lt;th&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>thComp</td>
-<td>&#x7528;&#x4E8E; <code>&lt;th&gt;</code> &#x7684;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x540D;</td>
+<td>name of dynamic component for <code>&lt;th&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>tdClass</td>
-<td>&#x7528;&#x4E8E; <code>&lt;td&gt;</code> &#x7684;&#x7C7B;&#x540D;</td>
+<td>classnames for <code>&lt;td&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>tdStyle</td>
-<td>&#x7528;&#x4E8E; <code>&lt;td&gt;</code> &#x7684;&#x5185;&#x8054;&#x6837;&#x5F0F;</td>
+<td>inline styles for <code>&lt;td&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 <tr>
 <td>tdComp</td>
-<td>&#x7528;&#x4E8E; <code>&lt;td&gt;</code> &#x7684;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x540D;</td>
+<td>name of dynamic component for <code>&lt;td&gt;</code></td>
 <td>String</td>
 <td>-</td>
 <td>-</td>
-<td>&#x5426;</td>
+<td>N</td>
 </tr>
 </tbody>
 </table>
@@ -503,7 +503,7 @@ columns: [{
 
             
                 
-                <a href="datatable-props.html" class="navigation navigation-prev " aria-label="Previous page: Datatable 配置项（props）">
+                <a href="datatable-props.html" class="navigation navigation-prev " aria-label="Previous page: props of Datatable">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -519,7 +519,7 @@ columns: [{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":":columns","level":"1.5.2","depth":2,"next":{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},"previous":{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/props-columns.md","mtime":"2017-06-05T11:20:20.705Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":":columns","level":"1.5.2","depth":2,"next":{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},"previous":{"title":"props of Datatable","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"detailed/props-columns.md","mtime":"2017-06-06T10:13:49.419Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

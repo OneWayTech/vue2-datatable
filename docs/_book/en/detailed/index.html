@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>详解 · GitBook</title>
+        <title>Detailed · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -71,7 +71,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +94,7 @@
                 <a href="../">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -107,7 +107,7 @@
                 <a href="../preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <a href="../tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -133,7 +133,7 @@
                 <a href="../getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="./">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <a href="dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +256,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +269,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +284,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -307,7 +307,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >详解</a>
+        <a href=".." >Detailed</a>
     </h1>
 </div>
 
@@ -322,19 +322,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xA7;-&#x8BE6;&#x89E3;">&#xA7; &#x8BE6;&#x89E3;</h1>
-<p>&#x5728;&#x8BB2;&#x89E3;&#x914D;&#x7F6E;&#x9879;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x672C; Datatable &#x7684;&#x6784;&#x9020;</p>
-<p>&#x6E90;&#x7801;&#x76EE;&#x5F55;&#x6811; <a href="https://github.com/OneWayTech/vue2-datatable/tree/master/lib" target="_blank"><code>lib/</code></a> &#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+                                <h1 id="&#xA7;-detailed">&#xA7; Detailed</h1>
+<p>It would be better for you to understand the structure of this Datatable before the detailed content</p>
+<p>The source tree <a href="https://github.com/OneWayTech/vue2-datatable/tree/master/lib" target="_blank"><code>lib/</code></a> shown as below:</p>
 <pre><code>lib/
- &#x251C;&#x2500; HeaderSettings/     # &#x8868;&#x5934;&#x8BBE;&#x7F6E;
- &#x2502;   &#x251C;&#x2500; ColumnGroup.vue   # &#x8868;&#x5934;&#x8BBE;&#x7F6E;&#x5206;&#x680F;&#x7EC4;&#x4EF6;
- &#x2502;   &#x2514;&#x2500; index.vue         # &#x8868;&#x5934;&#x8BBE;&#x7F6E;&#x4E3B;&#x4F53;
- &#x251C;&#x2500; HeadSort.vue        # &#x6392;&#x5E8F;
- &#x251C;&#x2500; LimitSelect.vue     # &#x6BCF;&#x9875;&#x663E;&#x793A;&#x8BB0;&#x5F55;&#x6570;&#x4E0B;&#x62C9;&#x9009;&#x62E9;&#x6846;
- &#x251C;&#x2500; MultiSelect.vue     # &#x884C;&#x9996;&#x591A;&#x9009;&#x6846;
- &#x251C;&#x2500; Pagination.vue      # &#x5206;&#x9875;
- &#x2514;&#x2500; index.vue           # Datatable &#x4E3B;&#x4F53;
-</code></pre><p>&#x4EE5;&#x9AD8;&#x7EA7;&#x4F8B;&#x5B50; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue" target="_blank"><code>examples/src/Advanced/index.vue</code></a> (<a href="https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced" target="_blank">demo - examples#advanced</a>) &#x4E3A;&#x4F8B;&#xFF0C;&#x6807;&#x6CE8;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x57FA;&#x672C;&#x6784;&#x6210;&#x7EC4;&#x4EF6;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+ &#x251C;&#x2500; HeaderSettings/
+ &#x2502;   &#x251C;&#x2500; ColumnGroup.vue
+ &#x2502;   &#x2514;&#x2500; index.vue
+ &#x251C;&#x2500; HeadSort.vue
+ &#x251C;&#x2500; LimitSelect.vue
+ &#x251C;&#x2500; MultiSelect.vue
+ &#x251C;&#x2500; Pagination.vue
+ &#x2514;&#x2500; index.vue
+</code></pre><p>Let&apos;s look at the structure of the advanced example (source - <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue" target="_blank"><code>examples/src/Advanced/index.vue</code></a>, demo - <a href="https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced" target="_blank">examples#advanced</a>)</p>
 <p><a href="images/structure.png" target="_blank">
   <img src="images/structure.png" alt="Structure">
 </a></p>
@@ -365,12 +365,12 @@
 
             
                 
-                <a href="../getting-started.html" class="navigation navigation-prev " aria-label="Previous page: 开始">
+                <a href="../getting-started.html" class="navigation navigation-prev " aria-label="Previous page: Getting started">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="datatable-props.html" class="navigation navigation-next " aria-label="Next page: Datatable 配置项（props）">
+                <a href="datatable-props.html" class="navigation navigation-next " aria-label="Next page: props of Datatable">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -381,7 +381,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"详解","level":"1.5","depth":1,"next":{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},"previous":{"title":"开始","level":"1.4","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/README.md","mtime":"2017-06-06T03:48:30.068Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Detailed","level":"1.5","depth":1,"next":{"title":"props of Datatable","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},"previous":{"title":"Getting started","level":"1.4","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"detailed/README.md","mtime":"2017-06-06T09:02:44.868Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

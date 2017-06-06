@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>详解 · GitBook</title>
+        <title>Dynamic Components · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="datatable-props.html" />
     
-    
-    <link rel="prev" href="../getting-started.html" />
+    <link rel="prev" href="props-xprops.html" />
     
 
     </head>
@@ -71,7 +69,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +92,7 @@
                 <a href="../">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -107,7 +105,7 @@
                 <a href="../preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -120,7 +118,7 @@
                 <a href="../tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -133,7 +131,7 @@
                 <a href="../getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -141,12 +139,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="./">
             
                 <a href="./">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +158,7 @@
                 <a href="datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -233,12 +231,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="dynamic-comps.html">
+        <li class="chapter active" data-level="1.5.7" data-path="dynamic-comps.html">
             
                 <a href="dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +254,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +267,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +282,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -307,7 +305,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >详解</a>
+        <a href=".." >Dynamic Components</a>
     </h1>
 </div>
 
@@ -322,22 +320,136 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xA7;-&#x8BE6;&#x89E3;">&#xA7; &#x8BE6;&#x89E3;</h1>
-<p>&#x5728;&#x8BB2;&#x89E3;&#x914D;&#x7F6E;&#x9879;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x672C; Datatable &#x7684;&#x6784;&#x9020;</p>
-<p>&#x6E90;&#x7801;&#x76EE;&#x5F55;&#x6811; <a href="https://github.com/OneWayTech/vue2-datatable/tree/master/lib" target="_blank"><code>lib/</code></a> &#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
-<pre><code>lib/
- &#x251C;&#x2500; HeaderSettings/     # &#x8868;&#x5934;&#x8BBE;&#x7F6E;
- &#x2502;   &#x251C;&#x2500; ColumnGroup.vue   # &#x8868;&#x5934;&#x8BBE;&#x7F6E;&#x5206;&#x680F;&#x7EC4;&#x4EF6;
- &#x2502;   &#x2514;&#x2500; index.vue         # &#x8868;&#x5934;&#x8BBE;&#x7F6E;&#x4E3B;&#x4F53;
- &#x251C;&#x2500; HeadSort.vue        # &#x6392;&#x5E8F;
- &#x251C;&#x2500; LimitSelect.vue     # &#x6BCF;&#x9875;&#x663E;&#x793A;&#x8BB0;&#x5F55;&#x6570;&#x4E0B;&#x62C9;&#x9009;&#x62E9;&#x6846;
- &#x251C;&#x2500; MultiSelect.vue     # &#x884C;&#x9996;&#x591A;&#x9009;&#x6846;
- &#x251C;&#x2500; Pagination.vue      # &#x5206;&#x9875;
- &#x2514;&#x2500; index.vue           # Datatable &#x4E3B;&#x4F53;
-</code></pre><p>&#x4EE5;&#x9AD8;&#x7EA7;&#x4F8B;&#x5B50; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue" target="_blank"><code>examples/src/Advanced/index.vue</code></a> (<a href="https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced" target="_blank">demo - examples#advanced</a>) &#x4E3A;&#x4F8B;&#xFF0C;&#x6807;&#x6CE8;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x57FA;&#x672C;&#x6784;&#x6210;&#x7EC4;&#x4EF6;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p><a href="images/structure.png" target="_blank">
-  <img src="images/structure.png" alt="Structure">
-</a></p>
+                                <h1 id="&#xA7;-dynamic-components&#xFF08;thcomp--tdcomp--nested-component&#xFF09;">&#xA7; Dynamic Components&#xFF08;<code>thComp / tdComp / nested component</code>&#xFF09;</h1>
+<blockquote>
+<p>The following code is excerpted from the source <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue" target="_blank"><code>lib/index.vue</code></a></p>
+</blockquote>
+<h2 id="&#x2299;-thcomp">&#x2299; <code>thComp</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- table head component (thComp) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;column.thComp&quot;</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[column.thComp]&quot;</span>
+  <span class="hljs-attr">:column</span>=<span class="hljs-string">&quot;column&quot;</span>
+  <span class="hljs-attr">:field</span>=<span class="hljs-string">&quot;column.field&quot;</span>
+  <span class="hljs-attr">:title</span>=<span class="hljs-string">&quot;column.title&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>prop</th>
+<th>Desc</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>Defination of column</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>field</td>
+<td>Field name</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Displayed title</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>all the <code>props</code> from Datatable</td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x2299;-tdcomp">&#x2299; <code>tdComp</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- table body component (tdComp) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;column.tdComp&quot;</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[column.tdComp]&quot;</span>
+  <span class="hljs-attr">:row</span>=<span class="hljs-string">&quot;item&quot;</span>
+  <span class="hljs-attr">:field</span>=<span class="hljs-string">&quot;column.field&quot;</span>
+  <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item[column.field]&quot;</span>
+  <span class="hljs-attr">:nested</span>=<span class="hljs-string">&quot;item.__nested__&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>prop</th>
+<th>Desc</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>Current row</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>field</td>
+<td>Field name</td>
+<td>String / undefined</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Value</td>
+<td>Any</td>
+</tr>
+<tr>
+<td>nested</td>
+<td>Controller of the related nested component&#xFF08;reference to <code>row.__nested__</code>&#xFF09;</td>
+<td>Object / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>all the <code>props</code> from Datatable</td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x2299;-nested-component">&#x2299; <code>nested component</code></h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- nested component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span>
+  <span class="hljs-attr">:is</span>=<span class="hljs-string">&quot;comp[item.__nested__.comp]&quot;</span>
+  <span class="hljs-attr">:row</span>=<span class="hljs-string">&quot;item&quot;</span>
+  <span class="hljs-attr">:nested</span>=<span class="hljs-string">&quot;item.__nested__&quot;</span>
+  <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$props&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>prop</th>
+<th>Desc</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>Current row</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>nested</td>
+<td>Controller of the related nested component&#xFF08;reference to <code>row.__nested__</code>&#xFF09;</td>
+<td>Object / undefined</td>
+</tr>
+<tr>
+<td><code>...$props</code></td>
+<td>all the <code>props</code> from Datatable</td>
+<td>(Spread)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps" target="_blank"><code>comps/</code></a> of the advanced example covers all the use cases, which is highly recommended to study and imitate.</p>
+</blockquote>
 
                                 
                                 </section>
@@ -365,14 +477,10 @@
 
             
                 
-                <a href="../getting-started.html" class="navigation navigation-prev " aria-label="Previous page: 开始">
+                <a href="props-xprops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: :xprops">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="datatable-props.html" class="navigation navigation-next " aria-label="Next page: Datatable 配置项（props）">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -381,7 +489,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"详解","level":"1.5","depth":1,"next":{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},"previous":{"title":"开始","level":"1.4","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/README.md","mtime":"2017-06-06T03:48:30.068Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Dynamic Components","level":"1.5.7","depth":2,"next":{"title":"Q & A (issues)","level":"1.6","depth":1,"url":"https://github.com/OneWayTech/vue2-datatable/issues","ref":"https://github.com/OneWayTech/vue2-datatable/issues","articles":[]},"previous":{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"detailed/dynamic-comps.md","mtime":"2017-06-06T12:09:21.009Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

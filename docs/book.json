@@ -5,7 +5,8 @@
     "edit-link": {
       "base": "https://github.com/OneWayTech/vue2-datatable/edit/master/docs",
       "label": {
-        "zh-cn": "编辑此页面"
+        "zh-cn": "编辑此页面",
+        "en": "Edit this page"
       }
     },
     "github": {

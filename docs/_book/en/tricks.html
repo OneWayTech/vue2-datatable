@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>开始 · GitBook</title>
+        <title>Tricks · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="detailed/" />
+    <link rel="next" href="getting-started.html" />
     
     
-    <link rel="prev" href="tricks.html" />
+    <link rel="prev" href="preface.html" />
     
 
     </head>
@@ -71,7 +71,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -94,7 +94,7 @@
                 <a href="./">
             
                     
-                    总览
+                    Catalog
             
                 </a>
             
@@ -107,7 +107,7 @@
                 <a href="preface.html">
             
                     
-                    前言
+                    Preface
             
                 </a>
             
@@ -115,12 +115,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="tricks.html">
+        <li class="chapter active" data-level="1.3" data-path="tricks.html">
             
                 <a href="tricks.html">
             
                     
-                    技巧
+                    Tricks
             
                 </a>
             
@@ -128,12 +128,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="getting-started.html">
+        <li class="chapter " data-level="1.4" data-path="getting-started.html">
             
                 <a href="getting-started.html">
             
                     
-                    开始
+                    Getting started
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="detailed/">
             
                     
-                    详解
+                    Detailed
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="detailed/datatable-props.html">
             
                     
-                    Datatable 配置项（props）
+                    props of Datatable
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <a href="detailed/dynamic-comps.html">
             
                     
-                    动态组件
+                    Dynamic Components
             
                 </a>
             
@@ -256,7 +256,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/issues">
             
                     
-                    问题反馈（issues）
+                    Q & A (issues)
             
                 </a>
             
@@ -269,7 +269,7 @@
                 <a target="_blank" href="https://github.com/OneWayTech/vue2-datatable/releases">
             
                     
-                    版本迭代（releases）
+                    Changelog (releases)
             
                 </a>
             
@@ -284,7 +284,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -307,7 +307,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >开始</a>
+        <a href="." >Tricks</a>
     </h1>
 </div>
 
@@ -322,46 +322,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xA7;-&#x5F00;&#x59CB;">&#xA7; &#x5F00;&#x59CB;</h1>
-<p>&#x6211;&#x4EEC;&#x4EE5;&#x57FA;&#x672C;&#x4F8B;&#x5B50; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue" target="_blank"><code>examples/src/Basic/index.vue</code></a> &#x4E3A;&#x4F8B;&#xFF0C;&#x6548;&#x679C;&#x89C1; <a href="https://OneWayTech.github.io/vue2-datatable/examples/dist" target="_blank">examples#basic</a></p>
+                                <h1 id="&#xA7;-tricks">&#xA7; Tricks</h1>
+<blockquote>
+<p>Before getting started, you&apos;d better prepare for a better comprehension</p>
+</blockquote>
+<hr>
+<h4 id="&#x2299;-grasp-the-usage-of-dynamic-components">&#x2299; Grasp the usage of dynamic components</h4>
+<p>See the official docs: <a href="https://vuejs.org/v2/guide/components.html#Dynamic-Components" target="_blank">Dynamic Components</a></p>
+<h4 id="&#x2299;-too-many-props-to-pass-v-bind-can-help-just-like-spread-operator--in-jsx">&#x2299; Too many <code>props</code> to pass? <a href="https://cn.vuejs.org/v2/api/#v-bind" target="_blank"><code>v-bind</code></a> can help just like spread operator (<code>...</code>) in JSX</h4>
+<blockquote>
+<p>According to <a href="https://github.com/vuejs/vue/issues/4962" target="_blank">vuejs/vue#4962</a></p>
+</blockquote>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>query: {{ query }}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">datatable</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$data&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hello-world</span>
+      <span class="hljs-attr">:a</span>=<span class="hljs-string">&quot;a&quot;</span>
+      <span class="hljs-attr">:b</span>=<span class="hljs-string">&quot;b&quot;</span>
+      <span class="hljs-attr">:c</span>=<span class="hljs-string">&quot;c&quot;</span>
+      <span class="hljs-attr">:d</span>=<span class="hljs-string">&quot;d&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">hello-world</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Do the same thing but the following is more elegant --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hello-world</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;$data&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> Datatable <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../../&apos;</span>
-<span class="hljs-keyword">import</span> mockData <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../_mockData&apos;</span>
-
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  components: { Datatable },
   data: () =&gt; ({
-    columns: [
-      { title: <span class="hljs-string">&apos;User ID&apos;</span>, field: <span class="hljs-string">&apos;uid&apos;</span>, sort: <span class="hljs-literal">true</span> },
-      { title: <span class="hljs-string">&apos;Username&apos;</span>, field: <span class="hljs-string">&apos;name&apos;</span> },
-      { title: <span class="hljs-string">&apos;Age&apos;</span>, field: <span class="hljs-string">&apos;age&apos;</span>, sort: <span class="hljs-literal">true</span> },
-      { title: <span class="hljs-string">&apos;Email&apos;</span>, field: <span class="hljs-string">&apos;email&apos;</span> },
-      { title: <span class="hljs-string">&apos;Country&apos;</span>, field: <span class="hljs-string">&apos;country&apos;</span> }
-    ],
-    data: [],
-    total: <span class="hljs-number">0</span>,
-    query: {}
-  }),
-  watch: {
-    query: {
-      handler (query) {
-        mockData(query).then(({ rows, total }) =&gt; {
-          <span class="hljs-keyword">this</span>.data = rows
-          <span class="hljs-keyword">this</span>.total = total
-        })
-      },
-      deep: <span class="hljs-literal">true</span>
-    }
-  }
+    a: <span class="hljs-number">1</span>,
+    b: <span class="hljs-number">2</span>,
+    c: <span class="hljs-number">3</span>,
+    d: <span class="hljs-number">4</span>
+  })
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
+<h4 id="&#x2299;-simplify-template-for-proptype-boolean">&#x2299; Simplify template for <code>propType: Boolean</code></h4>
+<p>Assume there is a <code>HelloWorld</code> component and its <code>props</code> defined as below:</p>
+<pre><code class="lang-js">props: {
+  test: <span class="hljs-built_in">Boolean</span>
+}
+</code></pre>
+<p>Then the following patterns are equal but the latter seemed more elegant.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">hello-world</span>
+  <span class="hljs-attr">:test</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">hello-world</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">hello-world</span> <span class="hljs-attr">test</span> /&gt;</span>
+</code></pre>
+<h4 id="&#x2299;-shorten-code-with-comma-operator">&#x2299; Shorten code with comma operator</h4>
+<pre><code class="lang-js">cols.map(col =&gt; {
+  col.weight = col.weight || <span class="hljs-number">0</span>
+  <span class="hljs-keyword">return</span> col
+})
+
+<span class="hljs-comment">// Shortened</span>
+cols.map(col =&gt; ((col.weight = col.weight || <span class="hljs-number">0</span>), col))
+</code></pre>
+<h4 id="&#x2299;-be-aware-of-whats-in-the-vue-instance">&#x2299; Be aware of what&apos;s in the Vue instance</h4>
+<p>Print the <code>$vm</code> with <a href="https://github.com/vuejs/vue-devtools" target="_blank">vue-devtools</a> or <code>console.log(this)</code> within a component,<br>to see what on earth attach to an Vue instance and what exactly they mean / do</p>
+<p>e.g. Source <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/HeaderSettings/ColumnGroup.vue" target="_blank"><code>lib/HeaderSettings/ColumnGroup.vue</code></a> made use of <code>$vm._uid</code><br>because it&apos;s the global unique component ID and we don&apos;t need to generate one ourselves</p>
+<blockquote>
+<p>Unique component IDs were generated by <code>setTimeout(() =&gt; {})</code> before, which was the simplest way</p>
+</blockquote>
 
                                 
                                 </section>
@@ -389,12 +411,12 @@
 
             
                 
-                <a href="tricks.html" class="navigation navigation-prev " aria-label="Previous page: 技巧">
+                <a href="preface.html" class="navigation navigation-prev " aria-label="Previous page: Preface">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="detailed/" class="navigation navigation-next " aria-label="Next page: 详解">
+                <a href="getting-started.html" class="navigation navigation-next " aria-label="Next page: Getting started">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -405,7 +427,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开始","level":"1.4","depth":1,"next":{"title":"详解","level":"1.5","depth":1,"path":"detailed/README.md","ref":"detailed/README.md","articles":[{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},{"title":":selection","level":"1.5.5","depth":2,"path":"detailed/props-selection.md","ref":"detailed/props-selection.md","articles":[]},{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]}]},"previous":{"title":"技巧","level":"1.3","depth":1,"path":"tricks.md","ref":"tricks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"getting-started.md","mtime":"2017-06-06T02:26:31.930Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":".","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Tricks","level":"1.3","depth":1,"next":{"title":"Getting started","level":"1.4","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"previous":{"title":"Preface","level":"1.2","depth":1,"path":"preface.md","ref":"preface.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"tricks.md","mtime":"2017-06-06T07:37:01.331Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T12:12:08.950Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>

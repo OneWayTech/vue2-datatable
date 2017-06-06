@@ -76,4 +76,4 @@ export default {
 </script>
 ```
 
-> Thanks to the trick, [the advanced example]((https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced) implemented **unlimited recursive nested components** with less effort.
+> Thanks to the trick, [the advanced example](https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced) implemented **unlimited recursive nested components** with less effort.

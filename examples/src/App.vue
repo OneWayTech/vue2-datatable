@@ -49,7 +49,7 @@
     </div>
 
     <footer>
-      Open Devtools - Console to see what Datatable send and receive
+      Open Devtools - Console to see what <code>_mockData</code> receive and respond
     </footer>
   </div>
 </template>

@@ -47,6 +47,10 @@
         </div>
       </div>
     </div>
+
+    <footer>
+      Open Devtools - Console to see what Datatable send and receive
+    </footer>
   </div>
 </template>
 <script>
@@ -65,6 +69,19 @@ export default {
 }
 </script>
 <style>
+html {
+  position: relative;
+  min-height: 100%;
+}
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px 0;
+  text-align: center;
+  color: #afafaf;
+}
 .m-t-10 {
   margin-top: 10px;
 }

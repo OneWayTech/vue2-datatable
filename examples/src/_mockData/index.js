@@ -3,6 +3,7 @@ import moment from 'moment'
 import orderBy from 'lodash/orderBy'
 import users from './dataSource'
 const typeOf = o => Object.prototype.toString.call(o).slice(8, -1).toLowerCase()
+const purify = o => JSON.parse(JSON.stringify(o)) // purify data
 
 /**
  * mockData - simulate Ajax request and respond
@@ -10,8 +11,8 @@ const typeOf = o => Object.prototype.toString.call(o).slice(8, -1).toLowerCase()
  * @resolve {Object}
  */
 export default function mockData(query) {
-  // default query fields
-  const { limit = 10, offset = 0, sort = '', order = 'asc' } = query
+  query = purify(query)
+  const { limit = 10, offset = 0, sort = '', order = '' } = query
 
   let rows = users;
 
@@ -33,7 +34,7 @@ export default function mockData(query) {
   if (sort) rows = orderBy(rows, sort, order)
 
   const res = {
-    rows: JSON.parse(JSON.stringify(rows.slice(offset, offset + limit))), // purify data
+    rows: rows.slice(offset, offset + limit),
     total: rows.length,
     summary: {
       name: rows.length,
@@ -41,10 +42,10 @@ export default function mockData(query) {
     }
   }
 
-  const consoleGroupName = 'Mock data generator - ' + moment().format('YYYY-MM-DD HH:mm:ss')
+  const consoleGroupName = 'Mock data - ' + moment().format('YYYY-MM-DD HH:mm:ss')
   console.group(consoleGroupName)
-  console.info('Receive:', JSON.stringify(query))
+  console.info('Receive:', query)
   console.info('Respond:', res)
   console.groupEnd(consoleGroupName)
-  return Promise.resolve(res)
+  return Promise.resolve(purify(res))
 }

@@ -1,6 +1,6 @@
 # `:xprops`
 
-`xprops`, meaning e**x**tra `props`
+`xprops`, meaning e**x**tra `props`.
 
 Our Datatable implements `thComp / tdComp / nested component` by dynamic components.  
 But the business requirements are changeful, which may pass many extra `props`.  
@@ -25,7 +25,7 @@ For the sake of keeping the source template clean, here comes `xprops` as a cont
 #### ⊙ Extended
 
 The most common trick in the use of `xprops` is passing an [eventbus](https://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication) which only for the current Datatable instance.  
-Therefore, no need to care about the namespacing (of event names)
+Therefore, no need to care about the namespacing (of event names).
 
 Let's try with the basic example:
 

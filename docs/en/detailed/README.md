@@ -1,6 +1,6 @@
 # § Detailed
 
-It would be better for you to understand the structure of this Datatable before the detailed content
+It would be better for you to understand the structure of this Datatable before the detailed content.
 
 The source tree [`lib/`](https://github.com/OneWayTech/vue2-datatable/tree/master/lib) shown as below:
 

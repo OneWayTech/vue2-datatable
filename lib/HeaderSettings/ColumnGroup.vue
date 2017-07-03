@@ -12,7 +12,7 @@
         :disabled="typeof col.visible === 'string'"
         @change="handleChange(idx, $event.target.checked)">
       <label :for="col.fieldId">
-        {{ col.title }}
+        {{ col.label || col.title }}
         <i v-if="col.explain" class="fa fa-info-circle cursor-help" :title="col.explain"></i>
       </label>
     </li>

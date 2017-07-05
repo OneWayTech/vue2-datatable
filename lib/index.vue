@@ -25,7 +25,7 @@
               </template>
 
               <i v-if="column.explain" class="fa fa-info-circle cursor-help" :title="column.explain"></i>
-              <head-sort v-if="column.sort" :field="column.field" :query="query" class="pull-right" />
+              <head-sort v-if="column.sort" :field="column.field" :query="query" />
             </th>
           </transition-group>
         </thead>

@@ -10,7 +10,9 @@
       </div>
       <div class="m-10 clearfix">
         <div class="btn-group btn-group-sm pull-right">
-          <button class="btn btn-default" @click="apply()">Apply</button>
+          <button class="btn btn-default" @click="apply()">
+            Apply
+          </button>
           <template v-if="supportBackup">
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle box-shadow-none">
               <span class="caret"></span>

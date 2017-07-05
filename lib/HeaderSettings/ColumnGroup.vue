@@ -25,7 +25,9 @@ export default {
   props: {
     colGroup: { type: Object, required: true }
   },
-  data: () => ({ changes: [] }), // record the changes with a stack
+  data: () => ({
+    changes: [] // record the changes with a stack
+  }),
   computed: {
     inputType () {
       return this.colGroup.type || 'checkbox'

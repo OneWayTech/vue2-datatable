@@ -151,8 +151,8 @@ export default {
       return this.columns$.length + (+!!this.selection)
     },
     data$ () {
-      const { data } = this
-      if (this.supportNested) {
+      const { data, supportNested } = this
+      if (supportNested) {
         // support nested components with extra magic
         data.forEach(item => {
           if (!item.__nested__) {
@@ -182,6 +182,22 @@ export default {
                 }
               }
             })
+            if (supportNested === 'accordion') {
+              this.$watch(
+                () => item.__nested__,
+                nested => {
+                  // only one nested component can be expanded at the same time
+                  if (data.filter(({ __nested__ }) => __nested__.visible).length < 2) return
+
+                  data.forEach(({ __nested__ }) => {
+                    if (__nested__.visible && __nested__ !== nested) {
+                      __nested__.visible = false
+                    }
+                  })
+                },
+                { deep: true }
+              )
+            }
             Object.defineProperty(item, '__nested__', { enumerable: false })
           }
         })

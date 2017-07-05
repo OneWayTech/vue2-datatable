@@ -14,8 +14,10 @@
             <th v-if="selection && data.length" width="1em" key="th-multi">
               <multi-select :selection="selection" :rows="data" />
             </th>
-            <th v-for="(column, idx) in columns$" :key="column.title || column.field || idx"
-              :class="column.thClass" :style="column.thStyle">
+            <th v-for="(column, idx) in columns$"
+              :key="column.title || column.field || idx"
+              :class="[column.colClass, column.thClass]"
+              :style="[column.colStyle, column.thStyle]">
               <!-- table head component (thComp). `v-bind` here is just like spread operator in JSX -->
               <component v-if="column.thComp" :is="comp[column.thComp]" v-bind="$props"
                 :column="column" :field="column.field" :title="column.title">
@@ -36,7 +38,9 @@
                 <td v-if="selection" width="1em">
                   <multi-select :selection="selection" :row="item" />
                 </td>
-                <td v-for="column in columns$" :class="column.tdClass" :style="column.tdStyle">
+                <td v-for="column in columns$"
+                  :class="[column.colClass, column.tdClass]"
+                  :style="[column.colStyle, column.tdStyle]">
                   <!-- table body component (tdComp) -->
                   <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                     :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
@@ -61,7 +65,9 @@
               <td v-if="selection" width="1em"></td>
               <template v-for="(column, idx) in columns$">
                 <!-- display the available fields only -->
-                <td v-if="summary[column.field]" :class="column.tdClass" :style="column.tdStyle">
+                <td v-if="summary[column.field]"
+                  :class="[column.colClass, column.tdClass]"
+                  :style="[column.colStyle, column.tdStyle]">
                   <!-- table body component (tdComp) -->
                   <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                     :row="summary" :field="column.field" :value="summary[column.field]">
@@ -148,7 +154,7 @@ export default {
       // return columns$.map(col => ((col.weight = col.weight || 0), col)).sort((a, b) => b.weight - a.weight)
     },
     colspan () {
-      return this.columns$.length + (+!!this.selection)
+      return this.columns$.length + !!this.selection
     },
     data$ () {
       const { data, supportNested } = this

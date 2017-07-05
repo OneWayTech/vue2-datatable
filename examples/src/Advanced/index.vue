@@ -30,17 +30,16 @@ export default {
         groupName: 'Normal',
         columns: [
           { title: 'Email', field: 'email', visible: false, thComp: 'FilterTh', tdComp: 'Email' },
-          { title: 'Username', field: 'name', thComp: 'FilterTh' },
-          { title: 'Country', field: 'country', thComp: 'FilterTh' },
+          { title: 'Username', field: 'name', thComp: 'FilterTh', tdStyle: { fontStyle: 'italic' } },
+          { title: 'Country', field: 'country', thComp: 'FilterTh', thStyle: { fontWeight: 'normal' } },
           { title: 'IP', field: 'ip', visible: false, tdComp: 'IP' }
         ]
       }, {
         groupName: 'Sortable',
         columns: [
           { title: 'User ID', field: 'uid', sort: true, visible: 'true', weight: 1 },
-          { title: 'Age', field: 'age', sort: true },
-          { title: 'Create time', field: 'createTime', sort: true,
-            thClass: 'w-240', tdClass: 'w-240', thComp: 'CreatetimeTh', tdComp: 'CreatetimeTd' }
+          { title: 'Age', field: 'age', sort: true, thClass: 'text-info', tdClass: 'text-success' },
+          { title: 'Create time', field: 'createTime', sort: true, colClass: 'w-240', thComp: 'CreatetimeTh', tdComp: 'CreatetimeTd' }
         ]
       }, {
         groupName: 'Extra (radio)',

@@ -208,6 +208,7 @@ export default {
   cursor: help;
 }
 .-summary-row {
+  font-weight: bold;
   background-color: #ddd !important;
 }
 </style>

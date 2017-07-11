@@ -1,7 +1,6 @@
 <template>
   <ul class="pagination m-0">
-    <li :class="{ 'disabled': isFirstPage }"
-      @click="turnPage(-1)">
+    <li v-if="!isFirstPage" @click="turnPage(-1)">
       <a href="javascript:;">
         <i class="fa fa-arrow-left"></i>
       </a>
@@ -14,7 +13,7 @@
         <i class="fa fa-ellipsis-h"></i>
       </a>
     </li>
-    <li :class="{ 'disabled': isLastPage }" @click="turnPage(1)">
+    <li v-if="!isLastPage" @click="turnPage(1)">
       <a href="javascript:;">
         <i class="fa fa-arrow-right"></i>
       </a>

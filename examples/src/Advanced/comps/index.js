@@ -6,7 +6,7 @@ export default {
   Email: require('./td-Email'),
   IP: require('./td-IP'),
   Opt: require('./td-Opt'),
+  FilterTh: require('./th-Filter')
   // [Vue warn]: Do not use built-in or reserved HTML elements as component id: Filter
   // Filter: require('./th-Filter')
-  FilterTh: require('./th-Filter')
 }

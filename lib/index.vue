@@ -78,14 +78,16 @@
                 </td>
                 <td v-else>
                   <!-- show summary label if the first column field has no data -->
-                  <i v-if="!idx" class="text-muted">Summary</i>
+                  <i v-if="!idx" class="text-muted">
+                    {{ $i18n('Summary') }}
+                  </i>
                 </td>
               </template>
             </tr>
           </template><!-- v-if="data.length" -->
           <tr v-else>
             <td :colspan="colspan" class="text-center text-muted">
-              ( No Data )
+              ( {{ $i18n('No Data') }} )
             </td>
           </tr>
         </tbody>
@@ -93,7 +95,7 @@
     </div><!-- .table-responsive -->
     <div v-if="Pagination" class="row">
       <div class="col-sm-6 nowrap">
-        <strong>Total {{ total }} ,</strong>
+        <strong>{{ $i18n('Total') }} {{ total }} {{ $i18n(',') }}</strong>
         <limit-select :query="query" />
       </div>
       <div class="col-sm-6">
@@ -150,6 +152,7 @@ export default {
       )
       // sort by columns$[i].weight in descending order
       return _orderBy(columns$.map(col => ((col.weight = col.weight || 0), col)), 'weight', 'desc')
+      
       // the sort shown below is not stable
       // return columns$.map(col => ((col.weight = col.weight || 0), col)).sort((a, b) => b.weight - a.weight)
     },

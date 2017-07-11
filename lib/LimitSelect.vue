@@ -1,10 +1,10 @@
 <template>
   <label>
-    Show
-    <select class="form-control input-sm inline-select" v-model="limit">
+    {{ $i18n('show') }}
+    <select class="form-control input-sm -limit-select" v-model="limit">
       <option v-for="i in options" :value="i">{{ i }}</option>
     </select>
-    items per page
+    {{ $i18n('items per page') }}
   </label>
 </template>
 <script>
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style>
-.inline-select {
+.-limit-select {
   display: inline-block;
   width: 65px;
 }

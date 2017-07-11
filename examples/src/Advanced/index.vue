@@ -16,14 +16,13 @@
 </template>
 <script>
 import Vue from 'vue'
-import Datatable from '../../../'
 import mockData from '../_mockData'
-import comps from './comps/'
+import components from './comps/'
 
 export default {
-  name: 'FriendsTable', // `name` is required as a recursive component!
+  components,
+  name: 'FriendsTable', // `name` is required as a recursive component
   props: ['row'], // `props.row` from the parent FriendsTable (if exists)
-  components: { Datatable, ...comps },
   data () {
     return {    
       columns: [{
@@ -37,7 +36,7 @@ export default {
       }, {
         groupName: 'Sortable',
         columns: [
-          { title: 'User ID', field: 'uid', sort: true, visible: 'true', weight: 1 },
+          { title: 'UID', field: 'uid', label: 'User ID', sort: true, visible: 'true', weight: 1 },
           { title: 'Age', field: 'age', sort: true, thClass: 'text-info', tdClass: 'text-success' },
           { title: 'Create time', field: 'createTime', sort: true, colClass: 'w-240', thComp: 'CreatetimeTh', tdComp: 'CreatetimeTd' }
         ]

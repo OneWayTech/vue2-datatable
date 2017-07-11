@@ -3,10 +3,9 @@
   "description": "The Best Datatable for Vue.js 2.x which never sucks",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
   "version": "1.0.0",
-  "main": "lib/index.vue",
   "scripts": {
-    "start": "vue build examples/src/App.vue --config vue-build.config.js",
-    "build": "vue build examples/src/App.vue --config vue-build.config.js --prod",
+    "start": "vue build examples/src/app.js --config vue-build.config.js",
+    "build": "vue build examples/src/app.js --config vue-build.config.js --prod",
     "build:docs": "gitbook build docs/"
   },
   "repository": {

@@ -5,11 +5,9 @@
   </div>
 </template>
 <script>
-import Datatable from '../../../'
 import mockData from '../_mockData'
 
 export default {
-  components: { Datatable },
   data: () => ({
     columns: [
       { title: 'User ID', field: 'uid', sort: true },

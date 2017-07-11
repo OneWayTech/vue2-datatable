@@ -40,10 +40,10 @@
       </ul>
       <div class="tab-content m-t-10">
         <div class="tab-pane" :class="{ active: showTab === 'basic' }">
-          <basic />
+          <basic v-if="showTab === 'basic'" />
         </div>
         <div class="tab-pane" :class="{ active: showTab === 'advanced' }">
-          <advanced />
+          <advanced v-if="showTab === 'advanced'" />
         </div>
       </div>
     </div>

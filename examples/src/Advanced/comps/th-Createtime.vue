@@ -30,5 +30,6 @@ export default {
 .-th-createtime-comp > select {
   display: inline-block;
   width: 80px;
+  height: 26px;
 }
 </style>

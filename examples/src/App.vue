@@ -82,6 +82,7 @@ footer {
   right: 0;
   bottom: 0;
   padding: 5px 0;
+  font-size: 12px;
   text-align: center;
   color: #afafaf;
 }

@@ -7,7 +7,7 @@
       <slot></slot>
     </div>
     <!-- `.panel.panel-default` is for rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
-    <div class="table-responsive panel panel-default">
+    <div class="table-responsive panel panel-default m-b-10">
       <table class="table table-striped table-hover" :class="{ 'table-bordered': tableBordered }">
         <thead>
           <transition-group name="fade" tag="tr">
@@ -105,11 +105,11 @@
   </div>
 </template>
 <script>
-import HeaderSettings from './HeaderSettings/'
-import HeadSort from './HeadSort'
-import LimitSelect from './LimitSelect'
-import MultiSelect from './MultiSelect'
-import Pagination from './Pagination'
+import HeaderSettings from './HeaderSettings/index.vue'
+import HeadSort from './HeadSort.vue'
+import LimitSelect from './LimitSelect.vue'
+import MultiSelect from './MultiSelect.vue'
+import Pagination from './Pagination.vue'
 import replaceWith from 'replace-with'
 import _orderBy from 'lodash/orderBy'
 

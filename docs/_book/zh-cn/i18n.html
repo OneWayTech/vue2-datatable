@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>总览 · GitBook</title>
+        <title>国际化 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="preface.html" />
+    <link rel="next" href="DIY.html" />
     
+    
+    <link rel="prev" href="detailed/dynamic-comps.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -249,7 +251,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="i18n.html">
+        <li class="chapter active" data-level="1.6" data-path="i18n.html">
             
                 <a href="i18n.html">
             
@@ -331,7 +333,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >总览</a>
+        <a href="." >国际化</a>
     </h1>
 </div>
 
@@ -346,27 +348,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xA7;-&#x603B;&#x89C8;">&#xA7; &#x603B;&#x89C8;</h1>
-<ul>
-<li><a href="./">&#x603B;&#x89C8;</a></li>
-<li><a href="preface.html">&#x524D;&#x8A00;</a></li>
-<li><a href="tricks.html">&#x6280;&#x5DE7;</a></li>
-<li><a href="getting-started.html">&#x5F00;&#x59CB;</a></li>
-<li><a href="detailed/">&#x8BE6;&#x89E3;&#xFF08;&#x70B9;&#x6211;&#xFF09;</a><ul>
-<li><a href="detailed/datatable-props.html">Datatable &#x914D;&#x7F6E;&#x9879;&#xFF08;<code>props</code>&#xFF09;</a></li>
-<li><a href="detailed/props-columns.html"><code>:columns</code></a></li>
-<li><a href="detailed/props-data.html"><code>:data</code></a></li>
-<li><a href="detailed/props-query.html"><code>:query</code></a></li>
-<li><a href="detailed/props-selection.html"><code>:selection</code></a></li>
-<li><a href="detailed/props-xprops.html"><code>:xprops</code></a></li>
-<li><a href="detailed/dynamic-comps.html">&#x52A8;&#x6001;&#x7EC4;&#x4EF6;</a></li>
-</ul>
-</li>
-<li><a href="i18n.html">&#x56FD;&#x9645;&#x5316;</a></li>
-<li><a href="DIY.html">&#x81EA;&#x5B9A;&#x5236; (DIY)</a></li>
-<li><a href="https://github.com/OneWayTech/vue2-datatable/issues" target="_blank">&#x95EE;&#x9898;&#x53CD;&#x9988;&#xFF08;issues&#xFF09;</a></li>
-<li><a href="https://github.com/OneWayTech/vue2-datatable/releases" target="_blank">&#x7248;&#x672C;&#x8FED;&#x4EE3;&#xFF08;releases&#xFF09;</a></li>
-</ul>
+                                <h1 id="&#xA7;-&#x56FD;&#x9645;&#x5316;">&#xA7; &#x56FD;&#x9645;&#x5316;</h1>
+<h2 id="&#x2299;-&#x5B9E;&#x4F8B;">&#x2299; &#x5B9E;&#x4F8B;</h2>
+<p>&#x4EE5;&#x4E2D;&#x6587;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Datatable <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue2-datatable-component&apos;</span>
+<span class="hljs-keyword">import</span> locale <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue2-datatable-component/locales/zh-cn&apos;</span>
+
+Vue.use(Datatable, { locale }) <span class="hljs-comment">// OK</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/locales/zh-cn.js" target="_blank"><code>locales/zh-cn.js</code></a> &#x5305;&#x542B;&#x4EC0;&#x4E48;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-comment">/* HeaderSettings/index.vue */</span>
+  <span class="hljs-string">&apos;Apply&apos;</span>: <span class="hljs-string">&apos;&#x5E94;&#x7528;&apos;</span>,
+  <span class="hljs-string">&apos;Apply and backup settings to local&apos;</span>: <span class="hljs-string">&apos;&#x5E94;&#x7528;&#x5E76;&#x4FDD;&#x5B58;&#x8BBE;&#x7F6E;&#x5230;&#x672C;&#x5730;&apos;</span>,
+  <span class="hljs-string">&apos;Clear local settings backup and restore&apos;</span>: <span class="hljs-string">&apos;&#x6E05;&#x7A7A;&#x672C;&#x5730;&#x8BBE;&#x7F6E;&#x5E76;&#x6062;&#x590D;&apos;</span>,
+  <span class="hljs-string">&apos;Using local settings&apos;</span>: <span class="hljs-string">&apos;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x8BBE;&#x7F6E;&apos;</span>,
+
+  <span class="hljs-comment">/* index.vue */</span>
+  <span class="hljs-string">&apos;Summary&apos;</span>: <span class="hljs-string">&apos;&#x6C47;&#x603B;&apos;</span>,
+  <span class="hljs-string">&apos;No Data&apos;</span>: <span class="hljs-string">&apos;&#x65E0;&#x6570;&#x636E;&apos;</span>,
+  <span class="hljs-string">&apos;Total&apos;</span>: <span class="hljs-string">&apos;&#x5171;&apos;</span>,
+  <span class="hljs-string">&apos;,&apos;</span>: <span class="hljs-string">&apos;&#x9879;&#xFF0C;&apos;</span>,
+
+  <span class="hljs-comment">/* LimitSelect.vue */</span>
+  <span class="hljs-string">&apos;show&apos;</span>: <span class="hljs-string">&apos;&#x6BCF;&#x9875;&#x5C55;&#x793A;&apos;</span>,
+  <span class="hljs-string">&apos;items per page&apos;</span>: <span class="hljs-string">&apos;&#x9879;&apos;</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x4EC5;&#x4EC5;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x800C;&#x5DF2;</p>
+<h2 id="&#x2299;-&#x539F;&#x7406;">&#x2299; &#x539F;&#x7406;</h2>
+<p>&#x672C;&#x7EC4;&#x4EF6;&#x91C7;&#x7528;&#x7684;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6848;&#xFF08;&#x89C1; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/index.js" target="_blank"><code>index.js</code></a>&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> Datatable <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./lib/index.vue&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  install (Vue, options = {}) {
+    <span class="hljs-keyword">const</span> { locale = {} } = options
+
+    <span class="hljs-comment">// this might be the simplest i18n solution</span>
+    Vue.prototype.$i18n = srcTxt =&gt; locale[srcTxt] || srcTxt
+
+    Vue.component(<span class="hljs-string">&apos;Datatable&apos;</span>, Datatable)
+  }
+}
+</code></pre>
+<p>&#x6A21;&#x677F;&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x64CD;&#x4F5C;&#xFF08;&#x4EE5; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/LimitSelect.vue" target="_blank"><code>lib/LimitSelect.vue</code></a> &#x4E3A;&#x4F8B;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+    {{ $i18n(&apos;show&apos;) }}
+    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control input-sm -limit-select&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;limit&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;i in options&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;i&quot;</span>&gt;</span>{{ i }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    {{ $i18n(&apos;items per page&apos;) }}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+...
+</code></pre>
+<p>&#x5F88;&#x7B80;&#x5355;&#x5427;&#xFF1F;</p>
 
                                 
                                 </section>
@@ -394,8 +432,12 @@
 
             
                 
+                <a href="detailed/dynamic-comps.html" class="navigation navigation-prev " aria-label="Previous page: 动态组件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="preface.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 前言">
+                
+                <a href="DIY.html" class="navigation navigation-next " aria-label="Next page: 自定制 (DIY)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -406,7 +448,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"总览","level":"1.1","depth":1,"next":{"title":"前言","level":"1.2","depth":1,"path":"preface.md","ref":"preface.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"README.md","mtime":"2017-06-05T02:10:12.958Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T10:19:54.330Z"},"basePath":".","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"国际化","level":"1.6","depth":1,"next":{"title":"自定制 (DIY)","level":"1.7","depth":1,"path":"DIY.md","ref":"DIY.md","articles":[]},"previous":{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"i18n.md","mtime":"2017-07-12T09:30:56.656Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T10:19:54.330Z"},"basePath":".","book":{"language":"zh-cn"}});
         });
     </script>
 </div>

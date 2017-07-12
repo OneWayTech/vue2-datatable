@@ -1,4 +1,4 @@
-import Datatable from './lib/'
+import Datatable from './lib/index.vue'
 
 export default {
   install (Vue, options = {}) {

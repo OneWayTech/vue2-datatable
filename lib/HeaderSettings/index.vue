@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import ColumnGroup from './ColumnGroup'
+import ColumnGroup from './ColumnGroup.vue'
 import replaceWith from 'replace-with'
 const LS = localStorage
 const parseStr = JSON.parse

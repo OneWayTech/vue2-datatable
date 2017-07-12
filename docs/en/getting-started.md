@@ -1,5 +1,14 @@
 # § Getting started
 
+`>_ npm i -S vue2-datatable-component`
+
+```js
+import Vue from 'vue'
+import Datatable from 'vue2-datatable-component'
+
+Vue.use(Datatable) // OK
+```
+
 Let's roll up with the basic example (source - [`examples/src/Basic/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue) , demo - [examples#basic](https://OneWayTech.github.io/vue2-datatable/examples/dist))
 
 ```html
@@ -10,11 +19,9 @@ Let's roll up with the basic example (source - [`examples/src/Basic/index.vue`](
   </div>
 </template>
 <script>
-import Datatable from '../../../'
 import mockData from '../_mockData'
 
 export default {
-  components: { Datatable },
   data: () => ({
     columns: [
       { title: 'User ID', field: 'uid', sort: true },

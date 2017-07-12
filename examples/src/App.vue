@@ -64,7 +64,10 @@ export default {
     showTab: getCurHash() || 'basic'
   }),
   mounted () {
-    $(window).on('hashchange', () => this.showTab = getCurHash())
+    $(window).on('hashchange', () => {
+      this.showTab = getCurHash()
+      console.clear()
+    })
   }
 }
 </script>

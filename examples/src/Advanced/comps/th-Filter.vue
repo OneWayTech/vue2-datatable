@@ -32,9 +32,11 @@ export default {
   },
   methods: {
     search () {
+      const { query } = this
       // `$props.query` is set to `{ limit: 10, offset: 0, sort: '', order: '' }` by default
       // custom query fields must be set to observable by `Vue.set / $vm.$set` manually
-      this.$set(this.query, this.field, this.keyword)
+      this.$set(query, this.field, this.keyword)
+      query.offset = 0 // reset pagination
     }
   }
 }

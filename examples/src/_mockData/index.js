@@ -1,4 +1,3 @@
-import 'es6-shim'
 import moment from 'moment'
 import orderBy from 'lodash/orderBy'
 import users from './dataSource'

@@ -22,8 +22,8 @@
     "replace-with": "^1.0.0"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.23.0",
     "clean-webpack-plugin": "^0.1.16",
-    "es6-shim": "^0.35.3",
     "gitbook-cli": "^2.3.0",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",

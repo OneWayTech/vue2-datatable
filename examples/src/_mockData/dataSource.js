@@ -27,7 +27,7 @@ for (let i = 1; i <= total; i++) {
     ),
     ip: Random.ip(),
     color: Random.color(),
-    createTime: +new Date(Random.datetime()) // timestamp
+    createTime: +new Date(Random.datetime('yyyy/MM/dd HH:mm:ss')) // to timestamp
   })
 }
 

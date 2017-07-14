@@ -42,9 +42,11 @@ export default function mockData(query) {
   }
 
   const consoleGroupName = 'Mock data - ' + moment().format('YYYY-MM-DD HH:mm:ss')
-  console.group(consoleGroupName)
-  console.info('Receive:', query)
-  console.info('Respond:', res)
-  console.groupEnd(consoleGroupName)
+  setTimeout(() => { // avoid blocking the main thread
+    console.group(consoleGroupName)
+    console.info('Receive:', query)
+    console.info('Respond:', res)
+    console.groupEnd(consoleGroupName)
+  }, 0)
   return Promise.resolve(purify(res))
 }

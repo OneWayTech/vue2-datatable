@@ -54,11 +54,12 @@ These are attributes of `columns[i]`:
 | sort | Is sortable | Boolean | true / false | false | N |
 | weight | Ranking weight | Number | - | 0 | N |
 | visible | Is visible | Boolean / String (if the type is String, the visibility is not allowed to toggle) | true / false / 'true' / 'false' | true | N |
-| colClass | classnames for `<th> / <td>` | String | - | - | N |
+| colspan | colspan for `<th> / <td>` | Number | - | - | N |
+| colClass | classes for `<th> / <td>` | String / Object | - | - | N |
 | colStyle | inline styles for `<th> / <td>` | Object | - | - | N |
-| thClass | classnames for `<th>` | String | - | - | N |
+| thClass | classes for `<th>` | String | - | - | N |
 | thStyle | inline styles for `<th>` | Object | - | - | N |
 | thComp | name of dynamic component for `<th>` | String | - | - | N |
-| tdClass | classnames for `<td>` | String | - | - | N |
+| tdClass | classes for `<td>` | String | - | - | N |
 | tdStyle | inline styles for `<td>` | Object | - | - | N |
 | tdComp | name of dynamic component for `<td>` | String | - | - | N |

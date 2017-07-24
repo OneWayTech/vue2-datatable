@@ -410,6 +410,14 @@
 <td>&#x5426;</td>
 </tr>
 <tr>
+<td>xprops</td>
+<td>&#x989D;&#x5916;&#x4F20;&#x7ED9;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x7684;&#x627F;&#x8F7D;&#x5BB9;&#x5668;</td>
+<td>Object</td>
+<td>-</td>
+<td>-</td>
+<td>&#x5426;</td>
+</tr>
+<tr>
 <td>HeaderSettings</td>
 <td>&#x662F;&#x5426;&#x663E;&#x793A;&#x8868;&#x5934;&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;</td>
 <td>Boolean</td>
@@ -426,9 +434,17 @@
 <td>&#x5426;</td>
 </tr>
 <tr>
-<td>xprops</td>
-<td>&#x989D;&#x5916;&#x4F20;&#x7ED9;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x7684;&#x627F;&#x8F7D;&#x5BB9;&#x5668;</td>
-<td>Object</td>
+<td>tbl-class</td>
+<td>&#x7528;&#x4E8E; <code>&lt;table&gt;</code> &#x7684;&#x7C7B;&#x540D;</td>
+<td>String / Object / Array</td>
+<td>-</td>
+<td>-</td>
+<td>&#x5426;</td>
+</tr>
+<tr>
+<td>tbl-style</td>
+<td>&#x7528;&#x4E8E; <code>&lt;table&gt;</code> &#x7684;&#x5185;&#x8054;&#x6837;&#x5F0F;</td>
+<td>String / Object / Array</td>
 <td>-</td>
 <td>-</td>
 <td>&#x5426;</td>
@@ -446,14 +462,6 @@
 <td>&#x662F;&#x5426;&#x652F;&#x6301;&#x5185;&#x5D4C;&#x7EC4;&#x4EF6; (nested component)&#x3002;&#x82E5;&#x4F20;&#x5165; &apos;accordion&apos; &#x5219;&#x91C7;&#x7528;&#x624B;&#x98CE;&#x7434;&#x7B56;&#x7565;</td>
 <td>Boolean / String</td>
 <td>true / false / &apos;accordion&apos;</td>
-<td>false</td>
-<td>&#x5426;</td>
-</tr>
-<tr>
-<td>table-bordered</td>
-<td>&#x662F;&#x5426;&#x6DFB;&#x52A0; <code>.table-bordered</code> &#x7C7B;&#x5230; <code>&lt;table&gt;</code> &#x5143;&#x7D20;</td>
-<td>Boolean</td>
-<td>true / false</td>
 <td>false</td>
 <td>&#x5426;</td>
 </tr>
@@ -515,7 +523,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"next":{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},"previous":{"title":"详解（点我）","level":"1.5","depth":1,"path":"detailed/README.md","ref":"detailed/README.md","articles":[{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},{"title":":selection","level":"1.5.5","depth":2,"path":"detailed/props-selection.md","ref":"detailed/props-selection.md","articles":[]},{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/datatable-props.md","mtime":"2017-07-12T08:49:14.904Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T10:19:54.330Z"},"basePath":"..","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"next":{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},"previous":{"title":"详解（点我）","level":"1.5","depth":1,"path":"detailed/README.md","ref":"detailed/README.md","articles":[{"title":"Datatable 配置项（props）","level":"1.5.1","depth":2,"path":"detailed/datatable-props.md","ref":"detailed/datatable-props.md","articles":[]},{"title":":columns","level":"1.5.2","depth":2,"path":"detailed/props-columns.md","ref":"detailed/props-columns.md","articles":[]},{"title":":data","level":"1.5.3","depth":2,"path":"detailed/props-data.md","ref":"detailed/props-data.md","articles":[]},{"title":":query","level":"1.5.4","depth":2,"path":"detailed/props-query.md","ref":"detailed/props-query.md","articles":[]},{"title":":selection","level":"1.5.5","depth":2,"path":"detailed/props-selection.md","ref":"detailed/props-selection.md","articles":[]},{"title":":xprops","level":"1.5.6","depth":2,"path":"detailed/props-xprops.md","ref":"detailed/props-xprops.md","articles":[]},{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"detailed/datatable-props.md","mtime":"2017-07-24T08:48:11.944Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-24T09:16:18.132Z"},"basePath":"..","book":{"language":"zh-cn"}});
         });
     </script>
 </div>

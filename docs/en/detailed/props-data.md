@@ -40,6 +40,7 @@ data$ () {
             }
           }
         })
+        ... // omit the implementation of accordion
         Object.defineProperty(item, '__nested__', { enumerable: false })
       }
     })

@@ -8,16 +8,17 @@
     </div>
     <!-- `.panel.panel-default` is for rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
     <div class="table-responsive panel panel-default m-b-10">
-      <table class="table table-striped table-hover" :class="{ 'table-bordered': tableBordered }">
+      <table class="table table-striped table-hover" :class="tblClass" :style="tblStyle">
         <thead>
           <transition-group name="fade" tag="tr">
-            <th v-if="selection && data.length" width="1em" key="th-multi">
+            <th v-if="selection && data.length" width="30px" key="--th-multi">
               <multi-select :selection="selection" :rows="data" />
             </th>
             <th v-for="(column, idx) in columns$"
               :key="column.title || column.field || idx"
               :class="[column.colClass, column.thClass]"
-              :style="[column.colStyle, column.thStyle]">
+              :style="[column.colStyle, column.thStyle]"
+              :colspan="column.colspan">
               <!-- table head component (thComp). `v-bind` here is just like spread operator in JSX -->
               <component v-if="column.thComp" :is="comp[column.thComp]" v-bind="$props"
                 :column="column" :field="column.field" :title="column.title">
@@ -35,12 +36,13 @@
           <template v-if="data.length">
             <template v-for="item in data$">
               <tr>
-                <td v-if="selection" width="1em">
+                <td v-if="selection" width="30px">
                   <multi-select :selection="selection" :row="item" />
                 </td>
                 <td v-for="column in columns$"
                   :class="[column.colClass, column.tdClass]"
-                  :style="[column.colStyle, column.tdStyle]">
+                  :style="[column.colStyle, column.tdStyle]"
+                  :colspan="column.colspan">
                   <!-- table body component (tdComp) -->
                   <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                     :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
@@ -52,7 +54,7 @@
               </tr>
               <transition name="fade">
                 <tr v-if="item.__nested__ && item.__nested__.visible">
-                  <td :colspan="colspan">
+                  <td :colspan="colLen">
                     <!-- nested component -->
                     <component :is="comp[item.__nested__.comp]"
                       :row="item" :nested="item.__nested__" v-bind="$props">
@@ -67,7 +69,8 @@
                 <!-- display the available fields only -->
                 <td v-if="summary[column.field]"
                   :class="[column.colClass, column.tdClass]"
-                  :style="[column.colStyle, column.tdStyle]">
+                  :style="[column.colStyle, column.tdStyle]"
+                  :colspan="column.colspan">
                   <!-- table body component (tdComp) -->
                   <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                     :row="summary" :field="column.field" :value="summary[column.field]">
@@ -86,7 +89,7 @@
             </tr>
           </template><!-- v-if="data.length" -->
           <tr v-else>
-            <td :colspan="colspan" class="text-center text-muted">
+            <td :colspan="colLen" class="text-center text-muted">
               ( {{ $i18n('No Data') }} )
             </td>
           </tr>
@@ -123,12 +126,13 @@ export default {
     query: { type: Object, required: true },
     selection: Array, // for multi-select
     summary: Object, // an extra summary row
+    xprops: Object, // extra custom props passing to dynamic components
     HeaderSettings: { type: Boolean, default: true },
     Pagination: { type: Boolean, default: true },
-    xprops: Object, // extra custom props passing to dynamic components
+    tblClass: [String, Object, Array], // classes for <table>
+    tblStyle: [String, Object, Array], // inline styles for <table>
     supportBackup: Boolean, // support header settings backup
-    supportNested: Boolean, // support nested components
-    tableBordered: Boolean // add `.table-bordered` to <table>
+    supportNested: Boolean // support nested components
   },
   created () { // init query
     const { query } = this
@@ -138,6 +142,9 @@ export default {
   computed: {
     comp () {
       return this.$parent.$options.components // source of dynamic components
+    },
+    colLen () {
+      return this.columns$.length + !!this.selection
     },
     columns$ () {
       const { columns } = this
@@ -155,9 +162,6 @@ export default {
       
       // the sort shown below is not stable
       // return columns$.map(col => ((col.weight = col.weight || 0), col)).sort((a, b) => b.weight - a.weight)
-    },
-    colspan () {
-      return this.columns$.length + !!this.selection
     },
     data$ () {
       const { data, supportNested } = this

@@ -37,6 +37,7 @@ data$ () {
             }
           }
         })
+        ... // 省略手风琴的实现
         Object.defineProperty(item, '__nested__', { enumerable: false })
       }
     })

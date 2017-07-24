@@ -1,11 +1,7 @@
 <template>
   <div>
     <p><code>query: {{ query }}</code></p>
-    <datatable
-      support-backup
-      support-nested
-      table-bordered
-      v-bind="$data">
+    <datatable v-bind="$data">
       <button class="btn btn-default" @click="alertSelectedUids"
         :disabled="!selection.length">
         <i class="fa fa-commenting-o"></i>
@@ -24,7 +20,11 @@ export default {
   name: 'FriendsTable', // `name` is required as a recursive component
   props: ['row'], // `props.row` from the parent FriendsTable (if exists)
   data () {
-    return {    
+    return {
+      supportBackup: true,
+      supportNested: true,
+      tblClass: 'table-bordered',
+      tblStyle: 'color: #666',
       columns: [{
         groupName: 'Normal',
         columns: [

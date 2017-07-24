@@ -132,7 +132,7 @@ export default {
     tblClass: [String, Object, Array], // classes for <table>
     tblStyle: [String, Object, Array], // inline styles for <table>
     supportBackup: Boolean, // support header settings backup
-    supportNested: Boolean // support nested components
+    supportNested: [Boolean, String] // support nested components (String is only for 'accordion')
   },
   created () { // init query
     const { query } = this

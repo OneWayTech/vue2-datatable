@@ -34,7 +34,7 @@
           </template>
         </div>
       </div>
-      <small v-if="usingBak" class="pull-left text-muted m-t--20">
+      <small v-if="usingBak" class="pull-left text-muted m-t--8">
         ( {{ $i18n('Using local settings') }} )
       </small>
     </div>
@@ -132,8 +132,8 @@ export default {
 .m-10 {
   margin: 10px;
 }
-.m-t--20 {
-  margin-top: -20px;
+.m-t--8 {
+  margin-top: -8px;
 }
 .box-shadow-none {
   box-shadow: none !important;

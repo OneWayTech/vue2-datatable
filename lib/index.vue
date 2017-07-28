@@ -155,7 +155,7 @@ export default {
       columns.forEach(colGroup => columns$.push(
         ...colGroup.columns
           .map(col => (col.visible = typeof col.visible === 'undefined' ? true : col.visible, col))
-          .filter(col => col.visible))
+          .filter(col => '' + col.visible === 'true'))
       )
       // sort by columns$[i].weight in descending order
       return _orderBy(columns$.map(col => ((col.weight = col.weight || 0), col)), 'weight', 'desc')

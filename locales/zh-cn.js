@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   /* HeaderSettings/index.vue */
   'Apply': '应用',
   'Apply and backup settings to local': '应用并保存设置到本地',
@@ -14,4 +14,4 @@ export default {
   /* LimitSelect.vue */
   'show': '每页展示',
   'items per page': '项'
-}
+};

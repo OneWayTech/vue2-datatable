@@ -8,12 +8,13 @@
 | query | Query object | Object | - | - | Y |
 | selection | Container of multi-select | Array | - | - | N |
 | summary | Summary row | Object | - | - | N |
+| xprops | Container of extra props passed to dynamic components | Object | - | - | N |
 | HeaderSettings | Should render HeaderSettings | Boolean | true / false | true | N |
 | Pagination | Should render pagination related | Boolean | true / false | true | N |
-| xprops | Container of extra props passed to dynamic components | Object | - | - | N |
+| tbl-class | classes for `<table>` | String / Object / Array | - | - | N |
+| tbl-style | inline styles for `<table>` | String / Object / Array | - | - | N |
 | support-backup | Should support backup of HeaderSettings | Boolean | true / false | false | N |
 | support-nested | Should support nested components (`accordion` mode is supported) | Boolean / String | true / false / 'accordion' | false | N |
-| table-bordered | Should add `.table-bordered` to `<table>` | Boolean | true / false | false | N |
 
 > The above is based on the source ([`lib/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue)).  
 > By the way, the advanced example (source - [`examples/src/Advanced/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue), demo - [examples#advanced](https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced))  

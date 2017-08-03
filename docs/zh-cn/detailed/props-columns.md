@@ -54,7 +54,6 @@ columns: [{
 | sort | 是否支持排序 | Boolean | true / false | false | 否 |
 | weight | 排名权重 | Number | - | 0 | 否 |
 | visible | 是否显示该列 | Boolean / String（若为字符串类型则禁止设置该列显隐状态） | true / false / 'true' / 'false' | true | 否 |
-| colspan | 同时用于 `<th> / <td>` 的 colspan | Number | - | - | 否 |
 | colClass | 同时用于 `<th> / <td>` 的类名 | String / Object | - | - | 否 |
 | colStyle | 同时用于 `<th> / <td>` 的内联样式 | Object | - | - | 否 |
 | thClass | 用于 `<th>` 的类名 | String | - | - | 否 |

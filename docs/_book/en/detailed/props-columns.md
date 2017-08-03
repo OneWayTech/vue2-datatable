@@ -54,7 +54,6 @@ These are attributes of `columns[i]`:
 | sort | Is sortable | Boolean | true / false | false | N |
 | weight | Ranking weight | Number | - | 0 | N |
 | visible | Is visible | Boolean / String (if the type is String, the visibility is not allowed to toggle) | true / false / 'true' / 'false' | true | N |
-| colspan | colspan for `<th> / <td>` | Number | - | - | N |
 | colClass | classes for `<th> / <td>` | String / Object | - | - | N |
 | colStyle | inline styles for `<th> / <td>` | Object | - | - | N |
 | thClass | classes for `<th>` | String | - | - | N |

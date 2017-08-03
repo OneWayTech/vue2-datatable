@@ -17,8 +17,7 @@
             <th v-for="(column, idx) in columns$"
               :key="column.title || column.field || idx"
               :class="[column.colClass, column.thClass]"
-              :style="[column.colStyle, column.thStyle]"
-              :colspan="column.colspan">
+              :style="[column.colStyle, column.thStyle]">
               <!-- table head component (thComp). `v-bind` here is just like spread operator in JSX -->
               <component v-if="column.thComp" :is="comp[column.thComp]" v-bind="$props"
                 :column="column" :field="column.field" :title="column.title">
@@ -41,8 +40,7 @@
                 </td>
                 <td v-for="column in columns$"
                   :class="[column.colClass, column.tdClass]"
-                  :style="[column.colStyle, column.tdStyle]"
-                  :colspan="column.colspan">
+                  :style="[column.colStyle, column.tdStyle]">
                   <!-- table body component (tdComp) -->
                   <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
                     :row="item" :field="column.field" :value="item[column.field]" :nested="item.__nested__">
@@ -62,31 +60,7 @@
                   </td>
                 </tr>
               </transition>
-            </template>
-            <tr v-if="summary" class="-summary-row">
-              <td v-if="selection" width="1em"></td>
-              <template v-for="(column, idx) in columns$">
-                <!-- display the available fields only -->
-                <td v-if="summary[column.field]"
-                  :class="[column.colClass, column.tdClass]"
-                  :style="[column.colStyle, column.tdStyle]"
-                  :colspan="column.colspan">
-                  <!-- table body component (tdComp) -->
-                  <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
-                    :row="summary" :field="column.field" :value="summary[column.field]">
-                  </component>
-                  <template v-else>
-                    {{ summary[column.field] }}
-                  </template>
-                </td>
-                <td v-else>
-                  <!-- show summary label if the first column field has no data -->
-                  <i v-if="!idx" class="text-muted">
-                    {{ $i18n('Summary') }}
-                  </i>
-                </td>
-              </template>
-            </tr>
+            </template><!-- v-for -->
           </template><!-- v-if="data.length" -->
           <tr v-else>
             <td :colspan="colLen" class="text-center text-muted">
@@ -94,6 +68,31 @@
             </td>
           </tr>
         </tbody>
+        <tfoot v-if="summary">
+          <tr class="-summary-row">
+            <td v-if="selection" width="1em"></td>
+            <template v-for="(column, idx) in columns$">
+              <!-- display the available fields only -->
+              <td v-if="summary[column.field]"
+                :class="[column.colClass, column.tdClass]"
+                :style="[column.colStyle, column.tdStyle]">
+                <!-- table body component (tdComp) -->
+                <component v-if="column.tdComp" :is="comp[column.tdComp]" v-bind="$props"
+                  :row="summary" :field="column.field" :value="summary[column.field]">
+                </component>
+                <template v-else>
+                  {{ summary[column.field] }}
+                </template>
+              </td>
+              <td v-else>
+                <!-- show summary label if the first column field has no data -->
+                <i v-if="!idx" class="text-muted">
+                  {{ $i18n('Summary') }}
+                </i>
+              </td>
+            </template>
+          </tr>
+        </tfoot>
       </table>
     </div><!-- .table-responsive -->
     <div v-if="Pagination" class="row">

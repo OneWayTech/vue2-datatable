@@ -14,6 +14,6 @@ The dependencies of this project shown below:
 
 * BootStrap 3.x + Font Awesome 4.x（available globally）
 * [lodash.orderBy](https://lodash.com/docs/4.17.4#orderBy)
-* [replace-with](https://github.com/OneWayTech/replace-with)
+* [replace-with](https://github.com/kenberkeley/replace-with)
 
 P.S. *BootStrap* and *Font Awesome* can be replaced with other popular libraries.

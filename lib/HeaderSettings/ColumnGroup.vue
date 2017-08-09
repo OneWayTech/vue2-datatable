@@ -64,8 +64,8 @@ export default {
 </script>
 <style>
 .-col-group {
-  width: 150px;
   display: inline-block;
+  width: 150px;
   padding: 0;
   vertical-align: top;
 }

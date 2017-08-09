@@ -1,5 +1,5 @@
 <template>
-  <ul class="pagination m-0">
+  <ul class="pagination" style="margin: 0">
     <li v-if="!isFirstPage" @click="turnPage(-1)">
       <a href="javascript:;">
         <i class="fa fa-arrow-left"></i>
@@ -66,8 +66,3 @@ export default {
   }
 }
 </script>
-<style>
-.m-0 {
-  margin: 0;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" @click="handleSort" class="p-l-5">
+  <a href="javascript:;" @click="handleSort" style="padding-left: 5px">
     <i class="fa" :class="[cls, { 'text-muted': !this.order }]"></i>
   </a>
 </template>
@@ -36,8 +36,3 @@ export default {
   }
 }
 </script>
-<style>
-.p-l-5 {
-  padding-left: 5px;
-}
-</style>

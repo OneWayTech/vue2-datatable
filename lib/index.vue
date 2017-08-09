@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div v-if="$slots.default || HeaderSettings" class="m-b-10 clearfix">
+    <div v-if="$slots.default || HeaderSettings" class="clearfix" style="margin-bottom: 10px">
       <header-settings v-if="HeaderSettings" class="pull-right"
         :col-groups="columns" :support-backup="supportBackup">
       </header-settings>
       <slot></slot>
     </div>
     <!-- `.panel.panel-default` is for rounded table, see http://stackoverflow.com/a/20903465/5172890 -->
-    <div class="table-responsive panel panel-default m-b-10">
+    <div class="table-responsive panel panel-default" style="margin-bottom: 10px">
       <table class="table table-striped table-hover" :class="tblClass" :style="tblStyle">
         <thead>
           <transition-group name="fade" tag="tr">
@@ -26,7 +26,7 @@
                 {{ column.title }}
               </template>
 
-              <i v-if="column.explain" class="fa fa-info-circle cursor-help" :title="column.explain"></i>
+              <i v-if="column.explain" class="fa fa-info-circle" style="cursor: help" :title="column.explain"></i>
               <head-sort v-if="column.sort" :field="column.field" :query="query" />
             </th>
           </transition-group>
@@ -96,7 +96,7 @@
       </table>
     </div><!-- .table-responsive -->
     <div v-if="Pagination" class="row">
-      <div class="col-sm-6 nowrap">
+      <div class="col-sm-6" style="white-space: nowrap">
         <strong>{{ $i18n('Total') }} {{ total }} {{ $i18n(',') }}</strong>
         <limit-select :query="query" />
       </div>
@@ -220,20 +220,12 @@ export default {
 }
 </script>
 <style>
+/* transition effect: fade */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;
 }
 .fade-enter, .fade-leave-active {
   opacity: 0;
-}
-.m-b-10 {
-  margin-bottom: 10px;
-}
-.nowrap {
-  white-space: nowrap;
-}
-.cursor-help {
-  cursor: help;
 }
 .-summary-row {
   font-weight: bold;

@@ -4,17 +4,17 @@
       <i class="fa" :class="[usingBak && 'text-info', processingCls || 'fa-cog']"></i>
       <span class="caret"></span>
     </button>
-    <div class="dropdown-menu p-10 clearfix" :style="drpMenuStyle">
+    <div class="dropdown-menu clearfix" :style="[drpMenuStyle, { padding: '10px 10px 0' }]">
       <div class="-col-group-container">
         <column-group v-for="(group, idx) in colGroups" :key="idx" ref="colGroups" :col-group="group" />
       </div>
-      <div class="m-10 clearfix">
+      <div class="clearfix" style="margin: 10px">
         <div class="btn-group btn-group-sm pull-right">
           <button class="btn btn-default" @click="apply()">
             {{ $i18n('Apply') }}
           </button>
           <template v-if="supportBackup">
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle box-shadow-none">
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" style="box-shadow: none">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
           </template>
         </div>
       </div>
-      <small v-if="usingBak" class="pull-left text-muted m-t--8">
+      <small v-if="usingBak" class="pull-left text-muted" style="margin-top: -8px">
         ( {{ $i18n('Using local settings') }} )
       </small>
     </div>
@@ -125,17 +125,5 @@ export default {
 <style>
 .-col-group-container {
   border-bottom: 1px solid #ddd;
-}
-.p-10 {
-  padding: 10px 10px 0 10px;
-}
-.m-10 {
-  margin: 10px;
-}
-.m-t--8 {
-  margin-top: -8px;
-}
-.box-shadow-none {
-  box-shadow: none !important;
 }
 </style>

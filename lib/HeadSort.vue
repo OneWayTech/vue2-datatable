@@ -12,7 +12,9 @@ export default {
     field: { type: String, required: true },
     query: { type: Object, required: true }
   },
-  data: () => ({ order: '' }),
+  data: () => ({
+    order: ''
+  }),
   computed: {
     cls () {
       return `fa-sort-${this.order}`.replace(/-$/, '')

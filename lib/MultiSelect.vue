@@ -9,8 +9,8 @@ import replaceWith from 'replace-with'
 export default {
   props: {
     selection: { type: Array, required: true },
-    row: Object, // for tbody checkbox
-    rows: Array // for thead checkbox
+    row: Object, // available for tbody checkbox
+    rows: Array // available for thead checkbox
   },
   data: () => ({
     status: false
@@ -25,7 +25,10 @@ export default {
   methods: {
     toggle () {
       const { selection, row, rows, status, pos } = this
-      if (rows) return replaceWith(selection, status ? rows : [])
+      if (rows) {
+        replaceWith(selection, status ? rows : [])
+        return
+      }
       if (row) {
         if (status && pos === -1) selection.push(row)
         if (!status && pos >= 0) selection.splice(pos, 1)

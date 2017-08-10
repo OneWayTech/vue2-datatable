@@ -3,17 +3,17 @@
     <label class="-col-group-title">
       {{ colGroup.groupName }}
     </label>
-    <li v-for="(col, idx) in columns">
+    <li v-for="(col, idx) in options">
       <input
         :type="inputType"
-        :id="col.fieldId"
+        :id="col._uuid"
         :name="fieldName"
         :checked="'' + col.visible === 'true'"
         :disabled="typeof col.visible === 'string'"
         @change="handleChange(idx, $event.target.checked)">
-      <label :for="col.fieldId">
+      <label :for="col._uuid">
         {{ col.label || col.title }}
-        <i v-if="col.explain" class="fa fa-info-circle cursor-help" :title="col.explain"></i>
+        <i v-if="col.explain" class="fa fa-info-circle" style="cursor: help" :title="col.explain"></i>
       </label>
     </li>
   </ul>
@@ -33,12 +33,12 @@ export default {
       return this.colGroup.type || 'checkbox'
     },
     fieldName () {
-      // P.S. $vm._uid is a private property of the instance
+      // P.S. $vm._uid is a private property of a Vue instance which ensures uniqueness
       return this.inputType === 'radio' && this.colGroup.groupName + this._uid
     },
-    columns () {
-      // fieldId is used for <label for="fieldId">XXX</label>
-      return this.colGroup.columns.map((col, i) => (col.fieldId = `-col-${this._uid}-${col.field || i}`, col))
+    options () {
+      // _uuid is used for <label for="_uuid">XXX</label>
+      return this.colGroup.columns.map((col, i) => ({ ...col, _uuid: `-col-${this._uid}-${col.field || i}` }))
     }
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
           this.$set(columns, idx, { ...columns[idx], visible: isChecked })
         })
       }
-      this.changes = [] // don't forget to clear the stack
+      replaceWith(changes, []) // don't forget to clear the stack
     }
   }
 }
@@ -74,7 +74,7 @@ export default {
   margin: 5px;
   padding: 5px;
   border-bottom: 1px solid #ddd;
-  font-size: 1.5em;
+  font-size: 18px;
 }
 .-col-group > li {
   margin-bottom: 2px;

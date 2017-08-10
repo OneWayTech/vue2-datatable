@@ -134,9 +134,8 @@ export default {
     supportNested: [Boolean, String] // support nested components (String is only for 'accordion')
   },
   created () { // init query
-    const { query } = this
-    const q = { limit: 10, offset: 0, sort: '', order: '', ...query }
-    Object.keys(q).forEach(key => this.$set(query, key, q[key]))
+    const q = { limit: 10, offset: 0, sort: '', order: '', ...this.query }
+    Object.keys(q).forEach(key => this.$set(this.query, key, q[key]))
   },
   computed: {
     comp () {
@@ -147,15 +146,18 @@ export default {
     },
     columns$ () {
       const { columns } = this
-      if (!columns[0].groupName) replaceWith(columns, [{ groupName: 'Columns', columns: [...columns] }])
-
+      if (!columns[0].groupName) {
+        replaceWith(columns, [{ groupName: 'Columns', columns: [...columns] }])
+      }
       let columns$ = []
       // collect visible columns
-      columns.forEach(colGroup => columns$.push(
-        ...colGroup.columns
-          .map(col => (col.visible = typeof col.visible === 'undefined' ? true : col.visible, col))
-          .filter(col => '' + col.visible === 'true'))
-      )
+      columns.forEach(colGroup => {
+        columns$.push(
+          ...colGroup.columns
+            .map(col => (col.visible = typeof col.visible === 'undefined' ? true : col.visible, col))
+            .filter(col => '' + col.visible === 'true')
+        )
+      })
       // sort by columns$[i].weight in descending order
       return _orderBy(columns$.map(col => ((col.weight = col.weight || 0), col)), 'weight', 'desc')
       

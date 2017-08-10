@@ -30,7 +30,9 @@ export default function mockData(query) {
     }
   })
 
-  if (sort) rows = orderBy(rows, sort, order)
+  if (sort) {
+    rows = orderBy(rows, sort, order)
+  }
 
   const res = {
     rows: rows.slice(offset, offset + limit),
@@ -42,7 +44,7 @@ export default function mockData(query) {
   }
 
   const consoleGroupName = 'Mock data - ' + moment().format('YYYY-MM-DD HH:mm:ss')
-  setTimeout(() => { // avoid blocking the main thread
+  setTimeout(() => {
     console.group(consoleGroupName)
     console.info('Receive:', query)
     console.info('Respond:', res)

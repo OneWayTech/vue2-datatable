@@ -38,7 +38,7 @@
           <a href="#advanced">Advanced</a>
         </li>
       </ul>
-      <div class="tab-content m-t-10">
+      <div class="tab-content" style="margin-top: 10px">
         <div class="tab-pane" :class="{ active: showTab === 'basic' }">
           <basic v-if="showTab === 'basic'" />
         </div>
@@ -85,8 +85,5 @@ footer {
   font-size: 12px;
   text-align: center;
   color: #afafaf;
-}
-.m-t-10 {
-  margin-top: 10px;
 }
 </style>

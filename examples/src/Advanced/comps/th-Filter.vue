@@ -4,7 +4,7 @@
     <a href="javascript:;" data-toggle="dropdown">
       <i class="fa fa-filter" :class="{ 'text-muted': !keyword }"></i>
     </a>
-    <ul class="dropdown-menu p-3">
+    <ul class="dropdown-menu" style="padding: 3px">
       <div class="input-group input-group-sm">
         <input type="search" class="form-control" ref="input"
           v-model="keyword" @keydown.enter="search" :placeholder="`Search ${field}...`">
@@ -45,8 +45,5 @@ export default {
 input[type=search]::-webkit-search-cancel-button {
   -webkit-appearance: searchfield-cancel-button;
   cursor: pointer;
-}
-.p-3 {
-  padding: 3px;
 }
 </style>

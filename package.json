@@ -2,7 +2,7 @@
   "name": "vue2-datatable-component",
   "description": "The Best Datatable for Vue.js 2.x which never sucks",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "scripts": {
     "start": "vue build examples/src/app.js --config vue-build.config.js",
     "build": "vue build examples/src/app.js --config vue-build.config.js --prod",

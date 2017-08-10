@@ -58,15 +58,6 @@ export default {
     colGroups: { type: Array, required: true },
     supportBackup: { type: Boolean, required: true }
   },
-  created () {
-    const { localKey: key } = this
-    if (!key) return // no need to support backup
-
-    const backup = getFromLS(key)
-    if (!backup) return
-    replaceWith(this.colGroups, backup)
-    this.usingBak = true
-  },
   data () {
     const origSettings = stringify(this.colGroups)
     return {
@@ -75,6 +66,16 @@ export default {
       processingCls: '',
       localKey: this.supportBackup && hash(origSettings) // key for local backup
     }
+  },
+  created () {
+    const { localKey: key } = this
+    if (!key) return // no need to support backup
+
+    const backup = getFromLS(key)
+    if (!backup) return
+
+    replaceWith(this.colGroups, backup)
+    this.usingBak = true
   },
   computed: {
     drpMenuStyle () {

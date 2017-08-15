@@ -11,7 +11,7 @@
       <div class="clearfix" style="margin: 10px">
         <div class="btn-group btn-group-sm pull-right">
           <button class="btn btn-default" @click="apply()">
-            {{ $i18n('Apply') }}
+            {{ $i18nForDatatable('Apply') }}
           </button>
           <template v-if="supportBackup">
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" style="box-shadow: none">
@@ -21,13 +21,13 @@
               <li @click="apply(true)">
                 <a href="javascript:;">
                   <i class="fa fa-floppy-o"></i>&nbsp;
-                  {{ $i18n('Apply and backup settings to local') }}
+                  {{ $i18nForDatatable('Apply and backup settings to local') }}
                 </a>
               </li>
               <li v-if="usingBak" @click="rmBackup()">
                 <a href="javascript:;">
                   <i class="fa fa-trash-o text-danger"></i>&nbsp;
-                  {{ $i18n('Clear local settings backup and restore') }}
+                  {{ $i18nForDatatable('Clear local settings backup and restore') }}
                 </a>
               </li>
             </ul>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <small v-if="usingBak" class="pull-left text-muted" style="margin-top: -8px">
-        ( {{ $i18n('Using local settings') }} )
+        ( {{ $i18nForDatatable('Using local settings') }} )
       </small>
     </div>
   </div>

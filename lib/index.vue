@@ -64,7 +64,7 @@
           </template><!-- v-if="data.length" -->
           <tr v-else>
             <td :colspan="colLen" class="text-center text-muted">
-              ( {{ $i18n('No Data') }} )
+              ( {{ $i18nForDatatable('No Data') }} )
             </td>
           </tr>
         </tbody>
@@ -87,7 +87,7 @@
               <td v-else>
                 <!-- show summary label if the first column field has no data -->
                 <i v-if="!idx" class="text-muted">
-                  {{ $i18n('Summary') }}
+                  {{ $i18nForDatatable('Summary') }}
                 </i>
               </td>
             </template>
@@ -97,7 +97,7 @@
     </div><!-- .table-responsive -->
     <div v-if="Pagination" class="row">
       <div class="col-sm-6" style="white-space: nowrap">
-        <strong>{{ $i18n('Total') }} {{ total }} {{ $i18n(',') }}</strong>
+        <strong>{{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}</strong>
         <limit-select :query="query" />
       </div>
       <div class="col-sm-6">

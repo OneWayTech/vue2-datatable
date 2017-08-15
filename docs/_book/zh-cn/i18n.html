@@ -386,7 +386,7 @@ Vue.use(Datatable, { locale }) <span class="hljs-comment">// OK</span>
     <span class="hljs-keyword">const</span> { locale = {} } = options
 
     <span class="hljs-comment">// this might be the simplest i18n solution</span>
-    Vue.prototype.$i18n = srcTxt =&gt; locale[srcTxt] || srcTxt
+    Vue.prototype.$i18nForDatatable = srcTxt =&gt; locale[srcTxt] || srcTxt
 
     Vue.component(<span class="hljs-string">&apos;Datatable&apos;</span>, Datatable)
   }
@@ -395,11 +395,11 @@ Vue.use(Datatable, { locale }) <span class="hljs-comment">// OK</span>
 <p>&#x6A21;&#x677F;&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x64CD;&#x4F5C;&#xFF08;&#x4EE5; <a href="https://github.com/OneWayTech/vue2-datatable/blob/master/lib/LimitSelect.vue" target="_blank"><code>lib/LimitSelect.vue</code></a> &#x4E3A;&#x4F8B;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
-    {{ $i18n(&apos;show&apos;) }}
+    {{ $i18nForDatatable(&apos;show&apos;) }}
     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control input-sm -limit-select&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;limit&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;i in options&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;i&quot;</span>&gt;</span>{{ i }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-    {{ $i18n(&apos;items per page&apos;) }}
+    {{ $i18nForDatatable(&apos;items per page&apos;) }}
   <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 ...
@@ -448,7 +448,7 @@ Vue.use(Datatable, { locale }) <span class="hljs-comment">// OK</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"国际化","level":"1.6","depth":1,"next":{"title":"自定制 (DIY)","level":"1.7","depth":1,"path":"DIY.md","ref":"DIY.md","articles":[]},"previous":{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"i18n.md","mtime":"2017-07-12T09:30:56.656Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-08T10:40:02.882Z"},"basePath":".","book":{"language":"zh-cn"}});
+            gitbook.page.hasChanged({"page":{"title":"国际化","level":"1.6","depth":1,"next":{"title":"自定制 (DIY)","level":"1.7","depth":1,"path":"DIY.md","ref":"DIY.md","articles":[]},"previous":{"title":"动态组件","level":"1.5.7","depth":2,"path":"detailed/dynamic-comps.md","ref":"detailed/dynamic-comps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":{"zh-cn":"编辑此页面","en":"Edit this page"},"base":"https://github.com/OneWayTech/vue2-datatable/edit/master/docs"},"github":{"url":"https://github.com/OneWayTech/vue2-datatable"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"i18n.md","mtime":"2017-08-15T02:29:37.344Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-15T02:41:01.052Z"},"basePath":".","book":{"language":"zh-cn"}});
         });
     </script>
 </div>

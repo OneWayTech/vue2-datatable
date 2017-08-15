@@ -3,7 +3,7 @@ module.exports = {
     var locale = options && options.locale || {};
     
     // this might be the simplest i18n solution
-    Vue.prototype.$i18n = function (srcTxt) {
+    Vue.prototype.$i18nForDatatable = function (srcTxt) {
       return locale[srcTxt] || srcTxt;
     };
 

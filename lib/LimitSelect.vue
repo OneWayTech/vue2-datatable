@@ -1,10 +1,10 @@
 <template>
   <label>
-    {{ $i18n('show') }}
+    {{ $i18nForDatatable('show') }}
     <select class="form-control input-sm -limit-select" v-model="limit">
       <option v-for="i in options" :value="i">{{ i }}</option>
     </select>
-    {{ $i18n('items per page') }}
+    {{ $i18nForDatatable('items per page') }}
   </label>
 </template>
 <script>

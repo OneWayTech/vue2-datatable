@@ -49,7 +49,7 @@
     </div>
 
     <footer>
-      Open Devtools - Console to see what <code>_mockData</code> receive and respond
+      Open Devtools - Console to see what <code>_mockData</code> receives and responds
     </footer>
   </div>
 </template>

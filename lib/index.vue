@@ -70,7 +70,7 @@
         </tbody>
         <tfoot v-if="summary">
           <tr class="-summary-row">
-            <td v-if="selection" width="1em"></td>
+            <td v-if="selection" width="30px"></td>
             <template v-for="(column, idx) in columns$">
               <!-- display the available fields only -->
               <td v-if="summary[column.field]"

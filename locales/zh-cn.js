@@ -6,12 +6,13 @@ module.exports = {
   'Using local settings': '正在使用本地设置',
 
   /* index.vue */
-  'Summary': '汇总',
-  'No Data': '无数据',
   'Total': '共',
   ',': '项，',
-
+  
   /* LimitSelect.vue */
   'show': '每页展示',
-  'items per page': '项'
+  'items per page': '项',
+
+  /* MainTable/TableBody.vue */
+  'No Data': '无数据'
 };

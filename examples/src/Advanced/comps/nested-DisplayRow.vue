@@ -21,8 +21,6 @@
   </div>
 </template>
 <script>
-import omit from 'lodash/omit'
-
 export default {
   props: ['row', 'nested']
 }

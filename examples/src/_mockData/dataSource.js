@@ -9,7 +9,7 @@ const users = Array(total).fill().map((item, idx) => ({
   uid: idx,
   name: Random.name(),
   age: Random.integer(0, 100),
-  email: Random.email(),
+  email: Random.email().substr(0, 22),
   friends: without(
     uniq(Array(getRandomUid()).fill().map(() => getRandomUid())),
     idx // exclude `myself`

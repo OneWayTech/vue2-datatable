@@ -10,9 +10,9 @@ import mockData from '../_mockData'
 export default {
   data: () => ({
     columns: [
-      { title: 'User ID', field: 'uid', sort: true },
+      { title: 'User ID', field: 'uid', sortable: true },
       { title: 'Username', field: 'name' },
-      { title: 'Age', field: 'age', sort: true },
+      { title: 'Age', field: 'age', sortable: true },
       { title: 'Email', field: 'email' },
       { title: 'Country', field: 'country' }
     ],

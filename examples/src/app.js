@@ -7,6 +7,8 @@ import Datatable from '../../'
 Vue.use(Datatable)
 // Vue.use(Datatable, { locale })
 
+Vue.config.productionTip = false
+
 new Vue({
   el: '#app',
   render: h => h(App)

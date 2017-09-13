@@ -1,5 +1,6 @@
+.DS_Store
 *.log
 .git
 node_modules
-docs
+doc
 examples

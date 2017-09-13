@@ -1,17 +1,17 @@
 <template>
-  <ul class="-col-group">
+  <ul class="-col-group" name="ColumnGroup">
     <label class="-col-group-title">
-      {{ colGroup.groupName }}
+      {{ groupName === 'undefined' ? 'Columns' : groupName }}
     </label>
-    <li v-for="(col, idx) in options">
+    <li v-for="(col, idx) in columns">
       <input
-        :type="inputType"
-        :id="col._uuid"
-        :name="fieldName"
-        :checked="'' + col.visible === 'true'"
+        type="checkbox"
+        :id="uuidGen(col.field || idx)"
+        :name="groupName"
+        :checked="typeof col.visible === 'undefined' || '' + col.visible === 'true'"
         :disabled="typeof col.visible === 'string'"
-        @change="handleChange(idx, $event.target.checked)">
-      <label :for="col._uuid">
+        @change="handleChange(col, $event.target.checked)">
+      <label :for="uuidGen(col.field || idx)">
         {{ col.label || col.title }}
         <i v-if="col.explain" class="fa fa-info-circle" style="cursor: help" :title="col.explain"></i>
       </label>
@@ -19,45 +19,27 @@
   </ul>
 </template>
 <script>
-import replaceWith from 'replace-with'
-
 export default {
   props: {
-    colGroup: { type: Object, required: true }
+    groupName: { type: String, required: true },
+    columns:  { type: Array, required: true }
   },
   data: () => ({
     changes: [] // record the changes with a stack
   }),
-  computed: {
-    inputType () {
-      return this.colGroup.type || 'checkbox'
-    },
-    fieldName () {
-      // P.S. $vm._uid is a private property of a Vue instance which ensures uniqueness
-      return this.inputType === 'radio' && this.colGroup.groupName + this._uid
-    },
-    options () {
-      // _uuid is used for <label for="_uuid">XXX</label>
-      return this.colGroup.columns.map((col, i) => ({ ...col, _uuid: `-col-${this._uid}-${col.field || i}` }))
-    }
-  },
   methods: {
-    handleChange (idx, isChecked) {
-      this.changes.push({ idx, isChecked })
+    handleChange (col, isChecked) {
+      this.changes.push({ col, isChecked })
+    },
+    uuidGen (key) {
+      // $vm._uid is a private property of a Vue instance
+      return `-col-${this._uid}-${key}`
     },
     apply () {
-      let { changes, colGroup: { columns } } = this
-      if (!changes.length) return
-
-      if (this.inputType === 'radio') {
-        const { idx } = changes.pop()
-        replaceWith(columns, columns.map((col, i) => (col.visible = i === idx, col)))
-      } else {
-        changes.forEach(({ idx, isChecked }) => {
-          this.$set(columns, idx, { ...columns[idx], visible: isChecked })
-        })
-      }
-      replaceWith(changes, []) // don't forget to clear the stack
+      this.changes.forEach(({ col, isChecked }) => {
+        this.$set(col, 'visible', isChecked)
+      })
+      this.changes = [] // don't forget to clear the stack
     }
   }
 }

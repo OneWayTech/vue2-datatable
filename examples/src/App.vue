@@ -8,11 +8,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Vue2 Datatable</a>
+        <a class="navbar-brand" href="#">
+          vue2-datatable-component
+        </a>
       </div>
       <div class="collapse navbar-collapse" id="nav-collapse">
         <i class="navbar-text">
-          The Best Datatable for Vue.js 2.x which never sucks
+          The best Datatable for Vue.js 2.x which never sucks
         </i>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -37,6 +39,9 @@
         <li :class="{ active: showTab === 'advanced' }">
           <a href="#advanced">Advanced</a>
         </li>
+        <li :class="{ active: showTab === 'fixed' }">
+          <a href="#fixed">Fixed ( header and columns )</a>
+        </li>
       </ul>
       <div class="tab-content" style="margin-top: 10px">
         <div class="tab-pane" :class="{ active: showTab === 'basic' }">
@@ -44,6 +49,9 @@
         </div>
         <div class="tab-pane" :class="{ active: showTab === 'advanced' }">
           <advanced v-if="showTab === 'advanced'" />
+        </div>
+        <div class="tab-pane" :class="{ active: showTab === 'fixed' }">
+          <fixed v-if="showTab === 'fixed'" />
         </div>
       </div>
     </div>
@@ -56,12 +64,13 @@
 <script>
 import Basic from './Basic/'
 import Advanced from './Advanced/'
+import Fixed from './Fixed/'
 const getCurHash = () => location.hash.replace(/^#/, '')
 
 export default {
-  components: { Basic, Advanced },
+  components: { Basic, Advanced, Fixed },
   data: () => ({
-    showTab: getCurHash() || 'basic'
+    showTab: getCurHash() || 'advanced'
   }),
   mounted () {
     $(window).on('hashchange', () => {

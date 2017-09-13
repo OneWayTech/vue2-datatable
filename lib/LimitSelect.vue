@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label name="LimitSelect">
     {{ $i18nForDatatable('show') }}
     <select class="form-control input-sm -limit-select" v-model="limit">
       <option v-for="i in options" :value="i">{{ i }}</option>

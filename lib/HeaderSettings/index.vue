@@ -1,12 +1,15 @@
 <template>
-  <div class="btn-group">
+  <div class="btn-group" name="HeaderSettings">
     <button class="btn btn-default dropdown-toggle" ref="dropdownBtn">
       <i class="fa" :class="[usingBak && 'text-info', processingCls || 'fa-cog']"></i>
       <span class="caret"></span>
     </button>
-    <div class="dropdown-menu clearfix" :style="[drpMenuStyle, { padding: '10px 10px 0' }]">
+    <div class="dropdown-menu clearfix" :style="drpMenuStyle">
       <div class="-col-group-container">
-        <column-group v-for="(group, idx) in colGroups" :key="idx" ref="colGroups" :col-group="group" />
+        <column-group v-for="(columns, groupName) in colGroups"
+          ref="colGroups" :key="groupName"
+          :group-name="groupName" :columns="columns">
+        </column-group>
       </div>
       <div class="clearfix" style="margin: 10px">
         <div class="btn-group btn-group-sm pull-right">
@@ -43,6 +46,7 @@
 <script>
 import ColumnGroup from './ColumnGroup.vue'
 import replaceWith from 'replace-with'
+import groupBy from 'lodash/groupBy'
 const LS = localStorage
 const parseStr = JSON.parse
 const stringify = JSON.stringify
@@ -55,36 +59,26 @@ const hash = s => '' + s.split('').reduce((a, b) => (a = (a << 5) - a + b.charCo
 export default {
   components: { ColumnGroup },
   props: {
-    colGroups: { type: Array, required: true },
+    columns: { type: Array, required: true },
     supportBackup: { type: Boolean, required: true }
   },
   data () {
-    const origSettings = stringify(this.colGroups)
+    const origSettings = stringify(this.columns)
     return {
       origSettings,
-      usingBak: false,
+      usingBak: false, // is using backup
       processingCls: '',
-      localKey: this.supportBackup && hash(origSettings) // key for local backup
+      storageKey: this.supportBackup && hash(origSettings)
     }
   },
   created () {
-    const { localKey: key } = this
-    if (!key) return // no need to support backup
+    if (!this.supportBackup) return
 
-    const backup = getFromLS(key)
-    if (!backup) return
+    const backup = getFromLS(this.storageKey)
+    if (!backup) return // no backup found
 
-    replaceWith(this.colGroups, backup)
+    replaceWith(this.columns, backup)
     this.usingBak = true
-  },
-  computed: {
-    drpMenuStyle () {
-      const w = this.colGroups.length * 150
-      return {
-        width: `${w + 25}px`,
-        left: `-${w - 25}px`
-      }
-    }
   },
   mounted () {
     // control dropdown manually (refers to http://jsfiddle.net/rj3k550m/3)
@@ -94,30 +88,45 @@ export default {
       $(e.target).closest($el).length || $el.removeClass('open')
     })
   },
+  computed: {
+    colGroups () {
+      return groupBy(this.columns, 'group')
+    },
+    drpMenuStyle () {
+      const w = Object.keys(this.colGroups).length * 150
+      return {
+        padding: '10px 10px 0',
+        width: `${w + 25}px`,
+        left: `-${w - 25}px`
+      }
+    }
+  },
   methods: {
     apply (alsoBackup) {
       this.toggle()
-      this.$refs.colGroups.forEach(colGroup => colGroup.apply())
+      this.$refs.colGroups.forEach(colGroup => { colGroup.apply() })
       alsoBackup && this.$nextTick(this.backup)
     },
     backup () {
-      saveToLS(this.localKey, this.colGroups)
+      saveToLS(this.storageKey, this.columns)
       this.showProcessing()
       this.usingBak = true
     },
     rmBackup () {
-      rmFromLS(this.localKey)
+      rmFromLS(this.storageKey)
       this.showProcessing()
       this.usingBak = false
       
-      replaceWith(this.colGroups, parseStr(this.origSettings)) // restore
+      replaceWith(this.columns, parseStr(this.origSettings)) // restore
     },
     toggle () {
       $(this.$el).toggleClass('open')
     },
     showProcessing () {
       ['fa-spinner fa-pulse', 'fa-check', ''].forEach((cls, idx) => {
-        setTimeout(() => this.processingCls = cls, idx * 1000)
+        setTimeout(() => {
+          this.processingCls = cls
+        }, idx * 1000)
       })
     }
   }

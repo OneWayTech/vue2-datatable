@@ -1,11 +1,11 @@
 <template>
-  <ul class="pagination" style="margin: 0">
+  <ul class="pagination" style="margin: 0" name="Pagination">
     <li v-if="!isFirstPage" @click="turnPage(-1)">
       <a href="javascript:;">
         <i class="fa fa-arrow-left"></i>
       </a>
     </li>
-    <li v-for="i in displayPageBtns" :class="{ 'active': i === curPage }">
+    <li v-for="i in dspBtns" :class="{ 'active': i === curPage }">
       <a v-if="i" href="javascript:;" @click="handleClick(i)">
         {{ i }}
       </a>
@@ -39,7 +39,7 @@ export default {
     curPage () {
       return Math.ceil(+this.query.offset / +this.query.limit) + 1
     },
-    displayPageBtns () {
+    dspBtns () {
       const n = this.totalPage
       const i = this.curPage
 

@@ -7,6 +7,7 @@
 
 [GitHub](https://github.com/OneWayTech/vue2-datatable)
 [Online examples](https://onewaytech.github.io/vue2-datatable/examples/dist)
+[Doc ↓](README)
 
 [npm-url]: https://www.npmjs.com/package/vue2-datatable-component
 [npm-v-img]: http://img.shields.io/npm/v/vue2-datatable-component.svg

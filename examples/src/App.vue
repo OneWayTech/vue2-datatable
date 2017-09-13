@@ -54,6 +54,10 @@
           <fixed v-if="showTab === 'fixed'" />
         </div>
       </div>
+      <hr />
+      <button class="btn btn-default btn-block" @click="viewSource">
+        <i class="fa fa-code"></i> &nbsp; View Source
+      </button>
     </div>
 
     <footer>
@@ -65,6 +69,7 @@
 import Basic from './Basic/'
 import Advanced from './Advanced/'
 import Fixed from './Fixed/'
+import capitalize from 'lodash/capitalize'
 const getCurHash = () => location.hash.replace(/^#/, '')
 
 export default {
@@ -77,6 +82,11 @@ export default {
       this.showTab = getCurHash()
       console.clear()
     })
+  },
+  methods: {
+    viewSource () {
+      window.open(`https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/${capitalize(this.showTab)}/index.vue`)
+    }
   }
 }
 </script>

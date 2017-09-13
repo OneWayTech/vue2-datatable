@@ -70,12 +70,11 @@ import Basic from './Basic/'
 import Advanced from './Advanced/'
 import Fixed from './Fixed/'
 import capitalize from 'lodash/capitalize'
-const getCurHash = () => location.hash.replace(/^#/, '')
 
 export default {
   components: { Basic, Advanced, Fixed },
   data: () => ({
-    showTab: getCurHash() || 'advanced'
+    showTab: getCurHash()
   }),
   mounted () {
     $(window).on('hashchange', () => {
@@ -88,6 +87,11 @@ export default {
       window.open(`https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/${capitalize(this.showTab)}/index.vue`)
     }
   }
+}
+
+function getCurHash() {
+  // display Advanced example by default
+  return location.hash.replace(/^#/, '') || 'advanced'
 }
 </script>
 <style>

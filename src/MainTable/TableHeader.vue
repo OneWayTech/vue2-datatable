@@ -1,7 +1,7 @@
 <template>
   <thead>
     <transition-group name="fade" tag="tr">
-      <th v-if="selection && data.length" width="30px" key="--th-multi">
+      <th v-if="selection" width="30px" key="--th-multi">
         <multi-select :selection="selection" :rows="data" />
       </th>
       <th v-for="(col, idx) in columns"

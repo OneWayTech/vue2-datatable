@@ -40,8 +40,14 @@ export default {
       replaceWith(this.selection, [])
     },
     selection (selection) {
-      if (this.row) return this.status = this.pos >= 0
-      if (this.rows) this.status = this.rows.length === selection.length
+      if (this.row) {
+        this.status = this.pos >= 0
+        return
+      }
+      if (this.rows) {
+        // not only same length but also non-zero
+        this.status = this.rows.length === selection.length && selection.length
+      }
     }
   }
 }

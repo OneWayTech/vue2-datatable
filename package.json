@@ -1,11 +1,19 @@
 {
   "name": "vue2-datatable-component",
   "description": "The best Datatable for Vue.js 2.x which never sucks",
+  "version": "2.1.0",
+  "main": "dist/min.js",
+  "module": "src/index.js",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
-  "version": "2.0.0",
+  "files": [
+    "dist",
+    "locale",
+    "src"
+  ],
   "scripts": {
-    "start": "vue build examples/src/app.js --config vue-build.config.js",
-    "build": "vue build examples/src/app.js --config vue-build.config.js --prod",
+    "start": "vue build --config build/examples.js",
+    "build:examples": "vue build --config build/examples.js --prod",
+    "build:lib": "vue build --config build/lib.js --prod",
     "doc": "docsify serve doc"
   },
   "repository": {

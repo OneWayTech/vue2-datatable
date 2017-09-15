@@ -1,6 +1,6 @@
 # `:query`
 
-让我们来看看本 Datatable 是如何初始化 `query` 的（源码见 [`lib/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/lib/index.vue) 中的 `created` 钩子函数）：
+让我们来看看本 Datatable 是如何初始化 `query` 的（源码见 [`src/Datatable.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Datatable.vue) 中的 `created` 钩子函数）：
 
 ```js
 created () {

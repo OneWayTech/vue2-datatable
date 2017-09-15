@@ -9,5 +9,5 @@
 >_ npm start
 ```
 
-From now on, you can customize `lib/` by the live `examples/`  
+From now on, you can customize `src/` by the live `examples/`  
 If there are some features you consider necessary, your [issues](https://github.com/OneWayTech/vue2-datatable/issues/new) / PRs are always welcome!

@@ -1,16 +1,18 @@
+// https://github.com/vuejs/vue-cli/blob/master/docs/build.md#configuration-files
 var path = require('path'),
   webpack = require('webpack'),
   CleanWebpackPlugin = require('clean-webpack-plugin'),
-  examplesDist = path.join(__dirname, 'examples/dist');
+  dist = path.join(__dirname, '../examples/dist');
 
 module.exports = {
+  entry: path.join(__dirname, '../examples/src/app.js'),
   html: {
-    template: path.join(__dirname, 'examples/src/index.html')
+    template: path.join(__dirname, '../examples/src/index.html')
   },
   webpack: {
     devtool: false,
     output: {
-      path: examplesDist,
+      path: dist,
       publicPath: ''
     },
     plugins: (function () {
@@ -19,7 +21,11 @@ module.exports = {
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
       ];
       if (process.env.NODE_ENV === 'production') {
-        plugins.push(new CleanWebpackPlugin([examplesDist]));
+        plugins.push(
+          new CleanWebpackPlugin([dist], {
+            root: path.join(__dirname, '../examples')
+          })
+        );
       }
       return plugins;
     })()

@@ -9,5 +9,5 @@
 >_ npm start
 ```
 
-由此，您可以基于 `examples/` 来定制源码 `lib/`  
+由此，您可以基于 `examples/` 来定制源码 `src/`  
 如果您觉得某些功能很必须，随时欢迎 [issues](https://github.com/OneWayTech/vue2-datatable/issues/new) / PR！

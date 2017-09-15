@@ -56,7 +56,9 @@
       </div>
       <hr />
       <button class="btn btn-default btn-block" @click="viewSource">
-        <i class="fa fa-code"></i> &nbsp; View Source
+        <i class="fa fa-code"></i>
+        &nbsp; View Source &nbsp;
+        <i class="fa fa-github"></i>
       </button>
     </div>
 

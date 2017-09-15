@@ -2,7 +2,7 @@
 
 ## ⊙ `thComp`
 
-> Source: [`lib/MainTable/TableHeader.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/lib/MainTable/TableHeader.vue)
+> Source: [`src/MainTable/TableHeader.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableHeader.vue)
 
 ```html
 <!-- <th> component (thComp) -->
@@ -25,7 +25,7 @@
 
 ## ⊙ `tdComp`
 
-> Source: [`lib/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/lib/MainTable/TableBody.vue)
+> Source: [`src/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableBody.vue)
 
 ```html
 <!-- <td> component (tdComp) -->
@@ -49,7 +49,7 @@
 
 ## ⊙ `nested component`
 
-> Source: [`lib/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/lib/MainTable/TableBody.vue)
+> Source: [`src/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableBody.vue)
 
 ```html
 <!-- nested component -->

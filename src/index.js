@@ -1,4 +1,4 @@
-module.exports = {
+var Datatable = {
   install: function (Vue, options) {
     var locale = options && options.locale || {};
     
@@ -7,6 +7,12 @@ module.exports = {
       return locale[srcTxt] || srcTxt;
     };
 
-    Vue.component('Datatable', require('./lib/index.vue'));
+    Vue.component('Datatable', require('./Datatable.vue'));
   }
 };
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(Datatable)
+}
+
+module.exports = Datatable;

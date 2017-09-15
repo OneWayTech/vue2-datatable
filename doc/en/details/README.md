@@ -2,14 +2,14 @@
 
 It would be better for you to understand the structure of this Datatable before the details.
 
-The source tree [`lib/`](https://github.com/OneWayTech/vue2-datatable/tree/master/lib) is shown as below:
+The source tree [`src/`](https://github.com/OneWayTech/vue2-datatable/tree/master/src) is shown as below:
 
 ```
-lib/
+src/
  ├─ HeaderSettings/
  │   ├─ ColumnGroup.vue
  │   └─ index.vue
- ├── MainTable
+ ├─ MainTable
  │   ├─ _SCROLLBAR_WIDTH.js
  │   ├─ _syncScroll.js
  │   ├─ HeadSort.vue
@@ -19,7 +19,8 @@ lib/
  │   ├─ TableFooter.vue
  │   ├─ TableFrame.vue
  │   └─ TableHeader.vue
- ├─ index.vue
+ ├─ Datatable.vue
+ ├─ index.js
  ├─ LimitSelect.vue
  ├─ Pagination.vue
  └─ props.mixin.js

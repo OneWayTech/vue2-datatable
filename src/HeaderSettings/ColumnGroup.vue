@@ -22,7 +22,7 @@
 export default {
   props: {
     groupName: { type: String, required: true },
-    columns:  { type: Array, required: true }
+    columns: { type: Array, required: true }
   },
   data: () => ({
     changes: [] // record the changes with a stack

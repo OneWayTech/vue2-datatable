@@ -8,19 +8,6 @@ import debounce from 'lodash/debounce'
  * @return {Func}  unsync
  */
 export default function (els, callback) {
-  const unlisteners = els.map((me, idx) => {
-    let others = els.slice()
-    others.splice(idx, 1) // exclude me
-    return syncScroll($(me), $(others))
-  })
-
-  // unsync
-  return () => {
-    unlisteners.forEach(unlistener => {
-      unlistener()
-    })
-  }
-  
   let currentDriver
   function syncScroll(me, others) {
     me
@@ -42,5 +29,18 @@ export default function (els, callback) {
     return () => {
       me.off('scroll')
     }
+  }
+  
+  const unlisteners = els.map((me, idx) => {
+    let others = els.slice()
+    others.splice(idx, 1) // exclude me
+    return syncScroll($(me), $(others))
+  })
+
+  // unsync
+  return () => {
+    unlisteners.forEach(unlistener => {
+      unlistener()
+    })
   }
 }

@@ -1,5 +1,5 @@
 // https://github.com/vuejs/vue-cli/blob/master/docs/build.md#configuration-files
-var path = require('path');
+var path = require('path')
 
 module.exports = {
   entry: path.join(__dirname, '../src/index.js'),
@@ -16,4 +16,4 @@ module.exports = {
       path: path.join(__dirname, '../dist')
     }
   }
-};
+}

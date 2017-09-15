@@ -2,14 +2,14 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 
-/*** Use `umd` version ***/
+/* *** Use `umd` version *** */
 // import '../../dist/min.css'
 // import Datatable from '../../dist/min.js'
 
-/*** Use `module` version ***/
+/* *** Use `module` version *** */
 import Datatable from '../../'
 
-/*** i18n example ***/
+/* *** i18n example *** */
 // import locale from '../../locale/zh-cn'
 // Vue.use(Datatable, { locale })
 

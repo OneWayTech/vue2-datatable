@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /* HeaderSettings/index.vue */
   'Apply': '应用',
   'Apply and backup settings to local': '应用并保存设置到本地',
@@ -15,4 +15,4 @@ module.exports = {
 
   /* MainTable/TableBody.vue */
   'No Data': '无数据'
-};
+}

@@ -1,7 +1,7 @@
 <template>
   <tfoot>
     <tr class="-summary-row">
-      <td v-if="selection" width="30px"></td>
+      <td v-if="shouldRenderSelection"></td>
       <template v-for="(col, idx) in columns">
         <!-- display the available fields only -->
         <td v-if="summary[col.field]" :class="col.tdClass" :style="col.tdStyle">
@@ -25,9 +25,10 @@
 </template>
 <script>
 import props from '../props.mixin'
+import shouldRenderSelection from './shouldRenderSelection.mixin'
 
 export default {
-  mixins: [props]
+  mixins: [props, shouldRenderSelection]
 }
 </script>
 <style>

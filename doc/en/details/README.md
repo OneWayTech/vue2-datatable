@@ -10,11 +10,12 @@ src/
  │   ├─ ColumnGroup.vue
  │   └─ index.vue
  ├─ MainTable
- │   ├─ _SCROLLBAR_WIDTH.js
- │   ├─ _syncScroll.js
  │   ├─ HeadSort.vue
  │   ├─ index.vue
  │   ├─ MultiSelect.vue
+ │   ├─ SCROLLBAR_WIDTH.js
+ │   ├─ shouldRenderSelection.mixin.js
+ │   ├─ syncScroll.js
  │   ├─ TableBody.vue
  │   ├─ TableFooter.vue
  │   ├─ TableFrame.vue

@@ -14,8 +14,8 @@
           :style="x === 'Header'
             ? { right: fixHeaderAndSetBodyHeight && SCROLLBAR_WIDTH }
             : styleForRightFixedTable">
-          <table-frame v-bind="propsToRightFixedTable">
-            <component :is="`Table${x}`" v-bind="propsToRightFixedTable" />
+          <table-frame v-bind="propsToRightFixedTable" no-selection>
+            <component :is="`Table${x}`" v-bind="propsToRightFixedTable" no-selection />
           </table-frame>
         </div>
         <table-frame v-bind="propsToNormalTable">
@@ -37,8 +37,8 @@ import TableFrame from './TableFrame.vue'
 import TableHeader from './TableHeader.vue'
 import TableBody from './TableBody.vue'
 import TableFooter from './TableFooter.vue'
-import syncScroll from './_syncScroll'
-import SCROLLBAR_WIDTH from './_SCROLLBAR_WIDTH'
+import syncScroll from './syncScroll'
+import SCROLLBAR_WIDTH from './SCROLLBAR_WIDTH'
 import props from '../props.mixin'
 
 export default {

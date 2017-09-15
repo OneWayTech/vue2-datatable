@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 0 auto; width: 720px">
+  <div style="margin: 0 auto; width: 800px">
     <code>query: {{ query }}</code>
     <datatable v-bind="$data" />
   </div>

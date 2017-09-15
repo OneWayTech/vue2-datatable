@@ -3,7 +3,7 @@
     <template v-if="data.length">
       <template v-for="item in data">
         <tr>
-          <td v-if="selection" width="30px">
+          <td v-if="shouldRenderSelection">
             <multi-select :selection="selection" :row="item" />
           </td>
           <td v-for="col in columns" :class="col.tdClass" :style="col.tdStyle">
@@ -47,10 +47,11 @@
 <script>
 import MultiSelect from './MultiSelect.vue'
 import props from '../props.mixin'
+import shouldRenderSelection from './shouldRenderSelection.mixin'
 
 export default {
-  mixins: [props],
   components: { MultiSelect },
+  mixins: [props, shouldRenderSelection],
   computed: {
     colLen () {
       return this.columns.length + !!this.selection

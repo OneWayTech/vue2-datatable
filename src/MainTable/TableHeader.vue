@@ -1,7 +1,7 @@
 <template>
   <thead>
     <transition-group name="fade" tag="tr">
-      <th v-if="selection" width="30px" key="--th-multi">
+      <th v-if="shouldRenderSelection" key="--th-multi">
         <multi-select :selection="selection" :rows="data" />
       </th>
       <th v-for="(col, idx) in columns"
@@ -30,9 +30,10 @@
 import HeadSort from './HeadSort.vue'
 import MultiSelect from './MultiSelect.vue'
 import props from '../props.mixin'
+import shouldRenderSelection from './shouldRenderSelection.mixin'
 
 export default {
   components: { HeadSort, MultiSelect },
-  mixins: [props]
+  mixins: [props, shouldRenderSelection]
 }
 </script>

@@ -11,7 +11,7 @@ import Datatable from 'vue2-datatable-component'
 Vue.use(Datatable) // done!
 ```
 
-我们以基本例子 [`examples/src/Basic/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue) 为例，效果见 [examples#basic](https://OneWayTech.github.io/vue2-datatable/examples/dist)
+我们以基本例子 [`examples/src/Basic/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Basic/index.vue) 为例，效果见 [examples#basic](https://OneWayTech.github.io/vue2-datatable/examples/dist#basic)
 
 ```html
 <template>

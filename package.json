@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "start": "vue build --config build/examples.js",
+    "build": "npm run build:examples && npm run build:lib",
     "build:examples": "vue build --config build/examples.js --prod",
     "build:lib": "vue build --config build/lib.js --prod",
     "doc": "docsify serve doc"

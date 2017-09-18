@@ -25,7 +25,7 @@ import HeaderSettings from './HeaderSettings/index.vue'
 import MainTable from './MainTable/index.vue'
 import LimitSelect from './LimitSelect.vue'
 import Pagination from './Pagination.vue'
-import props from './props.mixin'
+import props from './_mixins/props'
 
 export default {
   name: 'Datatable',

@@ -24,8 +24,8 @@
   </tfoot>
 </template>
 <script>
-import props from '../props.mixin'
-import shouldRenderSelection from './shouldRenderSelection.mixin'
+import props from '../_mixins/props'
+import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
   mixins: [props, shouldRenderSelection]

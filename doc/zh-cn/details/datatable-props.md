@@ -1,6 +1,6 @@
 # § Datatable 配置项 (`props`)
 
-> 源码见 [`src/props.mixin.js`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/props.mixin.js)
+> 源码见 [`src/_mixins/props.js`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/_mixins/props.js)
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必须 |
 |---|---|---|---|---|---|

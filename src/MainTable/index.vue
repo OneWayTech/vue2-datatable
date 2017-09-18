@@ -37,9 +37,10 @@ import TableFrame from './TableFrame.vue'
 import TableHeader from './TableHeader.vue'
 import TableBody from './TableBody.vue'
 import TableFooter from './TableFooter.vue'
-import syncScroll from './syncScroll'
-import SCROLLBAR_WIDTH from './SCROLLBAR_WIDTH'
-import props from '../props.mixin'
+import props from '../_mixins/props'
+import isColVisible from '../_utils/isColVisible'
+import SCROLLBAR_WIDTH from '../_utils/SCROLLBAR_WIDTH'
+import syncScroll from '../_utils/syncScroll'
 
 export default {
   mixins: [props],
@@ -63,7 +64,7 @@ export default {
   },
   computed: {
     visibleColumns () {
-      return this.columns.filter(col => typeof col.visible === 'undefined' || '' + col.visible === 'true')
+      return this.columns.filter(isColVisible)
     },
     leftFixedColumns () {
       return this.visibleColumns.filter(col => col.fixed && col.fixed !== 'right')

@@ -45,7 +45,7 @@ export default {
         return
       }
       if (this.rows) {
-        // not only same length but also non-zero
+        // not only have same length but also non-zero
         this.status = this.rows.length === selection.length && selection.length
       }
     }

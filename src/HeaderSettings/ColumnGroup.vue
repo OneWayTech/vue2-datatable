@@ -8,7 +8,7 @@
         type="checkbox"
         :id="uuidGen(col.field || idx)"
         :name="groupName"
-        :checked="typeof col.visible === 'undefined' || '' + col.visible === 'true'"
+        :checked="isColVisible(col)"
         :disabled="typeof col.visible === 'string'"
         @change="handleChange(col, $event.target.checked)">
       <label :for="uuidGen(col.field || idx)">
@@ -19,6 +19,8 @@
   </ul>
 </template>
 <script>
+import isColVisible from '../_utils/isColVisible'
+
 export default {
   props: {
     groupName: { type: String, required: true },
@@ -40,7 +42,8 @@ export default {
         this.$set(col, 'visible', isChecked)
       })
       this.changes = [] // don't forget to clear the stack
-    }
+    },
+    isColVisible
   }
 }
 </script>

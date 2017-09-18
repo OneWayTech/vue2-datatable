@@ -5,7 +5,8 @@
 源码目录树 [`src/`](https://github.com/OneWayTech/vue2-datatable/tree/master/src) 如下所示：
 
 ```
-src/
+ ├─ _mixins/
+ ├─ _utils/
  ├─ HeaderSettings/
  │   ├─ ColumnGroup.vue
  │   └─ index.vue
@@ -13,9 +14,6 @@ src/
  │   ├─ HeadSort.vue
  │   ├─ index.vue
  │   ├─ MultiSelect.vue
- │   ├─ SCROLLBAR_WIDTH.js
- │   ├─ shouldRenderSelection.mixin.js
- │   ├─ syncScroll.js
  │   ├─ TableBody.vue
  │   ├─ TableFooter.vue
  │   ├─ TableFrame.vue
@@ -23,8 +21,7 @@ src/
  ├─ Datatable.vue
  ├─ index.js
  ├─ LimitSelect.vue
- ├─ Pagination.vue
- └─ props.mixin.js
+ └─ Pagination.vue
 ```
 
 以高级例子 [`examples/src/Advanced/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue) ([demo - examples#advanced](https://OneWayTech.github.io/vue2-datatable/examples/dist#advanced)) 为例，标注出对应的基本构成组件如下图所示：

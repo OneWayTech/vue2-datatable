@@ -1,6 +1,6 @@
 # § `props` of Datatable
 
-> Source: [`src/props.mixin.js`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/props.mixin.js)
+> Source: [`src/_mixins/props.js`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/_mixins/props.js)
 
 | prop | Desc | Type | Optional values | Default value | Required |
 |---|---|---|---|---|---|

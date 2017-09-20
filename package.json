@@ -1,7 +1,7 @@
 {
   "name": "vue2-datatable-component",
   "description": "The best Datatable for Vue.js 2.x which never sucks",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "main": "dist/min.js",
   "module": "src/index.js",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
@@ -15,8 +15,11 @@
     "build": "npm run build:examples && npm run build:lib",
     "build:examples": "vue build --config build/examples.js --prod",
     "build:lib": "vue build --config build/lib.js --prod",
-    "doc": "docsify serve doc",
-    "lint": "eslint -f node_modules/eslint-friendly-formatter build/** examples/src/** locale/** src/**"
+    "prebuild": "npm run lint",
+    "lint": "eslint -f node_modules/eslint-friendly-formatter build/** examples/src/** locale/** src/** test/**",
+    "test": "ava",
+    "pretest": "npm run lint",
+    "doc": "docsify serve doc"
   },
   "repository": {
     "type": "git",
@@ -32,7 +35,10 @@
     "replace-with": "^1.0.0"
   },
   "devDependencies": {
+    "ava": "^0.22.0",
+    "avoriaz": "^4.1.0",
     "babel-polyfill": "^6.23.0",
+    "browser-env": "^3.2.0",
     "clean-webpack-plugin": "^0.1.16",
     "docsify-cli": "^4.1.10",
     "eslint": "^4.6.1",
@@ -43,9 +49,20 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^3.13.0",
+    "jquery": "^3.2.1",
+    "localstorage-polyfill": "^1.0.1",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
+    "p-immediate": "^2.1.0",
+    "require-extension-hooks": "^0.3.0",
+    "require-extension-hooks-babel": "^0.1.1",
+    "require-extension-hooks-vue": "^0.4.0",
     "vue-cli": "^2.8.2"
+  },
+  "ava": {
+    "require": [
+      "./test/.setup.js"
+    ]
   },
   "license": "MIT"
 }

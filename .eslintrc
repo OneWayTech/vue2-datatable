@@ -1,5 +1,8 @@
 // http://eslint.org/docs/user-guide/configuring
 {
+  parserOptions: {
+    ecmaVersion: 2017 // support async/await
+  },
   globals: {
     $: false // for jQuery
   },

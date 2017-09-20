@@ -1,7 +1,8 @@
 <template>
   <label name="LimitSelect">
     {{ $i18nForDatatable('show') }}
-    <select class="form-control input-sm -limit-select" v-model="limit">
+    <select class="form-control input-sm -limit-select" v-model="query.limit"
+      @change="query.offset = 0 /* reset to the first page */">
       <option v-for="i in options" :value="i">{{ i }}</option>
     </select>
     {{ $i18nForDatatable('items per page') }}
@@ -12,18 +13,9 @@ export default {
   props: {
     query: { type: Object, required: true }
   },
-  data () {
-    return {
-      limit: this.query.limit,
-      options: [10, 20, 40, 80, 100]
-    }
-  },
-  watch: {
-    limit (v) {
-      this.query.limit = v
-      this.query.offset = 0 // reset to the first page
-    }
-  }
+  data: () => ({
+    options: [10, 20, 40, 80, 100]
+  })
 }
 </script>
 <style>

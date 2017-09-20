@@ -6,9 +6,9 @@ const total = 120 // how many rows to generate
 const getRandomUid = () => Random.integer(1, total)
 
 const users = Array(total).fill().map((item, idx) => ({
-  uid: idx,
+  uid: idx + 1,
   name: Random.name(),
-  age: Random.integer(0, 100),
+  age: Random.integer(1, 100),
   email: Random.email().substr(0, 22),
   friends: without(
     uniq(Array(getRandomUid()).fill().map(() => getRandomUid())),

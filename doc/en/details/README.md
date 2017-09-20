@@ -5,7 +5,6 @@ It would be better for you to understand the structure of this Datatable before 
 The source tree [`src/`](https://github.com/OneWayTech/vue2-datatable/tree/master/src) is shown as below:
 
 ```
-src/
  ├─ _mixins/
  ├─ _utils/
  ├─ HeaderSettings/
@@ -19,9 +18,9 @@ src/
  │   ├─ TableFooter.vue
  │   ├─ TableFrame.vue
  │   └─ TableHeader.vue
- ├─ Datatable.vue
- ├─ index.js
+ ├─ index.vue
  ├─ LimitSelect.vue
+ ├─ main.js
  └─ Pagination.vue
 ```
 

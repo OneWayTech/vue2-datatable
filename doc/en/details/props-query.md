@@ -1,6 +1,6 @@
 # `:query`
 
-Let's see how this Datatable initializes `query` (source: `created` hook in [`src/Datatable.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Datatable.vue)):
+Let's see how this Datatable initializes `query` (source: `created` hook in [`src/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/index.vue)):
 
 ```js
 created () {

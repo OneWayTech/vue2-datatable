@@ -19,7 +19,7 @@ export default {
   },
   data () {
     if (!comp) {
-      // only src/Datatable.vue could reach here
+      // only src/index.vue could reach here
       comp = this.$parent.$options.components
     }
     return {

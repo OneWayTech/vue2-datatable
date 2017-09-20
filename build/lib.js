@@ -2,7 +2,7 @@
 var path = require('path')
 
 module.exports = {
-  entry: path.join(__dirname, '../src/index.js'),
+  entry: path.join(__dirname, '../src/main.js'),
   html: false,
   filename: {
     js: 'min.js',

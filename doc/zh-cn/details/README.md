@@ -18,9 +18,9 @@
  │   ├─ TableFooter.vue
  │   ├─ TableFrame.vue
  │   └─ TableHeader.vue
- ├─ Datatable.vue
- ├─ index.js
+ ├─ index.vue
  ├─ LimitSelect.vue
+ ├─ main.js
  └─ Pagination.vue
 ```
 

@@ -6,7 +6,7 @@
 Normally, it's not necessary to talk about this prop (it's too simple).  
 But this Datatable supports `nested components` feature by performing magic on it.
 
-It would be more direct to excerpt `watch:data` from the source code ([`src/Datatable.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Datatable.vue)) to see how it works:
+It would be more direct to excerpt `watch:data` from the source code ([`src/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/index.vue)) to see how it works:
 
 ```js
 watch: {

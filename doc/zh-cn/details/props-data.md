@@ -3,7 +3,7 @@
 > 实际上该项应该叫 `rows` 才合理，但主流的 Datatable 都是这样称呼，我也不能免俗
 
 本身该项是没啥好讲的，但本 Datatable 支持**内嵌组件 (nested component)**，靠的就是在这里做文章  
-直接把源码 [`src/Datatable.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Datatable.vue) 中的 `watch:data` 搬出来：
+直接把源码 [`src/index.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/index.vue) 中的 `watch:data` 搬出来：
 
 ```js
 watch: {

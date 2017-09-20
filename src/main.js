@@ -1,4 +1,4 @@
-import Datatable from './Datatable.vue'
+import Datatable from './index.vue'
 
 Datatable.install = (Vue, options) => {
   const locale = options && options.locale || {}

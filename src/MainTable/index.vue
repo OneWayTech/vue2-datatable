@@ -6,16 +6,16 @@
         ref="wrappers" :style="styleFor[x]" :name="`Table${x}Wrapper`">
         <div v-if="leftFixedColumns.length" class="-fixed-table -left-fixed"
           :style="x !== 'Header' && styleForLeftFixedTable">
-          <table-frame v-bind="propsToLeftFixedTable">
-            <component :is="`Table${x}`" v-bind="propsToLeftFixedTable" />
+          <table-frame v-bind="propsToLeftFixedTable" left-fixed>
+            <component :is="`Table${x}`" v-bind="propsToLeftFixedTable" left-fixed />
           </table-frame>
         </div>
         <div v-if="rightFixedColumns.length" class="-fixed-table -right-fixed"
           :style="x === 'Header'
-            ? { right: fixHeaderAndSetBodyHeight && SCROLLBAR_WIDTH }
+            ? { right: fixHeaderAndSetBodyMaxHeight && SCROLLBAR_WIDTH }
             : styleForRightFixedTable">
-          <table-frame v-bind="propsToRightFixedTable" no-selection>
-            <component :is="`Table${x}`" v-bind="propsToRightFixedTable" no-selection />
+          <table-frame v-bind="propsToRightFixedTable" right-fixed>
+            <component :is="`Table${x}`" v-bind="propsToRightFixedTable" right-fixed />
           </table-frame>
         </div>
         <table-frame v-bind="propsToNormalTable">
@@ -50,7 +50,7 @@ export default {
     SCROLLBAR_WIDTH
   }),
   mounted () {
-    // this allows you to fix columns or `fixHeaderAndSetBodyHeight` dynamically
+    // this allows you to fix columns or `fixHeaderAndSetBodyMaxHeight` dynamically
     let unsync
     this.$watch('useComplexMode', v => {
       if (v) {
@@ -76,7 +76,7 @@ export default {
       return !!(this.leftFixedColumns.length + this.rightFixedColumns.length)
     },
     useComplexMode () {
-      return !!(this.fixHeaderAndSetBodyHeight || this.hasFixedColumns)
+      return !!(this.fixHeaderAndSetBodyMaxHeight || this.hasFixedColumns)
     },
     propsToLeftFixedTable () {
       return { ...this.$props, columns: this.leftFixedColumns }
@@ -102,8 +102,9 @@ export default {
       }
     },
     styleFor () {
-      const { fixHeaderAndSetBodyHeight } = this
-      const width = fixHeaderAndSetBodyHeight && `calc(100% - ${SCROLLBAR_WIDTH})`
+      const { fixHeaderAndSetBodyMaxHeight } = this
+      const width = fixHeaderAndSetBodyMaxHeight && `calc(100% - ${SCROLLBAR_WIDTH})`
+
       return {
         Header: {
           marginBottom: `-${SCROLLBAR_WIDTH}`,
@@ -111,8 +112,8 @@ export default {
           width
         },
         Body: {
-          overflowY: fixHeaderAndSetBodyHeight ? 'scroll' : 'hidden',
-          height: `${fixHeaderAndSetBodyHeight}px`
+          overflowY: fixHeaderAndSetBodyMaxHeight ? 'scroll' : 'hidden',
+          maxHeight: `${fixHeaderAndSetBodyMaxHeight}px`
         },
         Footer: {
           overflowX: 'hidden',

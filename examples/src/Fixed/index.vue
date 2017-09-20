@@ -9,7 +9,7 @@ import mockData from '../_mockData'
 
 export default {
   data: () => ({
-    fixHeaderAndSetBodyHeight: 200,
+    fixHeaderAndSetBodyMaxHeight: 200,
     tblStyle: 'table-layout: fixed', // must
     tblClass: 'table-bordered',
     columns: [

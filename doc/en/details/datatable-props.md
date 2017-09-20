@@ -15,7 +15,7 @@
 | Pagination | Whether to render pagination relevant | Boolean | true / false | true | N |
 | tbl-class | Classes for `<table>` | String / Object / Array | - | - | N |
 | tbl-style | Inline styles for `<table>` | String / Object / Array | - | - | N |
-| fixHeaderAndSetBodyHeight | (Just as its name implies) | Number | - | - | N |
+| fixHeaderAndSetBodyMaxHeight | (Just as its name implies) | Number | - | - | N |
 | support-backup | Whether to enable backup of `HeaderSettings` | Boolean | true / false | false | N |
 | support-nested | Whether to enable `nested components` feature (`accordion` mode is available) | Boolean / String | true / false / 'accordion' | false | N |
 

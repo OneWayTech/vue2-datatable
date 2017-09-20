@@ -13,7 +13,7 @@ export default {
     Pagination: { type: Boolean, default: true }, // whether to render `LimitSelect` and `Pagination`
     tblClass: [String, Object, Array], // classes for <table>
     tblStyle: [String, Object, Array], // inline styles for <table>
-    fixHeaderAndSetBodyHeight: Number, // a fancy prop which combines two props into one
+    fixHeaderAndSetBodyMaxHeight: Number, // a fancy prop which combines two props into one
     supportNested: [Boolean, String], // support nested components feature (String is only for 'accordion')
     supportBackup: Boolean // support backup for `HeaderSettings`
   },

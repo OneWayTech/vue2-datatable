@@ -1,10 +1,11 @@
 export default {
   props: {
-    noSelection: Boolean
+    leftFixed: Boolean,
+    rightFixed: Boolean
   },
   computed: {
     shouldRenderSelection () {
-      return !this.noSelection && this.selection
+      return !this.rightFixed && this.selection
     }
   }
 }

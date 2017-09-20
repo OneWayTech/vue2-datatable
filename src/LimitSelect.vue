@@ -1,11 +1,10 @@
 <template>
   <label name="LimitSelect">
-    {{ $i18nForDatatable('show') }}
     <select class="form-control input-sm -limit-select" v-model="query.limit"
       @change="query.offset = 0 /* reset to the first page */">
       <option v-for="i in options" :value="i">{{ i }}</option>
     </select>
-    {{ $i18nForDatatable('items per page') }}
+    {{ $i18nForDatatable('items / page') }}
   </label>
 </template>
 <script>

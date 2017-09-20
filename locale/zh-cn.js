@@ -10,8 +10,7 @@ export default {
   ',': '项，',
   
   /* LimitSelect.vue */
-  'show': '每页展示',
-  'items per page': '项',
+  'items / page': '项 / 页',
 
   /* MainTable/TableBody.vue */
   'No Data': '无数据'

@@ -11,7 +11,9 @@
     
     <div v-if="Pagination" class="row" style="margin-top: 10px">
       <div class="col-sm-6" style="white-space: nowrap">
-        <strong>{{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}</strong>
+        <strong>
+          {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
+        </strong>
         <limit-select :query="query" />
       </div>
       <div class="col-sm-6">

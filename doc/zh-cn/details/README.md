@@ -19,8 +19,8 @@
  │   ├─ TableFrame.vue
  │   └─ TableHeader.vue
  ├─ index.vue
- ├─ LimitSelect.vue
  ├─ main.js
+ ├─ PageSizeSelect.vue
  └─ Pagination.vue
 ```
 

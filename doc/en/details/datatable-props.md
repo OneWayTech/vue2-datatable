@@ -13,6 +13,7 @@
 | xprops | Carrier for extra props passed to dynamic components | Object | - | - | N |
 | HeaderSettings | Whether to render `HeaderSettings` | Boolean | true / false | true | N |
 | Pagination | Whether to render pagination relevant | Boolean | true / false | true | N |
+| pageSizeOptions | options for `PageSizeSelect` | Array | - | [10, 20, 40, 80, 100] | N |
 | tbl-class | Classes for `<table>` | String / Object / Array | - | - | N |
 | tbl-style | Inline styles for `<table>` | String / Object / Array | - | - | N |
 | fixHeaderAndSetBodyMaxHeight | (Just as its name implies) | Number | - | - | N |

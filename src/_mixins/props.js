@@ -10,7 +10,8 @@ export default {
     summary: Object, // an extra summary row
     xprops: Object, // extra custom props carrier passed to dynamic components
     HeaderSettings: { type: Boolean, default: true }, // whether to render `HeaderSettings`
-    Pagination: { type: Boolean, default: true }, // whether to render `LimitSelect` and `Pagination`
+    Pagination: { type: Boolean, default: true }, // whether to render `PageSizeSelect` and `Pagination`
+    pageSizeOptions: { type: Array, default: () => [10, 20, 40, 80, 100] },
     tblClass: [String, Object, Array], // classes for <table>
     tblStyle: [String, Object, Array], // inline styles for <table>
     fixHeaderAndSetBodyMaxHeight: Number, // a fancy prop which combines two props into one

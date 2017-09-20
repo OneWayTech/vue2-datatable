@@ -14,7 +14,7 @@
         <strong>
           {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
         </strong>
-        <limit-select :query="query" />
+        <page-size-select :query="query" :page-size-options="pageSizeOptions" />
       </div>
       <div class="col-sm-6">
         <pagination class="pull-right" :total="total" :query="query" />
@@ -25,14 +25,14 @@
 <script>
 import HeaderSettings from './HeaderSettings/index.vue'
 import MainTable from './MainTable/index.vue'
-import LimitSelect from './LimitSelect.vue'
 import Pagination from './Pagination.vue'
+import PageSizeSelect from './PageSizeSelect.vue'
 import props from './_mixins/props'
 
 export default {
   name: 'Datatable',
   mixins: [props],
-  components: { HeaderSettings, MainTable, LimitSelect, Pagination },
+  components: { HeaderSettings, MainTable, Pagination, PageSizeSelect },
   created () {
     // init query (make all the properties observable by using `$set`)
     const q = { limit: 10, offset: 0, sort: '', order: '', ...this.query }

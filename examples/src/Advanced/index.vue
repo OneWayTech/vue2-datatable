@@ -26,6 +26,7 @@ export default {
       supportNested: true,
       tblClass: 'table-bordered',
       tblStyle: 'color: #666',
+      pageSizeOptions: [5, 10, 15, 20],
       columns: (() => {
         const cols = [
           { title: 'UID', field: 'uid', label: 'User ID', sortable: true, visible: 'true' },

@@ -71,13 +71,13 @@ test('sort', async t => {
 
 test('pagination relevant', async t => {
   const { wrapper, vm } = t.context
-  const $LimitSelect = wrapper.find('label[name=LimitSelect] > select')[0]
+  const $PageSizeSelect = wrapper.find('label[name=PageSizeSelect] > select')[0]
 
   /* *** programmatic behaviors  *** */
   Object.assign(vm.query, { limit: 20, offset: 20 })
   await nextTick()
   t.is(
-    +$LimitSelect.value(),
+    +$PageSizeSelect.value(),
     20
   )
   t.is(

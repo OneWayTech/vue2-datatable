@@ -19,8 +19,8 @@ The source tree [`src/`](https://github.com/OneWayTech/vue2-datatable/tree/maste
  │   ├─ TableFrame.vue
  │   └─ TableHeader.vue
  ├─ index.vue
- ├─ LimitSelect.vue
  ├─ main.js
+ ├─ PageSizeSelect.vue
  └─ Pagination.vue
 ```
 

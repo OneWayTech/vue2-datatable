@@ -5,13 +5,13 @@ export default {
   'Clear local settings backup and restore': '清空本地设置并恢复',
   'Using local settings': '正在使用本地设置',
 
+  /* MainTable/TableBody.vue */
+  'No Data': '无数据',
+
   /* index.vue */
   'Total': '共',
   ',': '项，',
   
-  /* LimitSelect.vue */
-  'items / page': '项 / 页',
-
-  /* MainTable/TableBody.vue */
-  'No Data': '无数据'
+  /* PageSizeSelect.vue */
+  'items / page': '项 / 页'
 }

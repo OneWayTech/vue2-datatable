@@ -13,6 +13,7 @@
 | xprops | 额外传给动态组件的 props 容器 | Object | - | - | 否 |
 | HeaderSettings | 是否显示表头设置组件 | Boolean | true / false | true | 否 |
 | Pagination | 是否显示分页相关组件 | Boolean | true / false | true | 否 |
+| pageSizeOptions | 每页显示条数选项 | Array | - | [10, 20, 40, 80, 100] | 否 |
 | tbl-class | 用于 `<table>` 的类名 | String / Object / Array | - | - | 否 |
 | tbl-style | 用于 `<table>` 的内联样式 | String / Object / Array | - | - | 否 |
 | fixHeaderAndSetBodyMaxHeight | 固定表头并设置表体最大高度 | Number | - | - | 否 |

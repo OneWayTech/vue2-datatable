@@ -56,20 +56,12 @@ test('MultiSelect', async t => {
   t.is(wrapper.find('input[name=MultiSelect]:checked').length, 3)
 })
 
-// TODO: wrapper.contains() must be passed a valid CSS selector or a Vue constructor
-// test('thComp / tdComp / nested components', async t => {
-//   const { wrapper, vm } = t.context
-//   await nextTick() // wait for mockData
+test('thComp / tdComp / nested components', t => {
+  const { wrapper, vm } = t.context
+  const { components } = vm.$options
 
-//   const { FilterTh, Opt, DisplayRow } = vm.$options.components
-  
-//   // thComp
-//   t.true(wrapper.contains(FilterTh))
-
-//   // tdComp
-//   t.true(wrapper.contains(tdComp))
-
-//   // nested-DisplayRow.vue
-//   wrapper.find('td i.fa-list-ul')[0].trigger('click')
-//   t.true(wrapper.contains(DisplayRow))
-// })
+  for (let name in components) {
+    let comp = components[name].default
+    comp && t.true(wrapper.contains(comp))
+  }
+})

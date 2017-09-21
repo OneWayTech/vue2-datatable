@@ -39,7 +39,7 @@
         <li :class="{ active: showTab === 'advanced' }">
           <a href="#advanced">Advanced</a>
         </li>
-        <li :class="{ active: showTab === 'fixed' }">
+        <li :class="{ active: showTab === 'fixed' }" ref="tip">
           <a href="#fixed">Fixed ( header and columns )</a>
         </li>
       </ul>
@@ -82,6 +82,10 @@ export default {
     $(window).on('hashchange', () => {
       this.showTab = getCurHash()
       console.clear()
+    })
+    $(this.$refs.tip).tooltip({
+      placement: 'bottom',
+      title: 'Only for modern Chrome and Firefox currently. But I will endeavor to solve the compatibility issues'
     })
   },
   methods: {

@@ -4,11 +4,12 @@ import debounce from 'lodash/debounce'
 /**
  * synchronize the scroll position among `els`
  * @param  {DOM[]} els
- * @param  {Func}  callback({ top, left })
+ * @param  {Func}  callback(offsetLeft)
  * @return {Func}  unsync
  */
 export default function (els, callback) {
   let currentDriver
+  
   function syncScroll(me, others) {
     me
       .on('scroll', throttle(() => {

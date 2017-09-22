@@ -1,36 +1,45 @@
 <template>
   <!-- complex mode -->
-  <div v-if="useComplexMode" class="-complex-table-container" name="MainTable">
+  <div v-if="useComplexMode" name="ComplexTable" class="-complex-table">
     <template v-for="x in ['Header', 'Body', 'Footer']">
       <div v-if="x !== 'Footer' || x === 'Footer' && summary"
-        ref="wrappers" :style="styleFor[x]" :name="`Table${x}Wrapper`">
-        <div v-if="leftFixedColumns.length" class="-fixed-table -left-fixed"
-          :style="x !== 'Header' && styleForLeftFixedTable">
+        ref="wrappers" :name="`Table${x}Wrapper`" :class="`-table-${x.toLowerCase()}`"
+        :style="[
+          x !== 'Header' && { marginTop: `-${SCROLLBAR_WIDTH}px` },
+          x === 'Body' && { maxHeight: `${fixHeaderAndSetBodyMaxHeight}px` }
+        ]">
+        <div :name="`NormalTable${x}`">
+          <table-frame v-bind="propsToNormalTable">
+            <component :is="`Table${x}`" v-bind="propsToNormalTable" />
+          </table-frame>
+        </div>
+        <div v-if="leftFixedColumns.length"
+          :name="`LeftFixedTable${x}`"
+          class="-left-fixed -fixed-table"
+          :style="{ left: `${offsetLeft}px` }">
           <table-frame v-bind="propsToLeftFixedTable" left-fixed>
             <component :is="`Table${x}`" v-bind="propsToLeftFixedTable" left-fixed />
           </table-frame>
         </div>
-        <div v-if="rightFixedColumns.length" class="-fixed-table -right-fixed"
-          :style="x === 'Header'
-            ? { right: fixHeaderAndSetBodyMaxHeight && SCROLLBAR_WIDTH }
-            : styleForRightFixedTable">
+        <div v-if="rightFixedColumns.length"
+          :name="`RightFixedTable${x}`"
+          class="-right-fixed -fixed-table"
+          :style="{ right: `-${offsetLeft}px` }">
           <table-frame v-bind="propsToRightFixedTable" right-fixed>
             <component :is="`Table${x}`" v-bind="propsToRightFixedTable" right-fixed />
           </table-frame>
         </div>
-        <table-frame v-bind="propsToNormalTable">
-          <component :is="`Table${x}`" v-bind="propsToNormalTable" />
-        </table-frame>
       </div>
     </template>
   </div>
-
   <!-- simple mode -->
-  <table-frame v-else v-bind="propsToNormalTable">
-    <table-header v-bind="propsToNormalTable" />
-    <table-body v-bind="propsToNormalTable" />
-    <table-footer v-if="summary" v-bind="propsToNormalTable" />
-  </table-frame>
+  <div v-else name="SimpleTable">
+    <table-frame v-bind="propsToNormalTable">
+      <table-header v-bind="propsToNormalTable" />
+      <table-body v-bind="propsToNormalTable" />
+      <table-footer v-if="summary" v-bind="propsToNormalTable" />
+    </table-frame>
+  </div>
 </template>
 <script>
 import TableFrame from './TableFrame.vue'
@@ -46,7 +55,7 @@ export default {
   mixins: [props],
   components: { TableFrame, TableHeader, TableBody, TableFooter },
   data: () => ({
-    scrollLeft: 0,
+    offsetLeft: 0,
     SCROLLBAR_WIDTH
   }),
   mounted () {
@@ -55,7 +64,7 @@ export default {
     this.$watch('useComplexMode', v => {
       if (v) {
         unsync = syncScroll(this.$refs.wrappers, offsetLeft => {
-          this.scrollLeft = offsetLeft
+          this.offsetLeft = offsetLeft
         })
       } else {
         unsync && unsync()
@@ -78,75 +87,40 @@ export default {
     useComplexMode () {
       return !!(this.fixHeaderAndSetBodyMaxHeight || this.hasFixedColumns)
     },
+    propsToNormalTable () {
+      return { ...this.$props, columns: this.visibleColumns }
+    },
     propsToLeftFixedTable () {
       return { ...this.$props, columns: this.leftFixedColumns }
     },
     propsToRightFixedTable () {
       return { ...this.$props, columns: this.rightFixedColumns }
-    },
-    propsToNormalTable () {
-      return { ...this.$props, columns: this.visibleColumns }
-    },
-    styleForLeftFixedTable () {
-      return {
-        position: 'relative',
-        float: 'left',
-        left: `${this.scrollLeft}px`
-      }
-    },
-    styleForRightFixedTable () {
-      return {
-        position: 'relative',
-        float: 'right',
-        right: `-${this.scrollLeft}px`
-      }
-    },
-    styleFor () {
-      const { fixHeaderAndSetBodyMaxHeight } = this
-      const width = fixHeaderAndSetBodyMaxHeight && `calc(100% - ${SCROLLBAR_WIDTH})`
-
-      return {
-        Header: {
-          marginBottom: `-${SCROLLBAR_WIDTH}`,
-          overflowX: 'scroll', // always show the scroll bar
-          width
-        },
-        Body: {
-          overflowY: fixHeaderAndSetBodyMaxHeight ? 'scroll' : 'hidden',
-          maxHeight: `${fixHeaderAndSetBodyMaxHeight}px`
-        },
-        Footer: {
-          overflowX: 'hidden',
-          width
-        }
-      }
     }
   }
 }
 </script>
 <style>
-.-complex-table-container {
+.-complex-table {
   position: relative;
 }
-.-complex-table-container table {
+.-complex-table table {
   background: #fff;
+}
+.-table-header, .-table-body, .-table-footer {
+  position: relative;
+  overflow: scroll;
 }
 .-fixed-table {
   position: absolute;
-  width: 0;
-  overflow: visible;
+  top: 0;
+}
+.-fixed-table table {
+  width: auto;
 }
 .-left-fixed {
-  left: 0;
-}
-.-left-fixed > table {
   box-shadow: 1px 0 5px #ddd;
 }
 .-right-fixed {
-  right: 0;
-}
-.-right-fixed > table {
-  box-shadow: -1px 0 5px #ddd;
-  transform: translateX(-100%);
+  box-shadow: 1px 0 5px #ddd;
 }
 </style>

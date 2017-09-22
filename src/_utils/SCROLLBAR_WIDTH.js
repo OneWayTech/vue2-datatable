@@ -13,4 +13,4 @@ const SCROLLBAR_WIDTH = div.offsetWidth - div.clientWidth
 
 document.body.removeChild(div)
 
-export default `${SCROLLBAR_WIDTH}px`
+export default SCROLLBAR_WIDTH

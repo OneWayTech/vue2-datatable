@@ -10,7 +10,7 @@ The source tree [`src/`](https://github.com/OneWayTech/vue2-datatable/tree/maste
  ├─ HeaderSettings/
  │   ├─ ColumnGroup.vue
  │   └─ index.vue
- ├─ MainTable
+ ├─ Table/
  │   ├─ HeadSort.vue
  │   ├─ index.vue
  │   ├─ MultiSelect.vue

@@ -2,7 +2,7 @@
 
 ## ⊙ `thComp`
 
-> 源码见 [`src/MainTable/TableHeader.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableHeader.vue)
+> 源码见 [`src/Table/TableHeader.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Table/TableHeader.vue)
 
 ```html
 <!-- <th> component (thComp) -->
@@ -25,7 +25,7 @@
 
 ## ⊙ `tdComp`
 
-> 源码见 [`src/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableBody.vue)
+> 源码见 [`src/Table/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Table/TableBody.vue)
 
 ```html
 <!-- <td> component (tdComp) -->
@@ -49,7 +49,7 @@
 
 ## ⊙ `nested component`
 
-> 源码见 [`src/MainTable/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/MainTable/TableBody.vue)
+> 源码见 [`src/Table/TableBody.vue`](https://github.com/OneWayTech/vue2-datatable/blob/master/src/Table/TableBody.vue)
 
 ```html
 <!-- nested component -->

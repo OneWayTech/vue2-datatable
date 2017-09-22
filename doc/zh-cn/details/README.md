@@ -10,7 +10,7 @@
  ├─ HeaderSettings/
  │   ├─ ColumnGroup.vue
  │   └─ index.vue
- ├─ MainTable
+ ├─ Table/
  │   ├─ HeadSort.vue
  │   ├─ index.vue
  │   ├─ MultiSelect.vue

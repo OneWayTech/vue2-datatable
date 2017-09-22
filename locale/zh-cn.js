@@ -5,7 +5,7 @@ export default {
   'Clear local settings backup and restore': '清空本地设置并恢复',
   'Using local settings': '正在使用本地设置',
 
-  /* MainTable/TableBody.vue */
+  /* Table/TableBody.vue */
   'No Data': '无数据',
 
   /* index.vue */

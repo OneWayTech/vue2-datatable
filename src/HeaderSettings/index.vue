@@ -57,6 +57,7 @@ const hash = s => '' + s.split('').reduce((a, b) => (a = (a << 5) - a + b.charCo
 // the hash algorithm above refers to http://stackoverflow.com/a/15710692/5172890
 
 export default {
+  name: 'HeaderSettings',
   components: { ColumnGroup },
   props: {
     columns: { type: Array, required: true },

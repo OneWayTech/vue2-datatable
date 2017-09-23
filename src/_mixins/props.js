@@ -1,5 +1,3 @@
-let comp // cache the source of dynamic components (thComp / tdComp / nested components)
-
 export default {
   props: {
     columns: { type: Array, required: true },
@@ -19,12 +17,13 @@ export default {
     supportBackup: Boolean // support backup for `HeaderSettings`
   },
   data () {
-    if (!comp) {
-      // only src/index.vue could reach here
-      comp = this.$parent.$options.components
+    let datatableInstance = this
+    while (datatableInstance.$options.name !== 'Datatable') {
+      datatableInstance = datatableInstance.$parent
     }
     return {
-      comp // share the same source of dynamic components
+      // the source of dynamic components (thComp / tdComp / nested components)
+      comp: datatableInstance.$parent.$options.components
     }
   }
 }

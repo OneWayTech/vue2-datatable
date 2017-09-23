@@ -7,6 +7,7 @@ import replaceWith from 'replace-with'
  * checkbox for multiple select within the leading <th>/<td>
  */
 export default {
+  name: 'MultiSelect',
   props: {
     selection: { type: Array, required: true },
     row: Object, // available for tbody checkbox

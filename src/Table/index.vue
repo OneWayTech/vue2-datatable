@@ -52,6 +52,7 @@ import SCROLLBAR_WIDTH from '../_utils/SCROLLBAR_WIDTH'
 import syncScroll from '../_utils/syncScroll'
 
 export default {
+  name: 'Table',
   mixins: [props],
   components: { TableFrame, TableHeader, TableBody, TableFooter },
   data: () => ({

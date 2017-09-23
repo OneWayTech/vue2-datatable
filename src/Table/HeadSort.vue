@@ -8,6 +8,7 @@
  * Sorting arrows within <th>
  */
 export default {
+  name: 'HeadSort',
   props: {
     field: { type: String, required: true },
     query: { type: Object, required: true }

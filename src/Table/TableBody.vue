@@ -50,6 +50,7 @@ import props from '../_mixins/props'
 import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
+  name: 'TableBody',
   components: { MultiSelect },
   mixins: [props, shouldRenderSelection],
   computed: {

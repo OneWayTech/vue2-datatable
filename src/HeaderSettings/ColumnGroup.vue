@@ -22,6 +22,7 @@
 import isColVisible from '../_utils/isColVisible'
 
 export default {
+  name: 'ColumnGroup',
   props: {
     groupName: { type: String, required: true },
     columns: { type: Array, required: true }

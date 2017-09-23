@@ -28,6 +28,7 @@ import props from '../_mixins/props'
 import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
+  name: 'TableFooter',
   mixins: [props, shouldRenderSelection]
 }
 </script>

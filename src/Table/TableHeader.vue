@@ -33,6 +33,7 @@ import props from '../_mixins/props'
 import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
+  name: 'TableHeader',
   components: { HeadSort, MultiSelect },
   mixins: [props, shouldRenderSelection]
 }

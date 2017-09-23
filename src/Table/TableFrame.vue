@@ -12,6 +12,7 @@ import props from '../_mixins/props'
 import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
+  name: 'TableFrame',
   mixins: [props, shouldRenderSelection]
 }
 </script>

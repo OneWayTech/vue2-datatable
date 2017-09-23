@@ -22,6 +22,7 @@
 </template>
 <script>
 export default {
+  name: 'Pagination',
   props: {
     total: { type: Number, required: true },
     query: { type: Object, required: true }

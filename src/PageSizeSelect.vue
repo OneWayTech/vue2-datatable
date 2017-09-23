@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'PageSizeSelect',
   props: {
     query: { type: Object, required: true },
     pageSizeOptions: { type: Array, required: true }

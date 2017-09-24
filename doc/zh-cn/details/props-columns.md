@@ -16,7 +16,7 @@
 | colStyle | 作用于整列的内联样式 | Object | - | - | 否 |
 | thClass | 作用于 `<th>` 的类名 | String | - | - | 否 |
 | thStyle | 作用于 `<th>` 的内联样式 | Object | - | - | 否 |
-| thComp | 作用于 `<th>` 的动态组件名 | String | - | - | 否 |
+| thComp | 作用于 `<th>` 的动态组件 | String / Object | - | - | 否 |
 | tdClass | 作用于 `<td>` 的类名 | String | - | - | 否 |
 | tdStyle | 作用于 `<td>` 的内联样式 | Object | - | - | 否 |
-| tdComp | 作用于 `<td>` 的动态组件名 | String | - | - | 否 |
+| tdComp | 作用于 `<td>` 的动态组件 | String / Object | - | - | 否 |

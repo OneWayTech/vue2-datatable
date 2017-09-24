@@ -65,7 +65,7 @@ watch: {
 <!-- <td> component (tdComp) -->
 <component
   v-if="col.tdComp"
-  :is="comp[col.tdComp]"
+  :is="forDynCompIs(col.tdComp)"
   :row="item"
   :field="col.field"
   :value="item[col.field]"
@@ -75,7 +75,7 @@ watch: {
 
 <!-- nested component -->
 <component
-  :is="comp[item.__nested__.comp]"
+  :is="forDynCompIs(item.__nested__.comp)"
   :row="item"
   :nested="item.__nested__"
   v-bind="$props">

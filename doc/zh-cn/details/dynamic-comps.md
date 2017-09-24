@@ -8,7 +8,7 @@
 <!-- <th> component (thComp) -->
 <component
   v-if="col.thComp"
-  :is="comp[col.thComp]"
+  :is="forDynCompIs(col.thComp)"
   :column="col"
   :field="col.field"
   :title="col.title"
@@ -31,7 +31,7 @@
 <!-- <td> component (tdComp) -->
 <component
   v-if="col.tdComp"
-  :is="comp[col.tdComp]"
+  :is="forDynCompIs(col.tdComp)"
   :row="summary"
   :field="col.field"
   :value="summary[col.field]"
@@ -54,7 +54,7 @@
 ```html
 <!-- nested component -->
 <component
-  :is="comp[item.__nested__.comp]"
+  :is="forDynCompIs(item.__nested__.comp)"
   :row="item"
   :nested="item.__nested__"
   v-bind="$props">

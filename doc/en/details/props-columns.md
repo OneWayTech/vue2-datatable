@@ -16,7 +16,7 @@ These are the properties of `columns[i]`:
 | colStyle | Inline styles for the whole column | Object | - | - | N |
 | thClass | Classes for `<th>` | String | - | - | N |
 | thStyle | Inline styles for `<th>` | Object | - | - | N |
-| thComp | Name of dynamic component for `<th>` | String | - | - | N |
+| thComp | dynamic component for `<th>` | String / Object | - | - | N |
 | tdClass | Classes for `<td>` | String | - | - | N |
 | tdStyle | Inline styles for `<td>` | Object | - | - | N |
-| tdComp | Name of dynamic component for `<td>` | String | - | - | N |
+| tdComp | dynamic component for `<td>` | String / Object | - | - | N |

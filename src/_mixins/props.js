@@ -25,5 +25,13 @@ export default {
       // the source of dynamic components (thComp / tdComp / nested components)
       comp: datatableInstance.$parent.$options.components
     }
+  },
+  methods: {
+    // usage: <component :is="forDynCompIs(XXX)" ... />
+    forDynCompIs (component) {
+      // according to https://vuejs.org/v2/guide/components.html#Dynamic-Components
+      // dynamic components can be names (string) or component objects
+      return typeof component === 'object' ? component : this.comp[component]
+    }
   }
 }

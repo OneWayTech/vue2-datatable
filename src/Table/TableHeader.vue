@@ -10,7 +10,7 @@
         <!-- <th> component (thComp) -->
         <component
           v-if="col.thComp"
-          :is="comp[col.thComp]"
+          :is="forDynCompIs(col.thComp)"
           :column="col"
           :field="col.field"
           :title="col.title"

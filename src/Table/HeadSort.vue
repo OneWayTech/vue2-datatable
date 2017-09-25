@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" @click="handleClick" style="padding-left: 5px" name="HeadSort">
+  <a href="javascript:;" @click="handleClick" name="HeadSort">
     <i :class="cls"></i>
   </a>
 </template>

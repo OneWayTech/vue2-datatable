@@ -91,7 +91,10 @@ export default {
   },
   computed: {
     colGroups () {
-      return groupBy(this.columns, 'group')
+      return groupBy(
+        this.columns.filter(col => col.label || col.title),
+        'group'
+      )
     },
     drpMenuStyle () {
       const w = Object.keys(this.colGroups).length * 150

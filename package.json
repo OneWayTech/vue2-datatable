@@ -57,7 +57,7 @@
     "require-extension-hooks": "^0.3.0",
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^0.4.0",
-    "vue-cli": "^2.8.2"
+    "vue-cli": "2.8.2"
   },
   "ava": {
     "require": [

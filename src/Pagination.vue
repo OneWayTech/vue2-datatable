@@ -1,12 +1,12 @@
 <template>
   <ul class="pagination" style="margin: 0" name="Pagination">
     <li v-if="!isFirstPage" @click="turnPage(-1)">
-      <a href="javascript:;">
+      <a href="#" @click.prevent>
         <i class="fa fa-arrow-left"></i>
       </a>
     </li>
     <li v-for="i in dspBtns" :class="{ 'active': i === curPage }">
-      <a v-if="i" href="javascript:;" @click="handleClick(i)">
+      <a v-if="i" href="#" @click.prevent="handleClick(i)">
         {{ i }}
       </a>
       <a v-else>
@@ -14,7 +14,7 @@
       </a>
     </li>
     <li v-if="!isLastPage" @click="turnPage(1)">
-      <a href="javascript:;">
+      <a href="#" @click.prevent>
         <i class="fa fa-arrow-right"></i>
       </a>
     </li>

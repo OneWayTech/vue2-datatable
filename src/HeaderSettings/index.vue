@@ -22,13 +22,13 @@
             </button>
             <ul class="dropdown-menu">
               <li @click="apply(true)">
-                <a href="javascript:;">
+                <a href="#" @click.prevent>
                   <i class="fa fa-floppy-o"></i>&nbsp;
                   {{ $i18nForDatatable('Apply and backup settings to local') }}
                 </a>
               </li>
               <li v-if="usingBak" @click="rmBackup()">
-                <a href="javascript:;">
+                <a href="#" @click.prevent>
                   <i class="fa fa-trash-o text-danger"></i>&nbsp;
                   {{ $i18nForDatatable('Clear local settings backup and restore') }}
                 </a>

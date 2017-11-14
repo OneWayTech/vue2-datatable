@@ -5,6 +5,22 @@
 `>_ npm i -S vue2-datatable-component`
 
 ```js
+// Webpack configuration
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      loader: 'babel-loader?cacheDirectory',
+      include: [
+        <path to source directory>,
+        /vue2-datatable-component/ // <-- add this!
+      ]
+    }
+  ]
+}
+```
+
+```js
 import Vue from 'vue'
 import Datatable from 'vue2-datatable-component'
 

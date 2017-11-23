@@ -4,7 +4,7 @@
       <td v-if="shouldRenderSelection"></td>
       <template v-for="(col, idx) in columns">
         <!-- display the available fields only -->
-        <td v-if="summary[col.field]" :class="col.tdClass" :style="col.tdStyle">
+        <td v-if="typeof summary[col.field] !== 'undefined'" :class="col.tdClass" :style="col.tdStyle">
           <!-- <td> component (tdComp) -->
           <component
             v-if="col.tdComp"

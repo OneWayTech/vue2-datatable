@@ -5,7 +5,7 @@
       <div v-if="x !== 'Footer' || x === 'Footer' && summary"
         ref="wrappers" :name="`Table${x}Wrapper`" :class="`-table-${x.toLowerCase()}`"
         :style="[
-          x !== 'Header' && { marginTop: `-${SCROLLBAR_WIDTH}px` },
+          x !== 'Header' && { marginTop: `-${scrollWidth}px` },
           x === 'Body' && { maxHeight: `${fixHeaderAndSetBodyMaxHeight}px` }
         ]">
         <div :name="`NormalTable${x}`">
@@ -47,8 +47,8 @@ import TableHeader from './TableHeader.vue'
 import TableBody from './TableBody.vue'
 import TableFooter from './TableFooter.vue'
 import props from '../_mixins/props'
+import getScrollWidth from '../_utils/getScrollWidth'
 import isColVisible from '../_utils/isColVisible'
-import SCROLLBAR_WIDTH from '../_utils/SCROLLBAR_WIDTH'
 import syncScroll from '../_utils/syncScroll'
 
 export default {
@@ -57,7 +57,7 @@ export default {
   components: { TableFrame, TableHeader, TableBody, TableFooter },
   data: () => ({
     offsetLeft: 0,
-    SCROLLBAR_WIDTH
+    scrollWidth: getScrollWidth()
   }),
   mounted () {
     // this allows you to fix columns or `fixHeaderAndSetBodyMaxHeight` dynamically

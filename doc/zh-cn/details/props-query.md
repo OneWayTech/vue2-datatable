@@ -21,6 +21,12 @@ created () {
 > 
 > 温馨提示：若采用 Ajax - GET 请求，赋值较为复杂时（例如一个网址）最好使用 [`encodeURIComponent`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) 转义
 
+**在此必须指出极度常见的 bug：对 `query` 的任何修改**  
+**都应该重置 `query.offset` 为 `0`**（参考 [`examples/src/Advanced/comps/th-Filter.vue - Line 39`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps/th-Filter.vue#L39)）  
+**否则查询结果必然有误！**
+
+***
+
 在此提一个常见的需求：实现刷新后保持查询条件  
 最常见的解决方案是**同步查询条件到 URL**  
 稍微把基本例子改一下就可以了：

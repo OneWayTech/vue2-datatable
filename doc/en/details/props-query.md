@@ -26,6 +26,12 @@ If there are any other query conditions (such as `keyword`), you should:
 
 ***
 
+**Hereon, I have to point out a very common bug:**  
+**Any changes to `query` should reset `query.offset` to `0` (e.g. [`examples/src/Advanced/comps/th-Filter.vue - Line 39`](https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/comps/th-Filter.vue#L39))**  
+**Otherwise, the query result is doomed to be wrong!**
+
+***
+
 #### ⊙ Extention
 
 Now we have a very common scenario: remain the query conditions after the full page reload.  

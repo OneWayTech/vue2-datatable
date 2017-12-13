@@ -52,7 +52,7 @@ import isColVisible from '../_utils/isColVisible'
 import syncScroll from '../_utils/syncScroll'
 
 export default {
-  name: 'Table',
+  name: 'Tbl',
   mixins: [props],
   components: { TableFrame, TableHeader, TableBody, TableFooter },
   data: () => ({

@@ -47,7 +47,7 @@ export default {
           data.forEach(item => {
             if (!item.__nested__) {
               this.$set(item, '__nested__', {
-                comp: '', // name of the current nested component
+                comp: undefined, // current nested component
                 visible: false,
                 $toggle (comp, visible) {
                   switch (arguments.length) {
@@ -60,6 +60,7 @@ export default {
                           this.visible = comp
                           break
                         case 'string':
+                        case 'object':
                           this.comp = comp
                           this.visible = !this.visible
                           break

@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group" name="HeaderSettings">
-    <button class="btn btn-default dropdown-toggle" ref="dropdownBtn">
+    <button class="btn btn-default dropdown-toggle" ref="dropdownBtn" type="button">
       <i class="fa" :class="[usingBak && 'text-info', processingCls || 'fa-cog']"></i>
       <span class="caret"></span>
     </button>
@@ -13,11 +13,11 @@
       </div>
       <div class="clearfix" style="margin: 10px">
         <div class="btn-group btn-group-sm pull-right">
-          <button class="btn btn-default" @click="apply()">
+          <button class="btn btn-default" type="button" @click="apply()">
             {{ $i18nForDatatable('Apply') }}
           </button>
           <template v-if="supportBackup">
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" style="box-shadow: none">
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" style="box-shadow: none">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">

@@ -9,7 +9,7 @@
       <a v-if="i" href="#" class="page-link" @click.prevent="handleClick(i)">
         {{ i }}
       </a>
-      <a class="page-link" v-else>
+      <a v-else class="page-link">
         <i class="fa fa-ellipsis-h"></i>
       </a>
     </li>

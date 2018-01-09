@@ -9,7 +9,7 @@
 
 本 Datatable 的依赖如下：
 
-* BootStrap 3.x + Font Awesome 4.x（全局引入）
+* BootStrap + Font Awesome（全局引入）
 * [lodash: groupBy / throttle / debounce](https://lodash.com/docs)
 * [replace-with](https://github.com/kenberkeley/replace-with)
 

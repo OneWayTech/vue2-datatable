@@ -5,5 +5,5 @@ export default function (s) {
     hash = ((hash << 5) - hash) + s.charCodeAt(i)
     hash |= 0
   }
-  return hash
+  return '' + hash
 }

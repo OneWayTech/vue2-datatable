@@ -44,9 +44,10 @@ export default {
         const { supportNested } = this
         // support nested components feature with extra magic
         if (supportNested) {
+          const MAGIC_FIELD = '__nested__'
           data.forEach(item => {
-            if (!item.__nested__) {
-              this.$set(item, '__nested__', {
+            if (!item[MAGIC_FIELD]) {
+              this.$set(item, MAGIC_FIELD, {
                 comp: undefined, // current nested component
                 visible: false,
                 $toggle (comp, visible) {
@@ -75,21 +76,21 @@ export default {
               })
               if (supportNested === 'accordion') {
                 this.$watch(
-                  () => item.__nested__,
+                  () => item[MAGIC_FIELD],
                   nested => {
                     // only one nested component can be expanded at the same time
-                    if (data.filter(({ __nested__ }) => __nested__.visible).length < 2) return
+                    if (data.filter(item => item[MAGIC_FIELD].visible).length < 2) return
 
-                    data.forEach(({ __nested__ }) => {
-                      if (__nested__.visible && __nested__ !== nested) {
-                        __nested__.visible = false
+                    data.forEach(item => {
+                      if (item[MAGIC_FIELD].visible && item[MAGIC_FIELD] !== nested) {
+                        item[MAGIC_FIELD].visible = false
                       }
                     })
                   },
                   { deep: true }
                 )
               }
-              Object.defineProperty(item, '__nested__', { enumerable: false })
+              Object.defineProperty(item, MAGIC_FIELD, { enumerable: false })
             }
           })
         }

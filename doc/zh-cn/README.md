@@ -11,6 +11,5 @@
 
 * BootStrap + Font Awesome（全局引入）
 * [lodash: groupBy / throttle / debounce](https://lodash.com/docs)
-* [replace-with](https://github.com/kenberkeley/replace-with)
 
 注：*BootStrap* 以及 *Font Awesome* 的可替换性极强，您完全可以使用其他库替代（一般就是改一下类名即可）

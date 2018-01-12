@@ -14,7 +14,6 @@ The dependencies of this project are shown as below:
 
 * BootStrap + Font Awesome（must available globally）
 * [lodash: groupBy / throttle / debounce](https://lodash.com/docs)
-* [replace-with](https://github.com/kenberkeley/replace-with)
 
 P.S. *BootStrap* and *Font Awesome* can be replaced with other popular libraries.  
 (It seems to me that you just have to replace some classes / styles)

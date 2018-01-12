@@ -2,7 +2,7 @@
   <input type="checkbox" v-model="status" @change="toggle" style="margin: 0; vertical-align: middle" name="MultiSelect">
 </template>
 <script>
-import replaceWith from 'replace-with'
+import replaceWith from '../_utils/replaceWith'
 /**
  * checkbox for multiple select within the leading <th>/<td>
  */

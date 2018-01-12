@@ -45,9 +45,9 @@
 </template>
 <script>
 import ColumnGroup from './ColumnGroup.vue'
-import replaceWith from 'replace-with'
 import groupBy from 'lodash/groupBy'
 import keyGen from '../_utils/keyGen'
+import replaceWith from '../_utils/replaceWith'
 import { parseStr, stringify, saveToLS, rmFromLS, getFromLS } from '../_utils/localstorage'
 
 export default {

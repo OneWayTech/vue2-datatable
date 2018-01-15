@@ -61,6 +61,7 @@ test('sort', async t => {
     vm.query
   )
   await nextTick()
+  await nextTick()
   t.true(ageSort.hasClass('fa-sort-asc'))
 
   /* *** programmatic behavior  *** */

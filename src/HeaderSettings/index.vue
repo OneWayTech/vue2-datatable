@@ -11,7 +11,7 @@
           :group-name="groupName" :columns="columns">
         </column-group>
       </div>
-      <div class="clearfix" style="margin: 10px">
+      <div class="clearfix" style="margin: 10px 0">
         <div class="btn-group btn-group-sm pull-right">
           <button class="btn btn-default" type="button" @click="apply()">
             {{ $i18nForDatatable('Apply') }}

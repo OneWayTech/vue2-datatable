@@ -12,10 +12,11 @@ watch: {
       const { supportNested } = this
       // support nested components feature with extra magic
       if (supportNested) {
+        const MAGIC_FIELD = '__nested__'
         data.forEach(item => {
-          if (!item.__nested__) {
-            this.$set(item, '__nested__', {
-              comp: '', // name of the current nested component
+          if (!item[MAGIC_FIELD]) {
+            this.$set(item, MAGIC_FIELD, {
+              comp: undefined, // current nested component
               visible: false,
               $toggle (comp, visible) {
                 switch (arguments.length) {
@@ -28,6 +29,7 @@ watch: {
                         this.visible = comp
                         break
                       case 'string':
+                      case 'object':
                         this.comp = comp
                         this.visible = !this.visible
                         break
@@ -41,7 +43,7 @@ watch: {
               }
             })
             // 省略手风琴的实现...
-            Object.defineProperty(item, '__nested__', { enumerable: false })
+            Object.defineProperty(item, MAGIC_FIELD, { enumerable: false })
           }
         })
       }

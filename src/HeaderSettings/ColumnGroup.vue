@@ -51,8 +51,9 @@ export default {
 <style>
 .-col-group {
   display: inline-block;
-  width: 150px;
+  margin-bottom: 5px;
   padding: 0;
+  width: 150px;
   vertical-align: top;
 }
 .-col-group-title {

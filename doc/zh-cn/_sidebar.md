@@ -11,5 +11,5 @@
   - [动态组件](zh-cn/details/dynamic-comps)
 - [国际化](zh-cn/i18n)
 - [自定制 (DIY)](zh-cn/DIY)
-- [问题反馈（issues）](zh-cn/https://github.com/OneWayTech/vue2-datatable/issues)
-- [版本迭代（releases）](https://github.com/OneWayTech/vue2-datatable/releases)
+- [问题反馈（issues）](https://github.com/OneWayTech/vue2-datatable/issues)
+- [自定制插件](https://github.com/OneWayTech/vue2-datatable/tree/master/plugins)

@@ -12,4 +12,4 @@
 - [I18N](en/i18n)
 - [DIY](en/DIY)
 - [Q & A (issues)](https://github.com/OneWayTech/vue2-datatable/issues)
-- [Changelog (releases)](https://github.com/OneWayTech/vue2-datatable/releases)
+- [Custom plugins](https://github.com/OneWayTech/vue2-datatable/tree/master/plugins)

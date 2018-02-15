@@ -10,6 +10,7 @@ export default {
     HeaderSettings: { type: Boolean, default: true }, // whether to render `HeaderSettings`
     Pagination: { type: Boolean, default: true }, // whether to render `PageSizeSelect` and `Pagination`
     pageSizeOptions: { type: Array, default: () => [10, 20, 40, 80, 100] },
+    disablePaginationNavigation: { type: Boolean, default: true },
     tblClass: [String, Object, Array], // classes for <table>
     tblStyle: [String, Object, Array], // inline styles for <table>
     fixHeaderAndSetBodyMaxHeight: Number, // a fancy prop which combines two props into one

@@ -1,7 +1,7 @@
 <template>
   <ul class="pagination" style="margin: 0" name="Pagination">
-    <li v-if="!isFirstPage" class="page-item" @click="turnPage(-1)">
-      <a href="#" class="page-link" @click.prevent>
+    <li v-if="!isFirstPage || disablePaginationNavigation" class="page-item" @click="turnPage(-1)">
+      <a href="#" :class="firstClasses" @click.prevent>
         <i class="fa fa-arrow-left"></i>
       </a>
     </li>
@@ -13,8 +13,8 @@
         <i class="fa fa-ellipsis-h"></i>
       </a>
     </li>
-    <li v-if="!isLastPage" class="page-item" @click="turnPage(1)">
-      <a href="#" class="page-link" @click.prevent>
+    <li v-if="!isLastPage || disablePaginationNavigation" class="page-item" @click="turnPage(1)">
+      <a href="#" :class="lastClasses" @click.prevent>
         <i class="fa fa-arrow-right"></i>
       </a>
     </li>
@@ -25,7 +25,8 @@ export default {
   name: 'Pagination',
   props: {
     total: { type: Number, required: true },
-    query: { type: Object, required: true }
+    query: { type: Object, required: true },
+    disablePaginationNavigation: { required: true }
   },
   computed: {
     isFirstPage () {
@@ -54,6 +55,12 @@ export default {
       if (i >= n - 4) return [1, 0, n-6, n-5, n-4, n-3, n-2, n-1, n]
       return [1, 0, i-2, i-1, i, i+1, i+2, 0, n]
       /* eslint-enable */
+    },
+    firstClasses: function () {
+      return 'page-link' + (this.isFirstPage ? ' disabled' : '')
+    },
+    lastClasses: function () {
+      return 'page-link' + (this.isLastPage ? ' disabled' : '')
     }
   },
   methods: {
@@ -67,3 +74,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
+</style>

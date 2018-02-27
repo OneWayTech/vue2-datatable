@@ -12,7 +12,7 @@
         :disabled="typeof col.visible === 'string'"
         @change="handleChange(col, $event.target.checked)">
       <label :for="uuidGen(col.field || idx)">
-        {{ col.label || col.title }}
+        {{ renderTitleOrLabel(col) }}
         <i v-if="col.explain" class="fa fa-info-circle" style="cursor: help" :title="col.explain"></i>
       </label>
     </li>
@@ -20,9 +20,10 @@
 </template>
 <script>
 import isColVisible from '../_utils/isColVisible'
-
+import renderText from '../_mixins/renderText'
 export default {
   name: 'ColumnGroup',
+   mixins: [renderText],
   props: {
     groupName: { type: String, required: true },
     columns: { type: Array, required: true }

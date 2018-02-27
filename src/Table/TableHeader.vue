@@ -17,7 +17,7 @@
           v-bind="$props">
         </component>
         <template v-else>
-          {{ col.title }}
+         {{renderTitle(col)}}
         </template>
 
         <i v-if="col.explain" class="fa fa-info-circle" style="cursor: help" :title="col.explain"></i>
@@ -30,11 +30,12 @@
 import HeadSort from './HeadSort.vue'
 import MultiSelect from './MultiSelect.vue'
 import props from '../_mixins/props'
+import renderText from '../_mixins/renderText'
 import shouldRenderSelection from '../_mixins/shouldRenderSelection'
 
 export default {
   name: 'TableHeader',
   components: { HeadSort, MultiSelect },
-  mixins: [props, shouldRenderSelection]
+  mixins: [props, shouldRenderSelection,renderText],
 }
 </script>

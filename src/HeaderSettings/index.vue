@@ -1,6 +1,6 @@
 <template>
-  <div class="btn-group" name="HeaderSettings">
-    <button class="btn btn-default dropdown-toggle" ref="dropdownBtn" type="button">
+  <div class="dropdown" name="HeaderSettings">
+    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" ref="dropdownBtn" type="button">
       <i class="fa" :class="[usingBak && 'text-info', processingCls || 'fa-cog']"></i>
       <span class="caret"></span>
     </button>
@@ -49,7 +49,6 @@ import groupBy from 'lodash/groupBy'
 import keyGen from '../_utils/keyGen'
 import replaceWith from '../_utils/replaceWith'
 import { parseStr, stringify, saveToLS, rmFromLS, getFromLS } from '../_utils/localstorage'
-
 export default {
   name: 'HeaderSettings',
   components: { ColumnGroup },
@@ -68,10 +67,8 @@ export default {
   },
   created () {
     if (!this.supportBackup) return
-
     const backup = getFromLS(this.storageKey)
     if (!backup) return // no backup found
-
     replaceWith(this.columns, backup)
     this.usingBak = true
   },
@@ -80,6 +77,7 @@ export default {
     const $el = $(this.$el)
     $(this.$refs.dropdownBtn).on('click', this.toggle)
     $(document).on('click', e => {
+      $(e.target).closest($el).length || $el.removeClass('show') // Bootstrap 4
       $(e.target).closest($el).length || $el.removeClass('open')
     })
   },
@@ -114,11 +112,13 @@ export default {
       rmFromLS(this.storageKey)
       this.showProcessing()
       this.usingBak = false
-      
+
       replaceWith(this.columns, parseStr(this.origSettings)) // restore
     },
     toggle () {
+      $(this.$el).toggleClass('show') // Bootstrap 4
       $(this.$el).toggleClass('open')
+      $(this.$el).find('.dropdown-menu').toggleClass('show')
     },
     showProcessing () {
       ['fa-spinner fa-pulse', 'fa-check', ''].forEach((cls, idx) => {

@@ -13,5 +13,5 @@ export default {
     ',': ',',
 
     /* PageSizeSelect.vue */
-    'items / page': 'Itens / páginas'
+    'items / page': 'itens / páginas'
 }

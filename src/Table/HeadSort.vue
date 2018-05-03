@@ -20,8 +20,10 @@ export default {
     cls () {
       return [
         'fa',
-        `fa-sort-${this.order}`.replace(/-$/, ''),
-        { 'text-muted': !this.order }
+        { 'fa-sort-down': this.order === 'desc',
+          'fa-sort-up': this.order === 'asc',
+          'text-muted': !this.order
+        }
       ]
     }
   },

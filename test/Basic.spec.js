@@ -45,7 +45,7 @@ test('sort', async t => {
     vm.query
   )
   await nextTick()
-  t.true(uidSort.hasClass('fa-sort-desc'))
+  t.true(uidSort.hasClass('fa-sort-down'))
 
   ageSortBtn.trigger('click')
   t.deepEqual(
@@ -53,7 +53,7 @@ test('sort', async t => {
     vm.query
   )
   await nextTick()
-  t.true(ageSort.hasClass('fa-sort-desc'))
+  t.true(ageSort.hasClass('fa-sort-down'))
 
   ageSortBtn.trigger('click')
   t.deepEqual(
@@ -62,12 +62,12 @@ test('sort', async t => {
   )
   await nextTick()
   await nextTick()
-  t.true(ageSort.hasClass('fa-sort-asc'))
+  t.true(ageSort.hasClass('fa-sort-up'))
 
   /* *** programmatic behavior  *** */
   Object.assign(vm.query, { sort: 'uid', order: 'asc' })
   await nextTick()
-  t.true(uidSort.hasClass('fa-sort-asc'))
+  t.true(uidSort.hasClass('fa-sort-up'))
 })
 
 test('pagination relevant', async t => {

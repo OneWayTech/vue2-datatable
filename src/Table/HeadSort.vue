@@ -18,12 +18,12 @@ export default {
   }),
   computed: {
     cls () {
+      const { order } = this
       return [
         'fa',
-        { 'fa-sort': !this.order,
-          'fa-sort-up': this.order === 'asc',
-          'fa-sort-down': this.order === 'desc',
-          'text-muted': !this.order
+        { 'fa-sort text-muted': !order,
+          'fa-sort-up': order === 'asc',
+          'fa-sort-down': order === 'desc'
         }
       ]
     }

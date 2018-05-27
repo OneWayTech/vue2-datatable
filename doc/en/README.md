@@ -12,7 +12,7 @@ Under this premise, you could build the most suitable Datatable for your own sce
 
 The dependencies of this project are shown as below:
 
-* BootStrap + Font Awesome（must available globally）
+* BootStrap 3 + Font Awesome（must available globally）
 * [lodash: groupBy / throttle / debounce](https://lodash.com/docs)
 
 P.S. *BootStrap* and *Font Awesome* can be replaced with other popular libraries.  

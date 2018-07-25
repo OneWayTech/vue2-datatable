@@ -1,6 +1,6 @@
 <template>
-  <div class="btn-group" name="HeaderSettings">
-    <button class="btn btn-default dropdown-toggle" ref="dropdownBtn" type="button">
+  <div class="btn-group" name="HeaderSettings" :class="{ open : headerSettings }">
+    <button  @click="toggle" v-click-outside="outside" class="btn btn-default dropdown-toggle" ref="dropdownBtn" type="button">
       <i class="fa" :class="[usingBak && 'text-info', processingCls || 'fa-cog']"></i>
       <span class="caret"></span>
     </button>
@@ -63,7 +63,8 @@ export default {
       origSettings,
       usingBak: false, // is using backup
       processingCls: '',
-      storageKey: this.supportBackup && keyGen(origSettings)
+      storageKey: this.supportBackup && keyGen(origSettings),
+      headerSettings: false
     }
   },
   created () {
@@ -74,14 +75,6 @@ export default {
 
     replaceWith(this.columns, backup)
     this.usingBak = true
-  },
-  mounted () {
-    // control dropdown manually (refers to http://jsfiddle.net/rj3k550m/3)
-    const $el = $(this.$el)
-    $(this.$refs.dropdownBtn).on('click', this.toggle)
-    $(document).on('click', e => {
-      $(e.target).closest($el).length || $el.removeClass('open')
-    })
   },
   computed: {
     colGroups () {
@@ -114,11 +107,14 @@ export default {
       rmFromLS(this.storageKey)
       this.showProcessing()
       this.usingBak = false
-      
+
       replaceWith(this.columns, parseStr(this.origSettings)) // restore
     },
-    toggle () {
-      $(this.$el).toggleClass('open')
+    toggle() {
+      this.headerSettings = this.headerSettings !== true
+    },
+    outside: function (e) {
+      this.headerSettings = false
     },
     showProcessing () {
       ['fa-spinner fa-pulse', 'fa-check', ''].forEach((cls, idx) => {
@@ -126,6 +122,39 @@ export default {
           this.processingCls = cls
         }, idx * 1000)
       })
+    }
+  },
+  directives: {
+    clickOutside: {
+      bind: function (el, binding, vNode) {
+        // Provided expression must evaluate to a function.
+        if (typeof binding.value !== 'function') {
+          const compName = vNode.context.name
+          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`
+          if (compName) {
+            warn += `Found in component '${compName}'`
+          }
+
+          console.warn(warn)
+        }
+        // Define Handler and cache it on the element
+        const bubble = binding.modifiers.bubble
+        const handler = (e) => {
+          if (bubble || (!el.parentElement.contains(e.target) && el !== e.target)) {
+            binding.value(e)
+          }
+        }
+        el.__vueClickOutside__ = handler
+
+        // add Event Listeners
+        document.addEventListener('click', handler)
+      },
+
+      unbind: function (el, binding) {
+        // Remove Event Listeners
+        document.removeEventListener('click', el.__vueClickOutside__)
+        el.__vueClickOutside__ = null
+      }
     }
   }
 }

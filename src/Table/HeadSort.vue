@@ -1,5 +1,5 @@
 <template>
-  <a href="#" @click.prevent="handleClick" name="HeadSort">
+  <a href="#" @click.prevent="handleClick" name="HeadSort" role="button" v-bind:aria-label="sortLabel">
     <i :class="cls"></i>
   </a>
 </template>
@@ -26,6 +26,17 @@ export default {
           'fa-sort-down': order === 'desc'
         }
       ]
+    },
+    sortLabel() {
+      const { order } = this;
+      let key = 'Not sorted';
+      const nextOrder = this.getNextSortOrder();
+      if (nextOrder === 'asc') {
+        key = 'Sort ascending';
+      } else if (nextOrder === 'desc') {
+        key = 'Sort descending';
+      }
+      return this.$i18nForDatatable(key) + ' ' + this.field;
     }
   },
   watch: {
@@ -38,10 +49,13 @@ export default {
     }
   },
   methods: {
+    getNextSortOrder () {
+      return this.order === 'desc' ? 'asc' : 'desc';
+    },
     handleClick () {
-      const { query, order } = this
+      const { query } = this
       query.sort = this.field
-      query.order = this.order = order === 'desc' ? 'asc' : 'desc'
+      query.order = this.getNextSortOrder();
     }
   }
 }

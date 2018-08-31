@@ -1,10 +1,10 @@
 <template>
   <tbody>
     <template v-if="data.length">
-      <template v-for="item in data">
+      <template v-for="(item, index) in data">
         <tr>
           <td v-if="shouldRenderSelection">
-            <multi-select :selection="selection" :row="item" />
+            <multi-select :selection="selection" :row="item" :id="index" />
           </td>
           <td v-for="col in columns" :class="col.tdClass" :style="col.tdStyle">
             <!-- <td> component (tdComp) -->

@@ -1,5 +1,8 @@
 <template>
-  <input type="checkbox" v-model="status" @change="toggle" style="margin: 0; vertical-align: middle" name="MultiSelect">
+  <div class="checkbox check-success">
+        <input type="checkbox" v-model="status" @change="toggle" style="margin: 0; vertical-align: middle" name="MultiSelect" :id="id">
+        <label :for="id"></label>
+    </div>
 </template>
 <script>
 import replaceWith from '../_utils/replaceWith'
@@ -9,6 +12,7 @@ import replaceWith from '../_utils/replaceWith'
 export default {
   name: 'MultiSelect',
   props: {
+    id: String,
     selection: { type: Array, required: true },
     row: Object, // available for tbody checkbox
     rows: Array // available for thead checkbox

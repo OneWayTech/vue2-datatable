@@ -2,7 +2,7 @@
   <thead>
     <transition-group name="fade" tag="tr">
       <th v-if="shouldRenderSelection" key="--th-multi">
-        <multi-select :selection="selection" :rows="data" />
+        <multi-select :selection="selection" :rows="data" :id="'header'" />
       </th>
       <th v-for="(col, idx) in columns"
         :key="col.title || col.field || idx"

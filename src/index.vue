@@ -10,7 +10,7 @@
     <tbl v-bind="$props" />
     
     <div v-if="Pagination" class="row" style="margin-top: 10px">
-      <div class="col-sm-6" style="white-space: nowrap">
+      <div class="col-sm-6">
         <strong>
           {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
         </strong>

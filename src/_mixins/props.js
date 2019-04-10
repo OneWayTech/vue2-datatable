@@ -9,6 +9,7 @@ export default {
     xprops: Object, // extra custom props carrier passed to dynamic components
     HeaderSettings: { type: Boolean, default: true }, // whether to render `HeaderSettings`
     Pagination: { type: Boolean, default: true }, // whether to render `PageSizeSelect` and `Pagination`
+    pageSize: { type: Number, default: 10 },
     pageSizeOptions: { type: Array, default: () => [10, 20, 40, 80, 100] },
     tblClass: [String, Object, Array], // classes for <table>
     tblStyle: [String, Object, Array], // inline styles for <table>

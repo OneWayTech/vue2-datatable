@@ -35,7 +35,7 @@ export default {
   components: { HeaderSettings, Tbl, Pagination, PageSizeSelect },
   created () {
     // init query (make all the properties observable by using `$set`)
-    const q = { limit: 10, offset: 0, sort: '', order: '', ...this.query }
+    const q = { limit: this.pageSize, offset: 0, sort: '', order: '', ...this.query }
     Object.keys(q).forEach(key => { this.$set(this.query, key, q[key]) })
   },
   watch: {

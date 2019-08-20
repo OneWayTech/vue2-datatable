@@ -14,6 +14,7 @@
               :row="item"
               :field="col.field"
               :value="item[col.field]"
+              :options="col.options ? col.options : null"
               :nested="item.__nested__"
               v-bind="$props">
             </component>

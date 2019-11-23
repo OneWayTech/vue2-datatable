@@ -8,7 +8,7 @@ export default {
   'Using local settings': 'Utilizar configuración local',
 
   /* Table/TableBody.vue */
-  'No Data' 'No existen datos',
+  'No Data': 'No existen datos',
 
   /* index.vue */
   Total: 'Total',

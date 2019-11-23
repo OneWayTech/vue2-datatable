@@ -16,4 +16,4 @@ export default {
 
   /* PageSizeSelect.vue */
   'items / page': 'registros / página'
-};
+}
